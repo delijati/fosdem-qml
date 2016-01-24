@@ -1,0 +1,17 @@
+{
+    "name": "fosdem-qml.delijati",
+    "description": "description of fosdem-qml",
+    "architecture": "all",
+    "title": "fosdem-qml",
+    "hooks": {
+        "fosdem-qml": {
+            "apparmor": "fosdem-qml.apparmor",
+            "desktop":  "fosdem-qml.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Josip Delic <delijati@gmx.net>",
+    "framework" : "ubuntu-sdk-15.04"
+}
+
+

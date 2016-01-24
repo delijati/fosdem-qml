@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=fosdem-qml
+Exec=qmlscene $@ Main.qml
+Icon=fosdem-qml.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+
