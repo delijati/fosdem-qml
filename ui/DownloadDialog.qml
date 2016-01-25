@@ -18,19 +18,36 @@ Component {
             width: parent.width
         }
 
-        Button {
-            text: i18n.tr("Download")
-            onClicked: {
-                console.log(url.text);
-                py.call("backend.download_file", [url.text], download_end);
-            }
-        }
-
         ProgressBar {
             id: progress
             width: parent.width
             value: dialog.value
             visible: dialog.progress_visible
+        }
+
+        Row {
+            anchors.margins: units.gu(1)
+            spacing: units.gu(1)
+            width: parent.width
+
+            Button {
+                text: i18n.tr("Download")
+                onClicked: {
+                    console.log(url.text);
+                    py.call("backend.download_file", [url.text], download_end);
+                }
+            }
+
+            Button {
+                //anchors.right: parent.right
+                visible: false
+
+                text: i18n.tr("Cancel")
+                onClicked: {
+                    // TODO
+                    console.log("Cancel");
+                }
+            }
         }
     }
 }

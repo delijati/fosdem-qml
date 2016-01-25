@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-24 14:20+0100\n"
+"POT-Creation-Date: 2016-01-25 17:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .ubuntu-sdk-deploy/Main.qml:114 Main.qml:115
+#: .ubuntu-sdk-deploy/Main.qml:119 Main.qml:119
 msgid "Error"
 msgstr ""
 
-#: .ubuntu-sdk-deploy/Main.qml:118 Main.qml:119
+#: .ubuntu-sdk-deploy/Main.qml:123 Main.qml:123
 #, qt-format
 msgid "An error has occured: %1"
 msgstr ""
 
-#: .ubuntu-sdk-deploy/Main.qml:124 Main.qml:125
+#: .ubuntu-sdk-deploy/Main.qml:129 Main.qml:129
 msgid "Close"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr ""
 
 #: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:9
 #: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:22 ui/DownloadDialog.qml:9
-#: ui/DownloadDialog.qml:22
+#: ui/DownloadDialog.qml:34
 msgid "Download"
 msgstr ""
 
@@ -59,11 +59,19 @@ msgid "Version %1"
 msgstr ""
 
 #: .ubuntu-sdk-deploy/ui/About.qml:62 ui/About.qml:62
+msgid "Author: Josip Delic"
+msgstr ""
+
+#: .ubuntu-sdk-deploy/ui/About.qml:68 ui/About.qml:68
 msgid ""
 "Source code available on <a href='https://github.com/delijati/fosdem-"
 "qml'>GitHub</a>"
 msgstr ""
 
-#: .ubuntu-sdk-deploy/ui/About.qml:69 ui/About.qml:69
-msgid "Powered by <a href='https://github.com/thp/pyotherside'>PyOtherSide</a>"
+#: .ubuntu-sdk-deploy/ui/About.qml:75 ui/About.qml:75
+msgid "Powered by <b>PyOtherSide</b>"
+msgstr ""
+
+#: ui/DownloadDialog.qml:45
+msgid "Cancel"
 msgstr ""

@@ -1,0 +1,12 @@
+{
+    "tagline": "Fosdem schedule app for ubuntu touch written in python and qml.",
+    "department": "News & Magazines",
+    "channel": "stable",
+    "support_url": "https://github.com/delijati/fosdem-qml",
+    "license": "MIT/X/Expat License",
+    "icon_256": "./fosdem-qml.png",
+    "name": "Fosdem",
+    "description": "Fosdem schedule app for ubuntu touch written in python and qml. This should also work with other conferences as we use Pentabarf XML format.",
+    "changelog": "0.2 Some minor changes",
+    "auto_publish": true
+}

@@ -6,12 +6,10 @@
     "hooks": {
         "fosdem-qml": {
             "apparmor": "fosdem-qml.apparmor",
-            "desktop":  "fosdem-qml.desktop"
+            "desktop": "fosdem-qml.desktop"
         }
     },
-    "version": "0.1",
+    "version": "0.2",
     "maintainer": "Josip Delic <delijati@gmx.net>",
-    "framework" : "ubuntu-sdk-15.04"
+    "framework": "ubuntu-sdk-15.04"
 }
-
-
