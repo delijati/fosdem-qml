@@ -34,9 +34,12 @@ BasePage {
                     py.call("backend.find_events_by_day_track", path, function(events) {
                         console.log(events[0].title)
                         console.log(events[0].start)
+                        console.log(events[0].end)
                         console.log(events[0].duration)
                         console.log(events[0].room)
                         console.log(events[0].persons)
+                        console.log(events[0].lecture_checked)
+
                         for (var i=0; i < events.length; i++) {
                             schedule.model.append(events[i]);
                         }

@@ -5,17 +5,12 @@ import pyotherside
 import xml.etree.ElementTree as ET
 
 from urllib.request import urlretrieve
+from backend.config import FILENAME
+from backend.utils import create_path
+from backend.db import toggle, select_ids
 
 
 __version__ = "0.2.2"
-
-DIR = os.path.abspath(os.path.curdir)
-APP_ID = "fosdem-qml.delijati"
-
-if os.environ.get('XDG_DATA_HOME'):
-    DIR = os.path.join(os.environ['XDG_DATA_HOME'], APP_ID)
-
-FILENAME = os.path.join(DIR, "schedule.xml")
 
 
 def download_file(url):
@@ -27,6 +22,8 @@ def download_file(url):
             pyotherside.send("on-progress", percent)
         else:
             sys.stderr.write("read %d\n" % (readsofar,))
+
+        create_path(FILENAME)
 
     return urlretrieve(url, FILENAME, reporthook)
 
@@ -59,8 +56,8 @@ def find_events_by_day_track(day, track):
         end = start + duration
         return end.strftime("%H:%M")
 
-    def event_detail(event):
-        ret = {"id": event.get("id")}
+    def event_detail(event, checked_ids):
+        ret = {"id": int(event.get("id"))}
         for t in event.getchildren():
             text = ""
             if t.text:
@@ -70,10 +67,17 @@ def find_events_by_day_track(day, track):
             elif t.tag == "duration":
                 ret["end"] = set_end(ret["start"], t.text)
             ret[t.tag] = text
+
+        ret["lecture_checked"] = False
+        if ret["id"] in checked_ids:
+            ret["lecture_checked"] = True
+
         return ret
+
+    checked_ids = select_ids()
 
     with open(FILENAME, 'r') as f:
         tree = ET.parse(f)
         events = tree.findall(
             "./day[@date='%s']/room/event/[track='%s']" % (day, track))
-        return [event_detail(x) for x in events]
+        return [event_detail(x, checked_ids) for x in events]

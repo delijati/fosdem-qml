@@ -29,15 +29,39 @@ BasePage {
                     lecture.set_lecture(schedule.model.get(index))
                     pageStack.push(lecture)
                 }
-                Column {
-                    spacing: units.gu(.5)
-                    Label {
-                        width: units.gu(44)
-                        text: title
-                        elide: Text.ElideMiddle
+
+                Row {
+                    id: checkbox_row
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    CheckBox {
+                        id: saved_lecture
+                        anchors.verticalCenter: parent.verticalCenter
+                        checked: lecture_checked
+                        enabled: false
                     }
+                }
+
+                Row {
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: checkbox_row.right
+                    spacing: units.gu(1)
+                    anchors.margins: units.gu(1)
+
+                    Column {
+
+                        Label {
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: units.gu(38)
+                            text: title
+                            fontSize: "small"
+                            elide: Text.ElideMiddle
+                        }
+                    }
+
                     Row {
-                        spacing: units.gu(1)
+                        anchors.top: parent.bottom
+
                         Label {
                             width: units.gu(8)
                             fontSize: "small"
@@ -46,10 +70,7 @@ BasePage {
                         Label {
                             width: units.gu(8)
                             fontSize: "small"
-                            text: duration + "h"
-                        }
-                        Label {
-                            width: units.gu(6)
+                            text: end
                         }
                         Label {
                             width: units.gu(13)

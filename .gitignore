@@ -42,3 +42,4 @@ fosdem-qml.qmlproject.user
 .ubuntu-sdk-deploy/
 schedule.xml
 *.click
+saved.db

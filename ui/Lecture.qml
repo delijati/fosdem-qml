@@ -9,7 +9,13 @@ BasePage {
     title: "Lecture"
     visible: false
 
+    property int event_id: 0
+    property var model: ListModel {}
+
     function set_lecture(item) {
+        lecture.model = item
+        lecture.event_id = item.id
+
         lecture_start.text = item.start
         lecture_end.text = item.end
         lecture_room.text = item.room
@@ -18,6 +24,7 @@ BasePage {
         lecture_abstract.text = item.abstract
         lecture_description.text = item.description
         lecture_persons.text = item.persons
+        lecture_checked.checked = item.lecture_checked
     }
 
     Flickable {
@@ -34,6 +41,7 @@ BasePage {
 
             Row {
                 spacing: units.gu(1)
+
                 Label {
                     anchors.verticalCenter: parent.verticalCenter
                     text: 'Time'
@@ -60,6 +68,19 @@ BasePage {
                         z: -1
                         color: Theme.palette.normal.field
                         anchors.fill: parent
+                    }
+                }
+                Switch {
+                    anchors.verticalCenter: parent.verticalCenter
+                    id: lecture_checked
+                    enabled: true
+                    checked: false
+                    
+                    onClicked: {
+                        py.call('backend.toggle', [lecture.model], function (data) {
+                            lecture.model.lecture_checked = data;
+                            lecture_checked.checked = data;
+                        });
                     }
                 }
             }
