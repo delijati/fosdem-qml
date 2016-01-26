@@ -13,8 +13,6 @@ BasePage {
     property var model: ListModel {}
 
     Column {
-        id: conferencesLayout
-
         anchors {
             fill: parent
             margins: units.gu(2)

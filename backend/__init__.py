@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 from urllib.request import urlretrieve
 from backend.config import FILENAME
 from backend.utils import create_path
-from backend.db import toggle, select_ids
+from backend.db import toggle, select_ids, select_all
 
 
 __version__ = "0.2.2"

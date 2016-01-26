@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS events (
     subtitle TEXT,
     abstract TEXT,
     description TEXT,
-    persons TEXT
+    persons TEXT,
+    lecture_checked BOOL
 )"""
 
 INSERT_EVENT = """
@@ -27,12 +28,27 @@ INSERT INTO events VALUES (
     :subtitle,
     :abstract,
     :description,
-    :persons
+    :persons,
+    :lecture_checked
 )"""
 
 DELETE_EVENT = "DELETE FROM events WHERE id=:id"
 SELECT_EVENT = "SELECT * FROM events WHERE id=:id"
 SELECT_IDS_EVENT = "SELECT id FROM events"
+SELECT_ALL_EVENT = "SELECT * FROM events"
+XSELECT_ALL_EVENT = """
+SELECT
+    id,
+    start,
+    end,
+    room,
+    title,
+    subtitle,
+    abstract,
+    description,
+    persons,
+    lecture_checked
+FROM events"""
 
 
 def open_db():
@@ -62,6 +78,7 @@ def insert(event):
             abstract=event.abstract,
             description=event.description,
             persons=event.persons,
+            lecture_checked=True
         ))
 
 
@@ -97,3 +114,20 @@ def select_ids():
         cur.execute(SELECT_IDS_EVENT)
         data = cur.fetchall()
         return [x[0] for x in data]
+
+
+def select_all():
+    def dict_factory(cursor, row):
+        d = {}
+        for idx,col in enumerate(cursor.description):
+            d[col[0]] = row[idx]
+        return d
+
+    con = open_db()
+    con.row_factory = dict_factory
+
+    with con:
+        cur = con.cursor()
+        cur.execute(SELECT_ALL_EVENT)
+        data = cur.fetchall()
+        return data

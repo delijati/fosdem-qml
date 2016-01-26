@@ -4,9 +4,9 @@ import QtQuick.XmlListModel 2.0
 import Ubuntu.Components.ListItems 0.1
 
 
-BasePage {
-    id: schedule
-    title: 'Schedule'
+Page {
+    id: checked
+    title: 'Checked'
     visible: false
 
     property var model: ListModel {}
@@ -19,12 +19,16 @@ BasePage {
 
         ListView {
             anchors.fill: parent
-            model: schedule.model
+            model: checked.model
+
+            Component.onCompleted: {
+            visible = true;
+            }
 
             delegate: Standard {
                 progression: true
                 onClicked: {
-                    lecture.set_lecture(schedule.model.get(index))
+                    lecture.set_lecture(checked.model.get(index))
                     pageStack.push(lecture)
                 }
 

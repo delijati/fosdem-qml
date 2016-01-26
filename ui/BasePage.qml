@@ -14,6 +14,10 @@ Page {
         id: about
     }
 
+    Checked {
+        id: checked
+    }
+
     head.actions: [
         Action {
             iconName: "import"
@@ -21,6 +25,20 @@ Page {
             onTriggered: {
                 // TODO refactor dialog; concentrate code somewhere
                 download_dialog.current = PopupUtils.open(download_dialog);
+            }
+        },
+        Action {
+            iconName: "starred"
+            text: i18n.tr("Checked")
+            onTriggered: {
+                checked.model.clear()
+                py.call("backend.select_all", [], function (events) {
+                    for (var i=0; i < events.length; i++) {
+                        checked.model.append(events[i]);
+                    }
+                });
+    
+                pageStack.push(checked);
             }
         },
         Action {

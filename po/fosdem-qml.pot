@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 19:07+0100\n"
+"POT-Creation-Date: 2016-01-26 20:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,29 +17,29 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .ubuntu-sdk-deploy/Main.qml:121 Main.qml:121
+#: .ubuntu-sdk-deploy/Main.qml:121 Main.qml:108
 msgid "Error"
 msgstr ""
 
-#: .ubuntu-sdk-deploy/Main.qml:125 Main.qml:125
+#: .ubuntu-sdk-deploy/Main.qml:125 Main.qml:112
 #, qt-format
 msgid "An error has occured: %1"
 msgstr ""
 
-#: .ubuntu-sdk-deploy/Main.qml:131 Main.qml:131
+#: .ubuntu-sdk-deploy/Main.qml:131 Main.qml:118
 msgid "Close"
 msgstr ""
 
-#: .ubuntu-sdk-deploy/ui/BasePage.qml:20 ui/BasePage.qml:20
+#: .ubuntu-sdk-deploy/ui/BasePage.qml:20 ui/BasePage.qml:24
 msgid "Import"
 msgstr ""
 
-#: .ubuntu-sdk-deploy/ui/BasePage.qml:28 ui/BasePage.qml:28
+#: .ubuntu-sdk-deploy/ui/BasePage.qml:28 ui/BasePage.qml:39
 msgid "Map"
 msgstr ""
 
 #: .ubuntu-sdk-deploy/ui/BasePage.qml:35 .ubuntu-sdk-deploy/ui/About.qml:7
-#: ui/BasePage.qml:35 ui/About.qml:7
+#: ui/BasePage.qml:46 ui/About.qml:7
 msgid "About"
 msgstr ""
 
@@ -74,4 +74,8 @@ msgstr ""
 
 #: .ubuntu-sdk-deploy/ui/About.qml:75 ui/About.qml:75
 msgid "Powered by <b>PyOtherSide</b>"
+msgstr ""
+
+#: ui/BasePage.qml:32
+msgid "Checked"
 msgstr ""
