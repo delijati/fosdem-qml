@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 17:00+0100\n"
+"POT-Creation-Date: 2016-01-25 19:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .ubuntu-sdk-deploy/Main.qml:119 Main.qml:119
+#: .ubuntu-sdk-deploy/Main.qml:121 Main.qml:121
 msgid "Error"
 msgstr ""
 
-#: .ubuntu-sdk-deploy/Main.qml:123 Main.qml:123
+#: .ubuntu-sdk-deploy/Main.qml:125 Main.qml:125
 #, qt-format
 msgid "An error has occured: %1"
 msgstr ""
 
-#: .ubuntu-sdk-deploy/Main.qml:129 Main.qml:129
+#: .ubuntu-sdk-deploy/Main.qml:131 Main.qml:131
 msgid "Close"
 msgstr ""
 
@@ -44,13 +44,17 @@ msgid "About"
 msgstr ""
 
 #: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:9
-#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:22 ui/DownloadDialog.qml:9
+#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:34 ui/DownloadDialog.qml:9
 #: ui/DownloadDialog.qml:34
 msgid "Download"
 msgstr ""
 
 #: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:10 ui/DownloadDialog.qml:10
 msgid "Type url of Fosdem Pentabarf XML:"
+msgstr ""
+
+#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:45 ui/DownloadDialog.qml:45
+msgid "Cancel"
 msgstr ""
 
 #: .ubuntu-sdk-deploy/ui/About.qml:50 ui/About.qml:50
@@ -70,8 +74,4 @@ msgstr ""
 
 #: .ubuntu-sdk-deploy/ui/About.qml:75 ui/About.qml:75
 msgid "Powered by <b>PyOtherSide</b>"
-msgstr ""
-
-#: ui/DownloadDialog.qml:45
-msgid "Cancel"
 msgstr ""

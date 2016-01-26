@@ -7,6 +7,6 @@
     "icon_256": "./fosdem-qml.png",
     "name": "Fosdem",
     "description": "Fosdem schedule app for ubuntu touch written in python and qml. This should also work with other conferences as we use Pentabarf XML format.",
-    "changelog": "0.2 Some minor changes",
+    "changelog": "0.2.1 Fixed architecture",
     "auto_publish": true
 }

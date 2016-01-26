@@ -1,7 +1,11 @@
 {
     "name": "fosdem-qml.delijati",
     "description": "description of fosdem-qml",
-    "architecture": "all",
+    "architecture": [
+        "armhf",
+        "i386",
+        "amd64"
+    ],
     "title": "fosdem-qml",
     "hooks": {
         "fosdem-qml": {
@@ -9,7 +13,7 @@
             "desktop": "fosdem-qml.desktop"
         }
     },
-    "version": "0.2",
+    "version": "0.2.2",
     "maintainer": "Josip Delic <delijati@gmx.net>",
     "framework": "ubuntu-sdk-15.04"
 }

@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 from urllib.request import urlretrieve
 
 
-__version__ = "0.2"
+__version__ = "0.2.2"
 
 DIR = os.path.abspath(os.path.curdir)
 APP_ID = "fosdem-qml.delijati"

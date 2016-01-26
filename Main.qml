@@ -96,12 +96,14 @@ MainView {
             });
 
             setHandler('on-progress', function(value) {
-                if (!download_dialog.current.progress_visible) {
-                    console.log(download_dialog.current.progress_visible);
-                    download_dialog.current.progress_visible = true;
+                if (download_dialog.current !== null) {
+                    if (!download_dialog.current.progress_visible) {
+                        console.log(download_dialog.current.progress_visible);
+                        download_dialog.current.progress_visible = true;
+                    }
+                    download_dialog.current.value = ((value * 2) / 100);
+                    console.log(download_dialog.current.value);
                 }
-                download_dialog.current.value = ((value * 2) / 100);
-                console.log(download_dialog.current.value);
             });
 
         }
