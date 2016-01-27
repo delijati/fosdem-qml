@@ -10,7 +10,7 @@ from backend.utils import create_path
 from backend.db import toggle, select_ids, select_all
 
 
-__version__ = "0.2.2"
+__version__ = "0.3"
 
 
 def download_file(url):
@@ -56,7 +56,7 @@ def find_events_by_day_track(day, track):
         end = start + duration
         return end.strftime("%H:%M")
 
-    def event_detail(event, checked_ids):
+    def event_detail(event, checked_ids, day):
         ret = {"id": int(event.get("id"))}
         for t in event.getchildren():
             text = ""
@@ -71,7 +71,13 @@ def find_events_by_day_track(day, track):
         ret["lecture_checked"] = False
         if ret["id"] in checked_ids:
             ret["lecture_checked"] = True
-
+        ret["day"] = day
+        datetime_start = "%s %s" % (day, ret["start"])
+        ret["datetime_start"] = datetime.datetime.strptime(
+            datetime_start, "%Y-%m-%d %H:%M")
+        datetime_end = "%s %s" % (day, ret["end"])
+        ret["datetime_end"] = datetime.datetime.strptime(
+            datetime_end, "%Y-%m-%d %H:%M")
         return ret
 
     checked_ids = select_ids()
@@ -80,4 +86,4 @@ def find_events_by_day_track(day, track):
         tree = ET.parse(f)
         events = tree.findall(
             "./day[@date='%s']/room/event/[track='%s']" % (day, track))
-        return [event_detail(x, checked_ids) for x in events]
+        return [event_detail(x, checked_ids, day) for x in events]

@@ -7,8 +7,11 @@ from backend.utils import create_path
 CREATE_TABLE = """
 CREATE TABLE IF NOT EXISTS events (
     id INT,
+    day TEXT,
     start TEXT,
+    datetime_start TIMESTAMP,
     end TEXT,
+    datetime_end TIMESTAMP,
     room TEXT,
     title TEXT,
     subtitle TEXT,
@@ -21,8 +24,11 @@ CREATE TABLE IF NOT EXISTS events (
 INSERT_EVENT = """
 INSERT INTO events VALUES (
     :id,
+    :day,
     :start,
+    :datetime_start,
     :end,
+    :datetime_end,
     :room,
     :title,
     :subtitle,
@@ -35,12 +41,15 @@ INSERT INTO events VALUES (
 DELETE_EVENT = "DELETE FROM events WHERE id=:id"
 SELECT_EVENT = "SELECT * FROM events WHERE id=:id"
 SELECT_IDS_EVENT = "SELECT id FROM events"
-SELECT_ALL_EVENT = "SELECT * FROM events"
+SELECT_ALL_EVENT = "SELECT * FROM events ORDER BY datetime_start"
 XSELECT_ALL_EVENT = """
 SELECT
     id,
+    day,
     start,
+    datetime_start
     end,
+    datetime_end
     room,
     title,
     subtitle,
@@ -70,8 +79,11 @@ def insert(event):
         cur = con.cursor()
         cur.execute(INSERT_EVENT, dict(
             id=event.id,
+            day=event.day,
             start=event.start,
+            datetime_start=event.datetime_start,
             end=event.end,
+            datetime_end=event.datetime_end,
             room=event.room,
             title=event.title,
             subtitle=event.subtitle,

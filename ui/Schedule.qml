@@ -61,15 +61,24 @@ BasePage {
                         anchors.top: parent.bottom
 
                         Label {
-                            width: units.gu(8)
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: units.gu(10)
+                            text: "[" + day +"]"
+                            fontSize: "small"
+                        }
+
+                        Label {
+                            width: units.gu(6)
                             fontSize: "small"
                             text: start
                         }
+
                         Label {
-                            width: units.gu(8)
+                            width: units.gu(6)
                             fontSize: "small"
                             text: end
                         }
+
                         Label {
                             width: units.gu(13)
                             fontSize: "small"
