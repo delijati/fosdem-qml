@@ -10,7 +10,7 @@ from backend.utils import create_path
 from backend.db import toggle, select_ids, select_all
 
 
-__version__ = "0.3"
+__version__ = "0.3.1"
 
 
 def download_file(url):
@@ -23,7 +23,7 @@ def download_file(url):
         else:
             sys.stderr.write("read %d\n" % (readsofar,))
 
-        create_path(FILENAME)
+    create_path(FILENAME)
 
     return urlretrieve(url, FILENAME, reporthook)
 
