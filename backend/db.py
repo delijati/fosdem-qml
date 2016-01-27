@@ -63,7 +63,7 @@ FROM events"""
 def open_db():
     create_path(DB_FILE)
     con = sqlite3.connect(DB_FILE)
-    con.set_trace_callback(print)
+    # con.set_trace_callback(print)
 
     with con:
         cur = con.cursor()
