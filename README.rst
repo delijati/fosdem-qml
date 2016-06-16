@@ -12,13 +12,9 @@ TODO
 
 - tests
 
-- add save to db
+- show current lectures
 
-- add show saved lectures
-
-- add lectures by current time 
-
-- getting rid of ``libpython3.4m.so.1.0`` as it should be already on the system
+- getting rid of ``libpython3.4m.so.1.0`` as it should be already on the system?
 
 
 Publish app
