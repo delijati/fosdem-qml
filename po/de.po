@@ -19,83 +19,85 @@ msgstr ""
 
 #: .ubuntu-sdk-deploy/Main.qml:121 Main.qml:120
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: .ubuntu-sdk-deploy/Main.qml:125 Main.qml:124
 #, qt-format
 msgid "An error has occured: %1"
-msgstr ""
+msgstr "Es ist eine ausfgetreten: %1"
 
 #: .ubuntu-sdk-deploy/Main.qml:131 Main.qml:130
 msgid "Close"
-msgstr ""
+msgstr "Schliessen"
 
 #: .ubuntu-sdk-deploy/ui/BasePage.qml:24 ui/BasePage.qml:24
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 #: .ubuntu-sdk-deploy/ui/BasePage.qml:32 ui/BasePage.qml:32
 msgid "Checked"
-msgstr ""
+msgstr "Ausgewählt"
 
 #: .ubuntu-sdk-deploy/ui/BasePage.qml:46 ui/BasePage.qml:46 ui/Map.qml:6
 msgid "Map"
-msgstr ""
+msgstr "Karte"
 
 #: .ubuntu-sdk-deploy/ui/BasePage.qml:53 .ubuntu-sdk-deploy/ui/About.qml:7
 #: ui/BasePage.qml:53 ui/About.qml:7
 msgid "About"
-msgstr ""
+msgstr "Über"
 
 #: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:9
 #: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:34 ui/DownloadDialog.qml:9
 #: ui/DownloadDialog.qml:50
 msgid "Download"
-msgstr ""
+msgstr "Herunterladen"
 
 #: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:10
 msgid "Type url of Fosdem Pentabarf XML:"
-msgstr ""
+msgstr "Fosdem Pentabarf XML:"
 
 #: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:45 ui/DownloadDialog.qml:42
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: .ubuntu-sdk-deploy/ui/About.qml:50 ui/About.qml:50
 #, qt-format
 msgid "Version %1"
-msgstr ""
+msgstr "Version %1"
 
 #: .ubuntu-sdk-deploy/ui/About.qml:62 ui/About.qml:62
 msgid "Author: Josip Delic"
-msgstr ""
+msgstr "Autor: Josip Delic"
 
 #: .ubuntu-sdk-deploy/ui/About.qml:68 ui/About.qml:68
 msgid ""
 "Source code available on <a href='https://github.com/delijati/fosdem-"
 "qml'>GitHub</a>"
 msgstr ""
+"Quellcode verfügbar auf <a href='https://github.com/delijati/fosdem-"
+"qml'>GitHub</a>"
 
 #: .ubuntu-sdk-deploy/ui/About.qml:75 ui/About.qml:75
-msgid "Powered by <b>PyOtherSide</b>"
+msgid "Realisiert durch <b>PyOtherSide</b>"
 msgstr ""
 
 #: ui/Lecture.qml:8
-msgid "Lecture"
+msgid "Vortrag"
 msgstr ""
 
 #: ui/DownloadDialog.qml:10
 msgid "Url of Fosdem Pentabarf XML:"
-msgstr ""
+msgstr "Fosdem Pentabarf XML Url:"
 
 #: ui/DownloadDialog.qml:17
 msgid "All 'Checked' entries will be deleted!"
-msgstr ""
+msgstr "Alle 'Ausgewählten' Einträge werden gelöscht!"
 
 #: ui/Track.qml:9
 msgid "Tracks"
-msgstr ""
+msgstr "Tracks"
 
 #: ui/About.qml:30
 msgid "Fosdem QML"
-msgstr ""
+msgstr "Fosdem QML"

@@ -1,12 +1,12 @@
 import QtQuick 2.4
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.3
 import QtQuick.XmlListModel 2.0
-import Ubuntu.Components.ListItems 0.1
+import Ubuntu.Components.ListItems 1.3 as ListItem
 
 
 BasePage {
     id: schedule
-    title: 'Schedule'
+    title: i18n.tr('Schedule')
     visible: false
 
     property var model: ListModel {}
@@ -21,7 +21,7 @@ BasePage {
             anchors.fill: parent
             model: schedule.model
 
-            delegate: Standard {
+            delegate: ListItem.Standard {
                 progression: true
                 onClicked: {
                     lecture.set_lecture(schedule.model.get(index))

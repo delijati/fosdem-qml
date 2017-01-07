@@ -1,13 +1,12 @@
 import QtQuick 2.4
-import Ubuntu.Components 1.1
-import Ubuntu.Components.ListItems 0.1
-import Ubuntu.Components.Popups 0.1
+import Ubuntu.Components 1.3
 import QtQuick.XmlListModel 2.0
+import Ubuntu.Components.ListItems 1.3 as ListItem
 
 
 BasePage {
     id: track
-    title: "Tracks"
+    title: i18n.tr("Tracks")
     visible: false
 
     property var model: ListModel {}
@@ -21,9 +20,23 @@ BasePage {
         ListView {
             anchors.fill: parent
             model: track.model
-            delegate: Standard {
-                text: title
+
+            delegate: ListItem.Standard {
                 progression: true
+                Row {
+                    id: rowItem
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: units.gu(1)
+                    anchors.rightMargin: units.gu(1)
+                    spacing: units.gu(2)
+
+                    Label {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: title
+                    }
+                }
                 onClicked: {
                     // XXX reset path and model
                     console.log("Path: " + path)

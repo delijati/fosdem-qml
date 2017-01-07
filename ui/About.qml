@@ -1,5 +1,5 @@
 import QtQuick 2.4
-import Ubuntu.Components 1.1 // XXX 1.1 has back buttons oO
+import Ubuntu.Components 1.3 // XXX 1.1 has back buttons oO
 import QtQuick.Layouts 1.1
 
 
@@ -27,7 +27,7 @@ Page {
          Label {
             width: parent.width
             horizontalAlignment: Text.Center
-            text: "Fosdem QML"
+            text: i18n.tr("Fosdem QML")
             fontSize: "x-large"
          }
 

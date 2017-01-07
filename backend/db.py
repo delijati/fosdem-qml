@@ -39,6 +39,7 @@ INSERT INTO events VALUES (
 )"""
 
 DELETE_EVENT = "DELETE FROM events WHERE id=:id"
+DELETE_ALL_EVENTS = "DELETE FROM events"
 SELECT_EVENT = "SELECT * FROM events WHERE id=:id"
 SELECT_IDS_EVENT = "SELECT id FROM events"
 SELECT_ALL_EVENT = "SELECT * FROM events ORDER BY datetime_start"
@@ -100,6 +101,14 @@ def delete(event_id):
     with con:
         cur = con.cursor()
         cur.execute(DELETE_EVENT, dict(id=event_id))
+
+
+def delete_all():
+    con = open_db()
+
+    with con:
+        cur = con.cursor()
+        cur.execute(DELETE_ALL_EVENTS)
 
 
 def toggle(event):

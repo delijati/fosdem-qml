@@ -8,18 +8,51 @@ also work with other conferences as we use ``Pentabarf`` XML format.
 TODO
 ----
 
-- i18n
+- I18n
 
-- tests
+- Tests!!!
 
-- add save to db
+- Show lectures by current time 
 
-- add show saved lectures
+- Geting rid of ``libpython3.4m.so.1.0`` as it should be already on the
+  system!?
 
-- add lectures by current time 
+- Conditional Layout 
 
-- getting rid of ``libpython3.4m.so.1.0`` as it should be already on the system
 
+Development
+-----------
+
+ARM Development works currently only under 16.04.
+
+ARM
+~~~
+
+First we need to install ubuntu-sdk and ubuntu-emulator::
+
+    $ sudo apt-get install ubuntu-sdk
+    $ sudo ubuntu-emulator create utouch
+
+Create a emulator::
+
+    $ sudo ubuntu-emulator create utouch
+
+Desktop
+-------
+
+Use Vim, Neovim to edit. 
+
+Start::
+
+    $ qmlscene Main.qml
+
+
+QML Widgets
+-----------
+
+Show avaidable QML widgets::
+
+    $ qmlscene /usr/lib/x86_64-linux-gnu/qt5/examples/ubuntu-ui-toolkit/examples/ubuntu-ui-toolkit-gallery/ubuntu-ui-toolkit-gallery.qml
 
 Publish app
 -----------
@@ -30,3 +63,5 @@ click app.
 How::
 
     $ pip install click-toolbelt
+
+Or upload it with the plublish function in qt-creator.

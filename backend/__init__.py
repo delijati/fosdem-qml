@@ -7,10 +7,10 @@ import xml.etree.ElementTree as ET
 from urllib.request import urlretrieve
 from backend.config import FILENAME
 from backend.utils import create_path
-from backend.db import toggle, select_ids, select_all
+from backend.db import toggle, select_ids, select_all, delete_all
 
 
-__version__ = "0.3.1"
+__version__ = "0.4.0"
 
 
 def download_file(url):
@@ -28,7 +28,9 @@ def download_file(url):
     return urlretrieve(url, FILENAME, reporthook)
 
 
-def get_schedule_file_path():
+def get_schedule_file_path(reset=False):
+    if reset:
+        delete_all()
     return FILENAME
 
 
