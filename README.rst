@@ -4,22 +4,6 @@ Fosdem Schedule
 Fosdem schedule app for ubuntu touch written in python and qml. This should
 also work with other conferences as we use ``Pentabarf`` XML format.
 
-
-TODO
-----
-
-- I18n
-
-- Tests!!!
-
-- Show lectures by current time 
-
-- Geting rid of ``libpython3.4m.so.1.0`` as it should be already on the
-  system!?
-
-- Conditional Layout 
-
-
 Development
 -----------
 
@@ -46,7 +30,6 @@ Start::
 
     $ qmlscene Main.qml
 
-
 QML Widgets
 -----------
 
@@ -65,3 +48,17 @@ How::
     $ pip install click-toolbelt
 
 Or upload it with the plublish function in qt-creator.
+
+TODO
+----
+
+- I18n
+
+- Tests!!!
+
+- Show lectures by current time 
+
+- Geting rid of ``libpython3.4m.so.1.0`` as it should be already on the
+  system!?
+
+- Conditional Layout 
