@@ -19,7 +19,7 @@ Component {
 
         TextField {
             id: url
-            text: "https://fosdem.org/2017/schedule/xml"
+            text: "https://fosdem.org/2018/schedule/xml"
             width: parent.width
         }
 
@@ -42,7 +42,7 @@ Component {
                 text: i18n.tr("Cancel")
                 onClicked: {
                     PopupUtils.close(download_dialog.current);
-                    console.log("Cancel");
+                    //console.log("Cancel");
                 }
             }
 
@@ -50,12 +50,10 @@ Component {
                 text: i18n.tr("Download")
                 color: UbuntuColors.orange
                 onClicked: {
-                    console.log(url.text);                    
+                    //console.log(url.text);                    
                     py.call("backend.download_file", [url.text], download_end);
                 }
             }
-
-
         }
     }
 }

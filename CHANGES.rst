@@ -1,7 +1,18 @@
 CHANGES
 =======
 
-0.4.0 (unreleased)
+0.4.1 (2017-11-07)
+------------------
+
+- OpenStore release
+
+- Updated XML url to 2018
+
+- Deactivated console.log
+
+- Some Layout fixes
+
+0.4.0 (2017-01-20)
 ------------------
 
 - Updated QML components

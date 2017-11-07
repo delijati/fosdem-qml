@@ -91,23 +91,23 @@ MainView {
             addImportPath(Qt.resolvedUrl('./lib/py'));
 
             importModule('backend', function(){
-                console.log("python loaded");
+                //console.log("python loaded");
             });
 
             setHandler('on-progress', function(value) {
                 if (download_dialog.current !== null) {
                     if (!download_dialog.current.progress_visible) {
-                        console.log(download_dialog.current.progress_visible);
+                        //console.log(download_dialog.current.progress_visible);
                         download_dialog.current.progress_visible = true;
                     }
                     download_dialog.current.value = ((value * 2) / 100);
-                    console.log(download_dialog.current.value);
+                    //console.log(download_dialog.current.value);
                 }
             });
 
         }
         onError: {
-            console.log('Error: ' + traceback);
+            //console.log('Error: ' + traceback);
             var dialog = PopupUtils.open(errorDialog);
             dialog.traceback = traceback;
         }
