@@ -29,23 +29,6 @@ Test the click app directly with the device::
     $ pkcon install-local --allow-untrusted fosdem-qml.delijati_*_multi.click
     $ sudo reboot # TODO find out how to refresh UI
 
-QT-Creator
-~~~~~~~~~~
-
-ARM Emulator Development works currently only under 16.04.
-
-ARM
-+++
-
-First we need to install ubuntu-sdk and ubuntu-emulator::
-
-    $ sudo apt-get install ubuntu-sdk
-    $ sudo apt-get install pyotherside
-
-Create a emulator::
-
-    $ sudo ubuntu-emulator create utouch
-
 QML Widgets
 ~~~~~~~~~~~
 
@@ -56,27 +39,18 @@ Show avaidable QML widgets::
 Publish app
 ~~~~~~~~~~~
 
-Upload new version via form::
-
-    $ firefox https://myapps.developer.ubuntu.com/dev/click-apps/4389/stats/
-
-To upload click app there as is a ``CLI`` tool `click-toolbelt <https://pypi.python.org/pypi/click-toolbelt>`_ to upload a
-click app.
-
-How::
-
-    $ pip install click-toolbelt
+clickable 
 
 TODO
 ----
 
-- I18n
+- [ ] I18n
 
-- Tests!!!
+- [ ] Tests!!!
 
-- Show lectures by current time 
+- [ ] Show lectures by current time 
 
-- Geting rid of ``libpython3.4m.so.1.0`` as it should be already on the
+- [x] Geting rid of ``libpython3.4m.so.1.0`` as it should be already on the
   system!?
 
-- Conditional Layout 
+- [ ] Conditional Layout 

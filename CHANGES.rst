@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+0.5.0 (2018-10-09)
+------------------
+
+- Remove ``libpython`` and ``pyotherside`` they are now in the image.
+- Code works with xenial.
+
 0.4.2 (2017-11-07)
 ------------------
 
