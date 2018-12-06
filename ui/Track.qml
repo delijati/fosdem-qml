@@ -3,19 +3,21 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItem
 
 
-BasePage {
+Page {
     id: track
-    title: i18n.tr("Tracks")
-    visible: false
 
-    property var model: ListModel {}
-
-    anchors {
-        fill: parent
-        margins: units.gu(2)
+    header: CommonHeader {
+        title: i18n.tr('Track')
+        flickable: listView
     }
 
+    property var model: ListModel {}
+    property var scheduleModel: ListModel {}
+
+    anchors.fill: parent
+
     ListView {
+        id: listView
         anchors.fill: parent
         model: track.model
 
@@ -39,7 +41,7 @@ BasePage {
                 // XXX reset path and model
                 //console.log("Path: " + path)
                 path = [path[0], track.model.get(index).title]
-                schedule.model.clear()
+                scheduleModel.clear()
                 py.call("backend.find_events_by_day_track", path, function(events) {
                     //console.log("Title: " + events[0].title)
                     //console.log("Start: " + events[0].start)
@@ -50,9 +52,9 @@ BasePage {
                     //console.log("Checked: " + events[0].lecture_checked)
 
                     for (var i=0; i < events.length; i++) {
-                        schedule.model.append(events[i]);
+                        scheduleModel.append(events[i]);
                     }
-                    pageStack.push(schedule)
+                    pageStack.push(Qt.resolvedUrl("Schedule.qml"), {"model": scheduleModel})
                 })
             }
         }
