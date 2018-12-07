@@ -19,7 +19,7 @@ Component {
 
         TextField {
             id: url
-            text: "https://fosdem.org/2018/schedule/xml"
+            text: "https://fosdem.org/2019/schedule/xml"
             width: parent.width
         }
 
@@ -30,29 +30,25 @@ Component {
             visible: dialog.progress_visible
         }
 
-        Row {
-            anchors.margins: units.gu(1)
-            spacing: units.gu(1)
-            width: parent.width
-
-            Button {
-                //anchors.right: parent.right
-                //visible: true
-
-                text: i18n.tr("Cancel")
-                onClicked: {
-                    PopupUtils.close(download_dialog.current);
-                    //console.log("Cancel");
-                }
+        Button {
+            text: i18n.tr("Download")
+            color: UbuntuColors.orange
+            onClicked: {
+                //console.log(url.text);
+                url.focus = false;
+                Qt.inputMethod.hide();
+                py.call("backend.download_file", [url.text], download_end);
             }
+        }
 
-            Button {
-                text: i18n.tr("Download")
-                color: UbuntuColors.orange
-                onClicked: {
-                    //console.log(url.text);                    
-                    py.call("backend.download_file", [url.text], download_end);
-                }
+        Button {
+            //anchors.right: parent.right
+            //visible: true
+
+            text: i18n.tr("Cancel")
+            onClicked: {
+                PopupUtils.close(download_dialog.current);
+                //console.log("Cancel");
             }
         }
     }

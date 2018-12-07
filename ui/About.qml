@@ -4,55 +4,60 @@ import QtQuick.Layouts 1.1
 
 
 Page {
-   title: i18n.tr("About")
-   id: about
-   visible: false
+    id: about
 
-   Flickable {
-      id: flickable
-      anchors  {
-          fill: parent
-          margins: units.gu(2)
-      }
-      contentHeight: contentItem.childrenRect.height
+    header: BaseHeader {
+        title: i18n.tr('About')
+        flickable: flickable
+    }
 
-      Column {
-         id: col
-         anchors.top: parent.top
-         anchors.left: parent.left
-         anchors.right: parent.right
-         anchors.margins: units.gu(2)
-         spacing: units.gu(1)
+    Flickable {
+        id: flickable
+        anchors  {
+            fill: parent
+            margins: gnalMargins
+        }
 
-         Label {
+    contentHeight: contentItem.childrenRect.height
+
+    Column {
+        id: col
+
+        anchors {
+            fill: parent
+            margins: gnalMargins
+        }
+
+        spacing: gnalSpacing
+
+        Label {
             width: parent.width
             horizontalAlignment: Text.Center
             text: i18n.tr("Fosdem QML")
             fontSize: "x-large"
-         }
+        }
 
-         RowLayout {
+        RowLayout {
             width: parent.width
             UbuntuShape {
-               Layout.alignment: Qt.AlignHCenter
-               width: units.dp(64)
-               height: units.dp(64)
-               image: Image {
-                  source: "../images/fosdem-logo-big.png"
-               }
-            }
-         }
+                Layout.alignment: Qt.AlignHCenter
 
-         Label {
+                image: Image {
+                    source: "../images/icon.svg"
+                }
+            }
+        }
+
+        Label {
             width: parent.width
             horizontalAlignment: Text.Center
             visible: false
             text: i18n.tr("Version %1")
             Component.onCompleted: {
-               py.importModule("backend", function() {
-                   text = text.arg(py.evaluate("backend.__version__"));
-                   visible = true;
-               })
+                py.importModule("backend", function() {
+                    text = text.arg(py.evaluate("backend.__version__"));
+                    visible = true;
+                })
             }
          }
 
@@ -60,6 +65,12 @@ Page {
 
          Label {
             text: i18n.tr("Author: Josip Delic")
+            horizontalAlignment: Text.Center
+            width: parent.width
+         }
+         
+         Label {
+            text: i18n.tr("Redesign: Joan CiberSheep")
             horizontalAlignment: Text.Center
             width: parent.width
          }
@@ -76,9 +87,6 @@ Page {
             horizontalAlignment: Text.Center
             width: parent.width
          }
-
       }
-
    }
-
 }

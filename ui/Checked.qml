@@ -4,45 +4,57 @@ import Ubuntu.Components 1.3
 
 Page {
     id: checked
-    title: i18n.tr('Checked')
-    visible: false
+
+    header: CommonHeader {
+        title: i18n.tr('Checked')
+        flickable: checkedlistView
+    }
 
     property var model: ListModel {}
 
-    anchors {
-        fill: parent
-        margins: units.gu(2)
+    anchors.fill: parent
+
+    Component.onCompleted: {
+        checked.model.clear()
+            py.call("backend.select_all", [], function (events) {
+                for (var i=0; i < events.length; i++) {
+                    checked.model.append(events[i]);
+                }
+            });
     }
 
     ListView {
+        id: checkedlistView
         anchors.fill: parent
         model: checked.model
+        delegate: checkedDelegate
+    }
+    
+    Component {
+        id: checkedDelegate
 
-        Component.onCompleted: {
-            visible = true;
-        }
+        ListItem {
 
-        delegate: ListItem {
-
-            height: layout.height + (divider.visible ? divider.height : 0)
+            divider.visible: false
 
             ListItemLayout {
                 id: layout
                 title.text: model.title
-                subtitle.text: "[" + day +"] " + start + " - " + end + " in " + room
+                subtitle.text: "[" + day +"] " + start + " - " + end + " " + i18n.tr('in') + " " + room
 
-                CheckBox {
-                    SlotsLayout.position: SlotsLayout.Leading
+                Favorite {
                     id: saved_lecture
+                    width: units.gu(2)
+                    height: width
+                    SlotsLayout.position: SlotsLayout.Leading
                     checked: lecture_checked
-                    enabled: false
                 }
 
                 ProgressionSlot {}
             }
+
             onClicked: {
-                lecture.set_lecture(checked.model.get(index))
-                pageStack.push(lecture)
+                pageStack.push(Qt.resolvedUrl("Lecture.qml"), {"model": checked.model.get(index)})
             }
         }
     }

@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-06 01:34+0100\n"
+"PO-Revision-Date: 2018-12-06 01:34+0100\n"
+"Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
+"Language-Team: \n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../qml/Main.qml:96
+msgid "Error"
+msgstr "Error"
+
+#: ../qml/Main.qml:100
+msgid "An error has occured: %1"
+msgstr "Ha ocorregut un error: %1"
+
+#: ../qml/Main.qml:106
+msgid "Close"
+msgstr "Tanca"
+
+#: ../qml/ui/Map.qml:9 ../qml/ui/BasePage.qml:46 ../qml/ui/CommonHeader.qml:28
+msgid "Map"
+msgstr "Mapa"
+
+#: ../qml/ui/BasePage.qml:24 ../qml/ui/CommonHeader.qml:20
+msgid "Import"
+msgstr "Importa"
+
+#: ../qml/ui/BasePage.qml:32 ../qml/ui/CommonHeader.qml:35
+#: ../qml/ui/Checked.qml:9
+msgid "Checked"
+msgstr "Marcades"
+
+#: ../qml/ui/BasePage.qml:53 ../qml/ui/CommonHeader.qml:13
+#: ../qml/ui/About.qml:10
+msgid "About"
+msgstr "Quant a"
+
+#: ../qml/ui/MapHeader.qml:10
+msgid "Coordenates"
+msgstr "Coordenades"
+
+#: ../qml/ui/DownloadDialog.qml:9 ../qml/ui/DownloadDialog.qml:34
+msgid "Download"
+msgstr "Descarrega"
+
+#: ../qml/ui/DownloadDialog.qml:10
+msgid "Url of Fosdem Pentabarf XML:"
+msgstr "URL al XML Pentabarf  del FOSDEM:"
+
+#: ../qml/ui/DownloadDialog.qml:17
+msgid "All 'Checked' entries will be deleted!"
+msgstr "S'eliminaran totes les entrades que hagin estat «marcades»."
+
+#: ../qml/ui/DownloadDialog.qml:48
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: ../qml/ui/Track.qml:10
+msgid "Track"
+msgstr "Vies"
+
+#: ../qml/ui/Schedule.qml:9
+msgid "Schedule"
+msgstr "Horari"
+
+#: ../qml/ui/Schedule.qml:31 ../qml/ui/Checked.qml:43
+msgid "in"
+msgstr "a"
+
+#: ../qml/ui/Lecture.qml:9
+msgid "Lecture"
+msgstr "Xerrada"
+
+#: ../qml/ui/Lecture.qml:86
+msgid "Time"
+msgstr "Hora"
+
+#: ../qml/ui/Lecture.qml:107
+msgid "Room"
+msgstr "Sala"
+
+#: ../qml/ui/Lecture.qml:123
+msgid "Speaker"
+msgstr "Ponent"
+
+#: ../qml/ui/About.qml:36
+msgid "Fosdem QML"
+msgstr "Fosdem QML"
+
+#: ../qml/ui/About.qml:55
+msgid "Version %1"
+msgstr "Versió %1"
+
+#: ../qml/ui/About.qml:67
+msgid "Author: Josip Delic"
+msgstr "Autor: Josip Delic"
+
+#: ../qml/ui/About.qml:73
+msgid "Redesign: Joan CiberSheep"
+msgstr "Rediseny: Joan CiberSheep"
+
+#: ../qml/ui/About.qml:79
+msgid ""
+"Source code available on <a href='https://github.com/delijati/fosdem-"
+"qml'>GitHub</a>"
+msgstr ""
+"Codi font disponible a <a href='https://github.com/delijati/fosdem-"
+"qml'>GitHub</a>"
+
+#: ../qml/ui/About.qml:86
+msgid "Powered by <b>PyOtherSide</b>"
+msgstr "Amb el suport de <b>PyOtherSide</b>"
+
+#: ../qml/ui/Days.qml:10
+msgid "Days"
+msgstr "Dies"
+
+#: fosdem-qml.desktop.in.h:1
+msgid "fosdem-qml"
+msgstr "fosdem-qml"
+
+#~ msgid "Type url of Fosdem Pentabarf XML:"
+#~ msgstr "Introduïu la url al XML Pentabarf  del FOSDEM"
+
+#~ msgid "Tracks"
+#~ msgstr "Vies"

@@ -10,41 +10,19 @@ MainView {
     objectName: "mainView" 
 
     // Note! applicationName needs to match the "name" field of the click manifest
-    applicationName: "fosdemqml.delijati"
-
-    /*
-     This property enables the application to change orientation
-     when the device is rotated. The default is false.
-    */
-    //automaticOrientation: true
-
-    // Removes the old toolbar and enables new features of the new header.
-    //useDeprecatedToolbar: false
+    applicationName: "fosdem-qml.delijati"
 
     width: units.gu(50)
     height: units.gu(75)
 
-    property real spacing: units.gu(1)
-    property real margins: units.gu(2)
+    property bool isLandscape: width > height 
+    property real gnalSpacing: units.gu(2)
+    property real gnalMargins: units.gu(2)
     property real buttonWidth: units.gu(9)
     property var path: []
-
-
-    Schedule {
-        id: schedule
-    }
-
-    Days {
-        id: days
-    }
-
-    Lecture {
-        id: lecture
-    }
-
-    Track {
-        id: track
-    }
+    
+    property string lightColor: "#ffffff"
+    property string accentColor: "#a91991"
 
     DownloadDialog {
         id: download_dialog
@@ -56,8 +34,7 @@ MainView {
         // XXX should we rather send signals?        
         PopupUtils.close(download_dialog.current)
         py.call("backend.get_schedule_file_path",  [true], function(path) {
-            days.xmlsource = path
-            pageStack.push(days)
+            pageStack.push(Qt.resolvedUrl("ui/Days.qml"),{"xmlsource": path})
         })
     }
 
@@ -69,8 +46,7 @@ MainView {
         }
         else {
             py.call("backend.get_schedule_file_path",  [], function(path) {
-                days.xmlsource = path
-                pageStack.push(days)
+                pageStack.push(Qt.resolvedUrl("ui/Days.qml"),{"xmlsource": path});
             })
         }
     }

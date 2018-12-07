@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the fosdem-qml.delijati package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: fosdem-qml.delijati\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-06 00:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/Main.qml:96
+msgid "Error"
+msgstr ""
+
+#: ../qml/Main.qml:100
+msgid "An error has occured: %1"
+msgstr ""
+
+#: ../qml/Main.qml:106
+msgid "Close"
+msgstr ""
+
+#: ../qml/ui/Map.qml:9 ../qml/ui/BasePage.qml:46 ../qml/ui/CommonHeader.qml:28
+msgid "Map"
+msgstr ""
+
+#: ../qml/ui/BasePage.qml:24 ../qml/ui/CommonHeader.qml:20
+msgid "Import"
+msgstr ""
+
+#: ../qml/ui/BasePage.qml:32 ../qml/ui/CommonHeader.qml:35
+#: ../qml/ui/Checked.qml:9
+msgid "Checked"
+msgstr ""
+
+#: ../qml/ui/BasePage.qml:53 ../qml/ui/CommonHeader.qml:13
+#: ../qml/ui/About.qml:10
+msgid "About"
+msgstr ""
+
+#: ../qml/ui/MapHeader.qml:10
+msgid "Coordenates"
+msgstr ""
+
+#: ../qml/ui/DownloadDialog.qml:9 ../qml/ui/DownloadDialog.qml:34
+msgid "Download"
+msgstr ""
+
+#: ../qml/ui/DownloadDialog.qml:10
+msgid "Url of Fosdem Pentabarf XML:"
+msgstr ""
+
+#: ../qml/ui/DownloadDialog.qml:17
+msgid "All 'Checked' entries will be deleted!"
+msgstr ""
+
+#: ../qml/ui/DownloadDialog.qml:48
+msgid "Cancel"
+msgstr ""
+
+#: ../qml/ui/Track.qml:10
+msgid "Track"
+msgstr ""
+
+#: ../qml/ui/Schedule.qml:9
+msgid "Schedule"
+msgstr ""
+
+#: ../qml/ui/Schedule.qml:31 ../qml/ui/Checked.qml:43
+msgid "in"
+msgstr ""
+
+#: ../qml/ui/Lecture.qml:9
+msgid "Lecture"
+msgstr ""
+
+#: ../qml/ui/Lecture.qml:86
+msgid "Time"
+msgstr ""
+
+#: ../qml/ui/Lecture.qml:107
+msgid "Room"
+msgstr ""
+
+#: ../qml/ui/Lecture.qml:123
+msgid "Speaker"
+msgstr ""
+
+#: ../qml/ui/About.qml:36
+msgid "Fosdem QML"
+msgstr ""
+
+#: ../qml/ui/About.qml:55
+msgid "Version %1"
+msgstr ""
+
+#: ../qml/ui/About.qml:67
+msgid "Author: Josip Delic"
+msgstr ""
+
+#: ../qml/ui/About.qml:73
+msgid "Redesign: Joan CiberSheep"
+msgstr ""
+
+#: ../qml/ui/About.qml:79
+msgid ""
+"Source code available on <a href='https://github.com/delijati/fosdem-"
+"qml'>GitHub</a>"
+msgstr ""
+
+#: ../qml/ui/About.qml:86
+msgid "Powered by <b>PyOtherSide</b>"
+msgstr ""
+
+#: ../qml/ui/Days.qml:10
+msgid "Days"
+msgstr ""
+
+#: fosdem-qml.desktop.in.h:1
+msgid "fosdem-qml"
+msgstr ""

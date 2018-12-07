@@ -2,13 +2,18 @@ import QtQuick 2.4
 import Ubuntu.Components 1.3
 
 
-BasePage {
+Page {
     id: lecture
-    title: i18n.tr("Lecture")
-    visible: false
+
+    header: CommonHeader {
+        title: i18n.tr('Lecture')
+        flickable: lectureFlickable
+    }
 
     property int event_id: 0
     property var model: ListModel {}
+    property real itemName: units.gu(7)
+    property real itemTime: units.gu(8)
 
     function set_lecture(item) {
         lecture.model = item
@@ -25,154 +30,119 @@ BasePage {
         lecture_checked.checked = item.lecture_checked
     }
 
+    Component.onCompleted: set_lecture(lecture.model);
+
     Flickable {
         id: lectureFlickable
+        contentHeight: contentItem.childrenRect.height
+        
         anchors {
             fill: parent
-            margins: units.gu(2)
+            leftMargin: gnalMargins
+            rightMargin: gnalMargins
         }
-        contentHeight: contentItem.childrenRect.height
 
         Column {
             width: parent.width
-            spacing: units.gu(1)
+            spacing: gnalSpacing
+
+            anchors {
+                topMargin: gnalMargins
+                fill: parent
+            }
 
             Row {
-                spacing: units.gu(1)
+                width: parent.width
+                spacing: gnalSpacing
 
-                Label {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: 'Time'
-                    width: units.gu(5)
+                LabelBase {
+                    id: lecture_title
+                    font.bold: true
+                    width: parent.width - lecture_checked.width - gnalSpacing
+                    verticalAlignment: Text.AlignVCenter
                 }
-
-                TextField {
-                    id: lecture_start
-                    width: units.gu(8)
-                    readOnly: true
-
-                    UbuntuShape {
-                        z: -1
-                        color: Theme.palette.normal.field
-                        anchors.fill: parent
-                    }
-                }
-                TextField {
-                    id: lecture_end
-                    width: units.gu(8)
-                    readOnly: true
-
-                    UbuntuShape {
-                        z: -1
-                        color: Theme.palette.normal.field
-                        anchors.fill: parent
-                    }
-                }
-                Switch {
-                    anchors.verticalCenter: parent.verticalCenter
+                
+                Favorite {
                     id: lecture_checked
-                    enabled: true
-                    checked: false
                     
-                    onClicked: {
-                        py.call('backend.toggle', [lecture.model], function (data) {
-                            lecture.model.lecture_checked = data;
-                            lecture_checked.checked = data;
-                        });
-                    }
-                }
-            }
-            Row {
-                spacing: units.gu(1)
-                Label {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: i18n.tr('Room')
-                    width: units.gu(5)
-                }
-                TextField {
-                    id: lecture_room
-                    width: units.gu(20)
-                    readOnly: true
-
-                    UbuntuShape {
-                        z: -1
-                        color: Theme.palette.normal.field
+                    MouseArea {
                         anchors.fill: parent
+
+                        onClicked: {
+                            py.call('backend.toggle', [lecture.model], function (data) {
+                                lecture.model.lecture_checked = data;
+                                lecture_checked.checked = data;
+                            });
+                        }
                     }
                 }
             }
-            TextArea {
-                id: lecture_title
-                width: parent.width
-                autoSize: true
-                maximumLineCount: 0
-                readOnly: true
 
-                UbuntuShape {
-                    z: -1
-                    color: Theme.palette.normal.field
-                    anchors.fill: parent
+            Row {
+                width: parent.width
+                spacing: gnalSpacing
+
+                LabelBase {
+                    text: i18n.tr('Time')
+                    width: itemName
+                    font.bold: true
+                }
+
+                LabelBase {
+                    id: lecture_start
+                    width: itemTime
+                }
+
+                LabelBase {
+                    id: lecture_end
+                    width: itemTime
                 }
             }
-            TextArea {
+
+            Row {
+                width: parent.width
+                spacing: gnalSpacing
+
+                LabelBase {
+                    text: i18n.tr('Room')
+                    width: itemName
+                    font.bold: true
+                }
+
+                LabelBase {
+                    id: lecture_room
+                    width: itemName * 2
+                }
+            }
+            
+            Row {
+                width: parent.width
+                spacing: gnalSpacing
+
+                LabelBase {
+                    text: i18n.tr('Speaker')
+                    width: itemName
+                    font.bold: true
+                }
+
+                LabelBase {
+                    id: lecture_persons
+                    width: itemName * 2
+                }
+            }
+
+            LabelBase {
                 id: lecture_subtitle
-                width: parent.width
-                autoSize: true
-                maximumLineCount: 0
-                readOnly: true
-
-                UbuntuShape {
-                    z: -1
-                    color: Theme.palette.normal.field
-                    anchors.fill: parent
-                }
             }
-            TextArea {
+
+            LabelBase {
                 id: lecture_abstract
-                textFormat: TextEdit.RichText
-                width: parent.width
-                autoSize: true
-                maximumLineCount: 0
-                readOnly: true
-
-                UbuntuShape {
-                    z: -1
-                    color: Theme.palette.normal.field
-                    anchors.fill: parent
-                }
             }
-            TextArea {
+
+            LabelBase {
                 id: lecture_description
-                textFormat: TextEdit.RichText
-                width: parent.width
-                autoSize: true
-                maximumLineCount: 0
-                readOnly: true
-
-                UbuntuShape {
-                    z: -1
-                    color: Theme.palette.normal.field
-                    anchors.fill: parent
-                }
-            }
-            TextArea {
-                id: lecture_persons
-                width: parent.width
-                autoSize: true
-                maximumLineCount: 0
-                readOnly: true
-
-                UbuntuShape {
-                    z: -1
-                    color: Theme.palette.normal.field
-                    anchors.fill: parent
-                }
             }
         }
-    }
-    Scrollbar {
-        flickableItem: lectureFlickable
-        align: Qt.AlignTrailing
     }
 }
 
