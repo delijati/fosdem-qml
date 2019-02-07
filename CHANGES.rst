@@ -1,11 +1,22 @@
 CHANGES
 =======
 
-0.5.0 (2018-10-09)
-------------------
+0.6.1
+-----
+- Added changelog
 
+0.6.0
+-----
+
+- Used FOSDEM color
+- Added GPS link that open in uNav
+- Changed checked icons
+- Reorganized qml (might need a second revision)
+- New app icon
+- Nicer Dialog
 - Remove ``libpython`` and ``pyotherside`` they are now in the image.
 - Code works with xenial.
+- Thanks to ``cibersheep``
 
 0.4.2 (2017-11-07)
 ------------------
