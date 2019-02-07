@@ -23,11 +23,10 @@ Build::
     $ click build fosdem-qml/
 
 Test the click app directly with the device::
+    Attach device to computer with usb
+    Activate developer mode on device and authorize device 
 
-    $ adb push fosdem-qml.delijati_0.4.0_multi.click /home/phablet/Downloads/
-    $ cd Downloads
-    $ pkcon install-local --allow-untrusted fosdem-qml.delijati_*_multi.click
-    $ sudo reboot # TODO find out how to refresh UI
+    $ clickable
 
 QML Widgets
 ~~~~~~~~~~~
@@ -44,7 +43,7 @@ clickable
 TODO
 ----
 
-- [ ] I18n
+- [x] I18n
 
 - [ ] Tests!!!
 

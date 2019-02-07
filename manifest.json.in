@@ -1,15 +1,15 @@
 {
     "name": "fosdem-qml.delijati",
     "description": "Download and check offline the schedules for FOSDEM lectures.",
-    "architecture": "all",
+    "architecture": "@CLICK_ARCH@",
     "title": "fosdem-qml",
     "hooks": {
         "fosdem-qml": {
             "apparmor": "fosdem-qml.apparmor",
-            "desktop": "fosdem-qml.desktop"
+            "desktop":  "fosdem-qml.desktop"
         }
     },
-    "version": "0.6.1",
+    "version": "0.6.4",
     "maintainer": "Josip Delic <delijati@gmx.net>",
-    "framework": "ubuntu-sdk-16.04"
+    "framework" : "ubuntu-sdk-16.04"
 }

@@ -1,7 +1,5 @@
-import QtQuick 2.4
+import QtQuick 2.9
 import Ubuntu.Components 1.3
-import Ubuntu.Components.ListItems 1.3 as ListItem
-
 
 Page {
     id: track
@@ -20,23 +18,22 @@ Page {
         id: listView
         anchors.fill: parent
         model: track.model
+        delegate: trackDelegate
+    }
+    
+    Component {
+        id: trackDelegate
 
-        delegate: ListItem.Standard {
-            progression: true
-            Row {
-                id: rowItem
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.leftMargin: units.gu(1)
-                anchors.rightMargin: units.gu(1)
-                spacing: units.gu(2)
+        ListItem {
+            divider.visible: false
 
-                Label {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: title
-                }
+            ListItemLayout {
+                id: layout
+                title.text: model.title
+
+                ProgressionSlot {}
             }
+
             onClicked: {
                 // XXX reset path and model
                 //console.log("Path: " + path)

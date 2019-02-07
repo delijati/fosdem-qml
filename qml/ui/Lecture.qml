@@ -1,4 +1,4 @@
-import QtQuick 2.4
+import QtQuick 2.9
 import Ubuntu.Components 1.3
 
 
@@ -40,15 +40,17 @@ Page {
             fill: parent
             leftMargin: gnalMargins
             rightMargin: gnalMargins
+            bottomMargin: gnalMargins
         }
 
         Column {
+            id: mainCol
             width: parent.width
             spacing: gnalSpacing
 
             anchors {
+                top: parent.top
                 topMargin: gnalMargins
-                fill: parent
             }
 
             Row {
@@ -64,7 +66,9 @@ Page {
                 
                 Favorite {
                     id: lecture_checked
-                    
+                    width: units.gu(3)
+                    height: width
+
                     MouseArea {
                         anchors.fill: parent
 

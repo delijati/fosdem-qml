@@ -3,101 +3,136 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-07 15:15+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2018-12-06 19:54+0100\n"
+"PO-Revision-Date: 2018-12-06 19:54+0100\n"
+"Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
-#: .ubuntu-sdk-deploy/Main.qml:121 Main.qml:120
+#: ../qml/Main.qml:95
 msgid "Error"
 msgstr "Fehler"
 
-#: .ubuntu-sdk-deploy/Main.qml:125 Main.qml:124
-#, qt-format
+#: ../qml/Main.qml:99
 msgid "An error has occured: %1"
 msgstr "Es ist eine ausfgetreten: %1"
 
-#: .ubuntu-sdk-deploy/Main.qml:131 Main.qml:130
+#: ../qml/Main.qml:105
 msgid "Close"
 msgstr "Schliessen"
 
-#: .ubuntu-sdk-deploy/ui/BasePage.qml:24 ui/BasePage.qml:24
-msgid "Import"
-msgstr "Import"
-
-#: .ubuntu-sdk-deploy/ui/BasePage.qml:32 ui/BasePage.qml:32
-msgid "Checked"
-msgstr "Ausgewählt"
-
-#: .ubuntu-sdk-deploy/ui/BasePage.qml:46 ui/BasePage.qml:46 ui/Map.qml:6
+#: ../qml/ui/Map.qml:9 ../qml/ui/BasePage.qml:46 ../qml/ui/CommonHeader.qml:28
 msgid "Map"
 msgstr "Karte"
 
-#: .ubuntu-sdk-deploy/ui/BasePage.qml:53 .ubuntu-sdk-deploy/ui/About.qml:7
-#: ui/BasePage.qml:53 ui/About.qml:7
+#: ../qml/ui/BasePage.qml:24 ../qml/ui/CommonHeader.qml:20
+msgid "Import"
+msgstr "Import"
+
+#: ../qml/ui/BasePage.qml:32 ../qml/ui/CommonHeader.qml:35
+#: ../qml/ui/Checked.qml:9
+msgid "Checked"
+msgstr "AusgewÃ¤hlt"
+
+#: ../qml/ui/BasePage.qml:53 ../qml/ui/CommonHeader.qml:13
+#: ../qml/ui/About.qml:10
 msgid "About"
 msgstr "Über"
 
-#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:9
-#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:34 ui/DownloadDialog.qml:9
-#: ui/DownloadDialog.qml:50
+#: ../qml/ui/MapHeader.qml:10
+msgid "Coordenates"
+msgstr ""
+
+#: ../qml/ui/DownloadDialog.qml:9 ../qml/ui/DownloadDialog.qml:34
 msgid "Download"
 msgstr "Herunterladen"
 
-#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:10
-msgid "Type url of Fosdem Pentabarf XML:"
-msgstr "Fosdem Pentabarf XML:"
+#: ../qml/ui/DownloadDialog.qml:10
+msgid "Url of Fosdem Pentabarf XML:"
+msgstr "Fosdem Pentabarf XML Url:"
 
-#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:45 ui/DownloadDialog.qml:42
+#: ../qml/ui/DownloadDialog.qml:17
+msgid "All 'Checked' entries will be deleted!"
+msgstr "Alle 'Ausgewählten' Einträge werden gelöscht!"
+
+#: ../qml/ui/DownloadDialog.qml:48
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: .ubuntu-sdk-deploy/ui/About.qml:50 ui/About.qml:50
-#, qt-format
+#: ../qml/ui/Track.qml:10
+msgid "Track"
+msgstr ""
+
+#: ../qml/ui/Schedule.qml:9
+msgid "Schedule"
+msgstr ""
+
+#: ../qml/ui/Schedule.qml:31 ../qml/ui/Checked.qml:43
+msgid "in"
+msgstr ""
+
+#: ../qml/ui/Lecture.qml:9
+msgid "Lecture"
+msgstr ""
+
+#: ../qml/ui/Lecture.qml:86
+msgid "Time"
+msgstr ""
+
+#: ../qml/ui/Lecture.qml:107
+msgid "Room"
+msgstr ""
+
+#: ../qml/ui/Lecture.qml:123
+msgid "Speaker"
+msgstr ""
+
+#: ../qml/ui/About.qml:36
+msgid "Fosdem QML"
+msgstr "Fosdem QML"
+
+#: ../qml/ui/About.qml:55
 msgid "Version %1"
 msgstr "Version %1"
 
-#: .ubuntu-sdk-deploy/ui/About.qml:62 ui/About.qml:62
+#: ../qml/ui/About.qml:67
 msgid "Author: Josip Delic"
 msgstr "Autor: Josip Delic"
 
-#: .ubuntu-sdk-deploy/ui/About.qml:68 ui/About.qml:68
+#: ../qml/ui/About.qml:73
+msgid "Redesign: Joan CiberSheep"
+msgstr ""
+
+#: ../qml/ui/About.qml:79
 msgid ""
 "Source code available on <a href='https://github.com/delijati/fosdem-"
 "qml'>GitHub</a>"
 msgstr ""
-"Quellcode verfügbar auf <a href='https://github.com/delijati/fosdem-"
+"Quellcode verfÃ¼gbar auf <a href='https://github.com/delijati/fosdem-"
 "qml'>GitHub</a>"
 
-#: .ubuntu-sdk-deploy/ui/About.qml:75 ui/About.qml:75
-msgid "Realisiert durch <b>PyOtherSide</b>"
+#: ../qml/ui/About.qml:86
+msgid "Powered by <b>PyOtherSide</b>"
 msgstr ""
 
-#: ui/Lecture.qml:8
-msgid "Vortrag"
+#: ../qml/ui/Days.qml:10
+msgid "Days"
 msgstr ""
 
-#: ui/DownloadDialog.qml:10
-msgid "Url of Fosdem Pentabarf XML:"
-msgstr "Fosdem Pentabarf XML Url:"
+#: fosdem-qml.desktop.in.h:1
+msgid "fosdem-qml"
+msgstr ""
 
-#: ui/DownloadDialog.qml:17
-msgid "All 'Checked' entries will be deleted!"
-msgstr "Alle 'Ausgewählten' Einträge werden gelöscht!"
+#~ msgid "Type url of Fosdem Pentabarf XML:"
+#~ msgstr "Fosdem Pentabarf XML:"
 
-#: ui/Track.qml:9
-msgid "Tracks"
-msgstr "Tracks"
-
-#: ui/About.qml:30
-msgid "Fosdem QML"
-msgstr "Fosdem QML"
+#~ msgid "Tracks"
+#~ msgstr "Tracks"

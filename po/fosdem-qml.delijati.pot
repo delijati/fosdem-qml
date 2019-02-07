@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fosdem-qml.delijati\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-06 00:36+0000\n"
+"POT-Creation-Date: 2019-02-07 17:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,41 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:96
+#: ../qml/Main.qml:95
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:100
+#: ../qml/Main.qml:99
 msgid "An error has occured: %1"
 msgstr ""
 
-#: ../qml/Main.qml:106
+#: ../qml/Main.qml:105
 msgid "Close"
 msgstr ""
 
-#: ../qml/ui/Map.qml:9 ../qml/ui/BasePage.qml:46 ../qml/ui/CommonHeader.qml:28
+#: ../qml/ui/Map.qml:9 ../qml/ui/CommonHeader.qml:28
 msgid "Map"
-msgstr ""
-
-#: ../qml/ui/BasePage.qml:24 ../qml/ui/CommonHeader.qml:20
-msgid "Import"
-msgstr ""
-
-#: ../qml/ui/BasePage.qml:32 ../qml/ui/CommonHeader.qml:35
-#: ../qml/ui/Checked.qml:9
-msgid "Checked"
-msgstr ""
-
-#: ../qml/ui/BasePage.qml:53 ../qml/ui/CommonHeader.qml:13
-#: ../qml/ui/About.qml:10
-msgid "About"
 msgstr ""
 
 #: ../qml/ui/MapHeader.qml:10
 msgid "Coordenates"
 msgstr ""
 
-#: ../qml/ui/DownloadDialog.qml:9 ../qml/ui/DownloadDialog.qml:34
+#: ../qml/ui/DownloadDialog.qml:9 ../qml/ui/DownloadDialog.qml:33
 msgid "Download"
 msgstr ""
 
@@ -59,15 +45,27 @@ msgstr ""
 msgid "Url of Fosdem Pentabarf XML:"
 msgstr ""
 
-#: ../qml/ui/DownloadDialog.qml:17
+#: ../qml/ui/DownloadDialog.qml:16
 msgid "All 'Checked' entries will be deleted!"
 msgstr ""
 
-#: ../qml/ui/DownloadDialog.qml:48
+#: ../qml/ui/DownloadDialog.qml:47
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/ui/Track.qml:10
+#: ../qml/ui/CommonHeader.qml:13 ../qml/ui/About.qml:10
+msgid "About"
+msgstr ""
+
+#: ../qml/ui/CommonHeader.qml:20
+msgid "Import"
+msgstr ""
+
+#: ../qml/ui/CommonHeader.qml:35 ../qml/ui/Checked.qml:9
+msgid "Checked"
+msgstr ""
+
+#: ../qml/ui/Track.qml:8
 msgid "Track"
 msgstr ""
 
@@ -83,41 +81,41 @@ msgstr ""
 msgid "Lecture"
 msgstr ""
 
-#: ../qml/ui/Lecture.qml:86
+#: ../qml/ui/Lecture.qml:90
 msgid "Time"
 msgstr ""
 
-#: ../qml/ui/Lecture.qml:107
+#: ../qml/ui/Lecture.qml:111
 msgid "Room"
 msgstr ""
 
-#: ../qml/ui/Lecture.qml:123
+#: ../qml/ui/Lecture.qml:127
 msgid "Speaker"
 msgstr ""
 
-#: ../qml/ui/About.qml:36
+#: ../qml/ui/About.qml:40
 msgid "Fosdem QML"
 msgstr ""
 
-#: ../qml/ui/About.qml:55
+#: ../qml/ui/About.qml:63
 msgid "Version %1"
 msgstr ""
 
-#: ../qml/ui/About.qml:67
+#: ../qml/ui/About.qml:75
 msgid "Author: Josip Delic"
 msgstr ""
 
-#: ../qml/ui/About.qml:73
+#: ../qml/ui/About.qml:81
 msgid "Redesign: Joan CiberSheep"
 msgstr ""
 
-#: ../qml/ui/About.qml:79
+#: ../qml/ui/About.qml:87
 msgid ""
 "Source code available on <a href='https://github.com/delijati/fosdem-"
 "qml'>GitHub</a>"
 msgstr ""
 
-#: ../qml/ui/About.qml:86
+#: ../qml/ui/About.qml:94
 msgid "Powered by <b>PyOtherSide</b>"
 msgstr ""
 
