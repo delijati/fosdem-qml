@@ -1,4 +1,4 @@
-import QtQuick 2.4
+import QtQuick 2.9
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import io.thp.pyotherside 1.4
@@ -7,7 +7,7 @@ import "ui"
 
 MainView {
     // objectName for functional testing purposes (autopilot-qt5)
-    objectName: "mainView" 
+    objectName: "mainView"
 
     // Note! applicationName needs to match the "name" field of the click manifest
     applicationName: "fosdem-qml.delijati"
@@ -15,12 +15,12 @@ MainView {
     width: units.gu(50)
     height: units.gu(75)
 
-    property bool isLandscape: width > height 
+    property bool isLandscape: width > height
     property real gnalSpacing: units.gu(2)
     property real gnalMargins: units.gu(2)
     property real buttonWidth: units.gu(9)
     property var path: []
-    
+
     property string lightColor: "#ffffff"
     property string accentColor: "#a91991"
 
@@ -31,7 +31,7 @@ MainView {
     }
 
     function download_end(data) {
-        // XXX should we rather send signals?        
+        // XXX should we rather send signals?
         PopupUtils.close(download_dialog.current)
         py.call("backend.get_schedule_file_path",  [true], function(path) {
             pageStack.push(Qt.resolvedUrl("ui/Days.qml"),{"xmlsource": path})
@@ -63,11 +63,10 @@ MainView {
     Python {
         id: py
         Component.onCompleted: {
-            addImportPath(Qt.resolvedUrl('.'));
-            addImportPath(Qt.resolvedUrl('./lib/py'));
+            addImportPath(Qt.resolvedUrl('./'));
 
             importModule('backend', function(){
-                //console.log("python loaded");
+                console.log("-------------- python loaded");
             });
 
             setHandler('on-progress', function(value) {

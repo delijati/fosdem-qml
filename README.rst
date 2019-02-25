@@ -7,7 +7,7 @@ also work with other conferences as we use ``Pentabarf`` XML format.
 Development
 -----------
 
-CLI 
+Run 
 ~~~
 
 Install deps::
@@ -24,10 +24,15 @@ Build::
 
 Test the click app directly with the device::
 
-    $ adb push fosdem-qml.delijati_0.4.0_multi.click /home/phablet/Downloads/
-    $ cd Downloads
-    $ pkcon install-local --allow-untrusted fosdem-qml.delijati_*_multi.click
-    $ sudo reboot # TODO find out how to refresh UI
+    Attach device to computer with usb
+    Activate developer mode on device and authorize device 
+
+    $ clickable
+
+Run with ``nvidia-docker2``::
+
+    $ docker build -t nv-docker2 Dockerfile.nvidia
+    $ nvidia-docker run -ti --rm -v /tmp/.docker.xauth:/tmp/.docker.xauth -e XAUTHORITY=/tmp/.docker.xauth -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -u 1000 -v `pwd`:/app/dev foo bash -c "cd /app/dev && qmlscene src/Main.qml"
 
 QML Widgets
 ~~~~~~~~~~~
@@ -39,18 +44,17 @@ Show avaidable QML widgets::
 Publish app
 ~~~~~~~~~~~
 
-clickable 
+We use ``clickable``::
+
+    $ clickable 
+
+
 
 TODO
 ----
 
-- [ ] I18n
-
 - [ ] Tests!!!
 
 - [ ] Show lectures by current time 
-
-- [x] Geting rid of ``libpython3.4m.so.1.0`` as it should be already on the
-  system!?
 
 - [ ] Conditional Layout 

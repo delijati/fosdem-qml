@@ -1,4 +1,4 @@
-import QtQuick 2.4
+import QtQuick 2.9
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 
@@ -12,8 +12,7 @@ Component {
         property real value: 0.0
         property bool progress_visible: false
 
-        Label {
-            width: parent.width
+        LabelBase {
             text: i18n.tr("All 'Checked' entries will be deleted!")
         }
 
