@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fosdem-qml.delijati\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-07 17:50+0000\n"
+"POT-Creation-Date: 2019-02-25 18:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,110 +17,110 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:95
+#: ../src/Main.qml:95
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:99
+#: ../src/Main.qml:99
 msgid "An error has occured: %1"
 msgstr ""
 
-#: ../qml/Main.qml:105
+#: ../src/Main.qml:105
 msgid "Close"
 msgstr ""
 
-#: ../qml/ui/Map.qml:9 ../qml/ui/CommonHeader.qml:28
-msgid "Map"
-msgstr ""
-
-#: ../qml/ui/MapHeader.qml:10
-msgid "Coordenates"
-msgstr ""
-
-#: ../qml/ui/DownloadDialog.qml:9 ../qml/ui/DownloadDialog.qml:33
-msgid "Download"
-msgstr ""
-
-#: ../qml/ui/DownloadDialog.qml:10
-msgid "Url of Fosdem Pentabarf XML:"
-msgstr ""
-
-#: ../qml/ui/DownloadDialog.qml:16
-msgid "All 'Checked' entries will be deleted!"
-msgstr ""
-
-#: ../qml/ui/DownloadDialog.qml:47
-msgid "Cancel"
-msgstr ""
-
-#: ../qml/ui/CommonHeader.qml:13 ../qml/ui/About.qml:10
-msgid "About"
-msgstr ""
-
-#: ../qml/ui/CommonHeader.qml:20
-msgid "Import"
-msgstr ""
-
-#: ../qml/ui/CommonHeader.qml:35 ../qml/ui/Checked.qml:9
+#: ../src/ui/Checked.qml:9 ../src/ui/CommonHeader.qml:35
 msgid "Checked"
 msgstr ""
 
-#: ../qml/ui/Track.qml:8
-msgid "Track"
-msgstr ""
-
-#: ../qml/ui/Schedule.qml:9
-msgid "Schedule"
-msgstr ""
-
-#: ../qml/ui/Schedule.qml:31 ../qml/ui/Checked.qml:43
+#: ../src/ui/Checked.qml:43 ../src/ui/Schedule.qml:31
 msgid "in"
 msgstr ""
 
-#: ../qml/ui/Lecture.qml:9
-msgid "Lecture"
+#: ../src/ui/Map.qml:9 ../src/ui/CommonHeader.qml:28
+msgid "Map"
 msgstr ""
 
-#: ../qml/ui/Lecture.qml:90
-msgid "Time"
+#: ../src/ui/Track.qml:8
+msgid "Track"
 msgstr ""
 
-#: ../qml/ui/Lecture.qml:111
-msgid "Room"
+#: ../src/ui/MapHeader.qml:10
+msgid "Coordenates"
 msgstr ""
 
-#: ../qml/ui/Lecture.qml:127
-msgid "Speaker"
+#: ../src/ui/DownloadDialog.qml:9 ../src/ui/DownloadDialog.qml:33
+msgid "Download"
 msgstr ""
 
-#: ../qml/ui/About.qml:40
+#: ../src/ui/DownloadDialog.qml:10
+msgid "Url of Fosdem Pentabarf XML:"
+msgstr ""
+
+#: ../src/ui/DownloadDialog.qml:16
+msgid "All 'Checked' entries will be deleted!"
+msgstr ""
+
+#: ../src/ui/DownloadDialog.qml:47
+msgid "Cancel"
+msgstr ""
+
+#: ../src/ui/About.qml:10 ../src/ui/CommonHeader.qml:13
+msgid "About"
+msgstr ""
+
+#: ../src/ui/About.qml:40
 msgid "Fosdem QML"
 msgstr ""
 
-#: ../qml/ui/About.qml:63
+#: ../src/ui/About.qml:63
 msgid "Version %1"
 msgstr ""
 
-#: ../qml/ui/About.qml:75
+#: ../src/ui/About.qml:75
 msgid "Author: Josip Delic"
 msgstr ""
 
-#: ../qml/ui/About.qml:81
+#: ../src/ui/About.qml:81
 msgid "Redesign: Joan CiberSheep"
 msgstr ""
 
-#: ../qml/ui/About.qml:87
+#: ../src/ui/About.qml:87
 msgid ""
 "Source code available on <a href='https://github.com/delijati/fosdem-"
 "qml'>GitHub</a>"
 msgstr ""
 
-#: ../qml/ui/About.qml:94
+#: ../src/ui/About.qml:94
 msgid "Powered by <b>PyOtherSide</b>"
 msgstr ""
 
-#: ../qml/ui/Days.qml:10
+#: ../src/ui/Days.qml:10
 msgid "Days"
+msgstr ""
+
+#: ../src/ui/CommonHeader.qml:20
+msgid "Import"
+msgstr ""
+
+#: ../src/ui/Schedule.qml:9
+msgid "Schedule"
+msgstr ""
+
+#: ../src/ui/Lecture.qml:9
+msgid "Lecture"
+msgstr ""
+
+#: ../src/ui/Lecture.qml:90
+msgid "Time"
+msgstr ""
+
+#: ../src/ui/Lecture.qml:111
+msgid "Room"
+msgstr ""
+
+#: ../src/ui/Lecture.qml:127
+msgid "Speaker"
 msgstr ""
 
 #: fosdem-qml.desktop.in.h:1
