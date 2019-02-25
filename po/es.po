@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-07 15:15+0100\n"
+"PO-Revision-Date: 2018-02-28 21:40+0100\n"
+"Last-Translator: advocatux <advocatux@airpost.net>\n"
+"Language-Team: UBports Spanish Team\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .ubuntu-sdk-deploy/Main.qml:121 Main.qml:120
+msgid "Error"
+msgstr "Error"
+
+#: .ubuntu-sdk-deploy/Main.qml:125 Main.qml:124
+#, qt-format
+msgid "An error has occured: %1"
+msgstr "Un error ha ocurrido: %1"
+
+#: .ubuntu-sdk-deploy/Main.qml:131 Main.qml:130
+msgid "Close"
+msgstr "Cerrar"
+
+#: .ubuntu-sdk-deploy/ui/BasePage.qml:24 ui/BasePage.qml:24
+msgid "Import"
+msgstr "Importar"
+
+#: .ubuntu-sdk-deploy/ui/BasePage.qml:32 ui/BasePage.qml:32
+msgid "Checked"
+msgstr "Marcado"
+
+#: .ubuntu-sdk-deploy/ui/BasePage.qml:46 ui/BasePage.qml:46 ui/Map.qml:6
+msgid "Map"
+msgstr "Mapa"
+
+#: .ubuntu-sdk-deploy/ui/BasePage.qml:53 .ubuntu-sdk-deploy/ui/About.qml:7
+#: ui/BasePage.qml:53 ui/About.qml:7
+msgid "About"
+msgstr "Acerca de"
+
+#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:9
+#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:34 ui/DownloadDialog.qml:9
+#: ui/DownloadDialog.qml:50
+msgid "Download"
+msgstr "Descargar"
+
+#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:10
+msgid "Type url of Fosdem Pentabarf XML:"
+msgstr "Introduzca la url de Fosdem Pentabarf XML:"
+
+#: .ubuntu-sdk-deploy/ui/DownloadDialog.qml:45 ui/DownloadDialog.qml:42
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: .ubuntu-sdk-deploy/ui/About.qml:50 ui/About.qml:50
+#, qt-format
+msgid "Version %1"
+msgstr "Versión %1"
+
+#: .ubuntu-sdk-deploy/ui/About.qml:62 ui/About.qml:62
+msgid "Author: Josip Delic"
+msgstr "Autor: Josip Delic"
+
+#: .ubuntu-sdk-deploy/ui/About.qml:68 ui/About.qml:68
+msgid ""
+"Source code available on <a href='https://github.com/delijati/fosdem-"
+"qml'>GitHub</a>"
+msgstr ""
+"Código fuente disponible en <a href='https://github.com/delijati/fosdem-"
+"qml'>GitHub</a>"
+
+#: .ubuntu-sdk-deploy/ui/About.qml:75 ui/About.qml:75
+msgid "Powered by <b>PyOtherSide</b>"
+msgstr "Propulsado por <b>PyOtherSide</b>"
+
+#: ui/Lecture.qml:8
+msgid "Lecture"
+msgstr "Conferencia"
+
+#: ui/DownloadDialog.qml:10
+msgid "Url of Fosdem Pentabarf XML:"
+msgstr "Url de Fosdem Pentabarf XML:"
+
+#: ui/DownloadDialog.qml:17
+msgid "All 'Checked' entries will be deleted!"
+msgstr "¡Todas las entradas 'marcadas' serán borradas!"
+
+#: ui/Track.qml:9
+msgid "Tracks"
+msgstr "Sesiones"
+
+#: ui/About.qml:30
+msgid "Fosdem QML"
+msgstr "Fosdem QML" 
