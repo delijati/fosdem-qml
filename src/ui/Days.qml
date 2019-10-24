@@ -18,11 +18,9 @@ Page {
     ListView {
         id: daylist
         clip: true
-
         anchors.fill: parent
 
         model: daymodel
-
         delegate: daysDelegate
         header: fosdemIcon
     }
@@ -54,6 +52,7 @@ Page {
 
         ListItem {
             divider.visible: false
+            highlightColor: hlColor
 
             ListItemLayout {
                 id: layout

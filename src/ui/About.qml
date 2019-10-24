@@ -88,14 +88,14 @@ Page {
                 text: i18n.tr("Official %1 website").arg("<a href='https://fosdem.org/'>FOSDEM</a>")
                 onLinkActivated: Qt.openUrlExternally(link)
                 horizontalAlignment: Text.Center
-                width: parent.width
+                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Label {
                 text: i18n.tr("Source code available on <a href='https://github.com/delijati/fosdem-qml'>GitHub</a>")
                 onLinkActivated: Qt.openUrlExternally(link)
                 horizontalAlignment: Text.Center
-                width: parent.width
+                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Label {

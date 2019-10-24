@@ -24,6 +24,7 @@ Page {
 
         ListItem {
             divider.visible: false
+            highlightColor: hlColor
 
             ListItemLayout {
                 id: layout

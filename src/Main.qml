@@ -24,6 +24,7 @@ MainView {
 
     property string lightColor: "#ffffff"
     property string accentColor: "#a91991"
+    property string hlColor: "#66a91991"
 
     property string xmlsource
     signal xmlChanged
