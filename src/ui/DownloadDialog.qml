@@ -34,6 +34,8 @@ Component {
             id: downloadButton
             text: i18n.tr("Download")
             color: UbuntuColors.blue
+            visible: !dialog.progress_visible
+
             onClicked: {
                 //console.log(url.text);
                 url.focus = false;
