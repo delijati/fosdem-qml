@@ -6,8 +6,8 @@ import "ui"
 
 
 MainView {
-    // objectName for functional testing purposes (autopilot-qt5)
     objectName: "mainView"
+    id: mainView
 
     // Note! applicationName needs to match the "name" field of the click manifest
     applicationName: "fosdem-qml.delijati"
@@ -20,9 +20,13 @@ MainView {
     property real gnalMargins: units.gu(2)
     property real buttonWidth: units.gu(9)
     property var path: []
+    property string thisPage
 
     property string lightColor: "#ffffff"
     property string accentColor: "#a91991"
+
+    property string xmlsource
+    signal xmlChanged
 
     DownloadDialog {
         id: download_dialog
@@ -32,9 +36,11 @@ MainView {
 
     function download_end(data) {
         // XXX should we rather send signals?
-        PopupUtils.close(download_dialog.current)
+        PopupUtils.close(download_dialog.current);
+
         py.call("backend.get_schedule_file_path",  [true], function(path) {
-            pageStack.push(Qt.resolvedUrl("ui/Days.qml"),{"xmlsource": path})
+            xmlsource = path;
+            xmlChanged();
         })
     }
 
@@ -46,7 +52,8 @@ MainView {
         }
         else {
             py.call("backend.get_schedule_file_path",  [], function(path) {
-                pageStack.push(Qt.resolvedUrl("ui/Days.qml"),{"xmlsource": path});
+                xmlsource = path;
+                xmlChanged();
             })
         }
     }
@@ -57,7 +64,10 @@ MainView {
 
         Component.onCompleted: {
             py.call("backend.file_exists", [], load_schedule)
+            pageStack.push(Qt.resolvedUrl("ui/Days.qml"))
         }
+
+        onCurrentPageChanged: thisPage = currentPage.objectName || ""
     }
 
     Python {
@@ -65,8 +75,8 @@ MainView {
         Component.onCompleted: {
             addImportPath(Qt.resolvedUrl('./'));
 
-            importModule('backend', function(){
-                console.log("-------------- python loaded");
+            importModule('backend', function() {
+                console.log("DEBUG: python loaded");
             });
 
             setHandler('on-progress', function(value) {
@@ -79,8 +89,8 @@ MainView {
                     //console.log(download_dialog.current.value);
                 }
             });
-
         }
+
         onError: {
             //console.log('Error: ' + traceback);
             var dialog = PopupUtils.open(errorDialog);
@@ -89,22 +99,21 @@ MainView {
     }
 
     Component {
-         id: errorDialog
-         Dialog {
-             id: dialog
-             title: i18n.tr("Error")
+        id: errorDialog
 
-             property string traceback: ""
+        Dialog {
+            id: dialog
+            title: i18n.tr("Error")
+            text: i18n.tr("An error has occured: %1").arg(traceback)
 
-             text: i18n.tr("An error has occured: %1").arg(traceback)
+            property string traceback: ""
+            property string id_
 
-             property string id_
-
-             Button {
-                 id: cancelButton
-                 text: i18n.tr("Close")
-                 onClicked: PopupUtils.close(dialog)
-             }
-         }
+            Button {
+                id: cancelButton
+                text: i18n.tr("Close")
+                onClicked: PopupUtils.close(dialog)
+            }
+        }
     }
 }

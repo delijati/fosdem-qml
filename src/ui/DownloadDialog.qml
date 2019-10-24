@@ -2,7 +2,6 @@ import QtQuick 2.9
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 
-
 Component {
     Dialog {
         id: dialog
@@ -18,8 +17,10 @@ Component {
 
         TextField {
             id: url
-            text: "https://fosdem.org/2019/schedule/xml"
+            text: "https://fosdem.org/2020/schedule/xml"
             width: parent.width
+
+            onAccepted: downloadButton.clicked();
         }
 
         ProgressBar {
@@ -30,8 +31,9 @@ Component {
         }
 
         Button {
+            id: downloadButton
             text: i18n.tr("Download")
-            color: UbuntuColors.orange
+            color: UbuntuColors.blue
             onClicked: {
                 //console.log(url.text);
                 url.focus = false;

@@ -18,7 +18,7 @@ Page {
         model: schedule.model
         delegate: scheduleDelegate
     }
-    
+
     Component {
         id: scheduleDelegate
 
@@ -44,6 +44,18 @@ Page {
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("Lecture.qml"), {"model": schedule.model.get(index)})
             }
+        }
+    }
+
+    Loader {
+        id: emptyStateLoader
+        width: parent.width
+        anchors.centerIn: parent
+        active: schedule.model.count === 0
+        sourceComponent: Label {
+            text: i18n.tr('No schedule info')
+            horizontalAlignment: Text.AlignHCenter
+            textSize: Label.Medium
         }
     }
 }
