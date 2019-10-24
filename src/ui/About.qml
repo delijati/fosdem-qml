@@ -1,10 +1,10 @@
 import QtQuick 2.9
-import Ubuntu.Components 1.3 // XXX 1.1 has back buttons oO
+import Ubuntu.Components 1.3
 import QtQuick.Layouts 1.1
-
 
 Page {
     id: about
+    anchors.fill: parent
 
     header: BaseHeader {
         title: i18n.tr('About')
@@ -22,7 +22,7 @@ Page {
 
         Column {
             id: col
-            
+
             width: parent.width
 
             anchors {
@@ -76,9 +76,17 @@ Page {
                 horizontalAlignment: Text.Center
                 width: parent.width
             }
-             
+
             Label {
                 text: i18n.tr("Redesign: Joan CiberSheep")
+                horizontalAlignment: Text.Center
+                width: parent.width
+            }
+
+            Label {
+                //TRANSLATORS: Here %1 is FOSDEM name (Should read as 'Official FOSDEM website')
+                text: i18n.tr("Official %1 website").arg("<a href='https://fosdem.org/'>FOSDEM</a>")
+                onLinkActivated: Qt.openUrlExternally(link)
                 horizontalAlignment: Text.Center
                 width: parent.width
             }
@@ -88,7 +96,7 @@ Page {
                 onLinkActivated: Qt.openUrlExternally(link)
                 horizontalAlignment: Text.Center
                 width: parent.width
-            }           
+            }
 
             Label {
                 text: i18n.tr("Powered by <b>PyOtherSide</b>")

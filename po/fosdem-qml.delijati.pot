@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fosdem-qml.delijati\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-24 00:18+0000\n"
+"POT-Creation-Date: 2019-10-24 01:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../src/ui/Map.qml:9 ../src/ui/CommonHeader.qml:21
+#: ../src/ui/Map.qml:11 ../src/ui/CommonHeader.qml:21
 msgid "Map"
 msgstr ""
 
@@ -49,11 +49,11 @@ msgstr ""
 msgid "All 'Checked' entries will be deleted!"
 msgstr ""
 
-#: ../src/ui/DownloadDialog.qml:49
+#: ../src/ui/DownloadDialog.qml:51
 msgid "Cancel"
 msgstr ""
 
-#: ../src/ui/CommonHeader.qml:13 ../src/ui/About.qml:10
+#: ../src/ui/CommonHeader.qml:13 ../src/ui/About.qml:11
 msgid "About"
 msgstr ""
 
@@ -77,7 +77,7 @@ msgstr ""
 msgid "Schedule"
 msgstr ""
 
-#: ../src/ui/Schedule.qml:31 ../src/ui/Checked.qml:43
+#: ../src/ui/Schedule.qml:31 ../src/ui/Checked.qml:42
 msgid "in"
 msgstr ""
 
@@ -101,29 +101,38 @@ msgstr ""
 msgid "Speaker"
 msgstr ""
 
-#: ../src/ui/About.qml:40
+#: ../src/ui/Lecture.qml:158
+msgid "No lecture info"
+msgstr ""
+
+#: ../src/ui/About.qml:41
 msgid "Fosdem QML"
 msgstr ""
 
-#: ../src/ui/About.qml:63
+#: ../src/ui/About.qml:64
 msgid "Version %1"
 msgstr ""
 
-#: ../src/ui/About.qml:75
+#: ../src/ui/About.qml:76
 msgid "Author: Josip Delic"
 msgstr ""
 
-#: ../src/ui/About.qml:81
+#: ../src/ui/About.qml:82
 msgid "Redesign: Joan CiberSheep"
 msgstr ""
 
-#: ../src/ui/About.qml:87
+#. TRANSLATORS: Here %1 is FOSDEM name (Should read as 'Official FOSDEM website')
+#: ../src/ui/About.qml:89
+msgid "Official %1 website"
+msgstr ""
+
+#: ../src/ui/About.qml:96
 msgid ""
 "Source code available on <a href='https://github.com/delijati/fosdem-"
 "qml'>GitHub</a>"
 msgstr ""
 
-#: ../src/ui/About.qml:94
+#: ../src/ui/About.qml:103
 msgid "Powered by <b>PyOtherSide</b>"
 msgstr ""
 
@@ -135,8 +144,8 @@ msgstr ""
 msgid "Empty database"
 msgstr ""
 
-#: ../src/ui/Checked.qml:68
-msgid "No favorite yet"
+#: ../src/ui/Checked.qml:67
+msgid "No favorites yet"
 msgstr ""
 
 #: fosdem-qml.desktop.in.h:1
