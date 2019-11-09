@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=fosdem-qml
-Exec=qmlscene qml/Main.qml
+Exec=qmlscene src/Main.qml
 Icon=assets/icon.svg
 Terminal=false
 Type=Application

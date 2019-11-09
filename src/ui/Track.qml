@@ -20,12 +20,13 @@ Page {
         model: track.model
         delegate: trackDelegate
     }
-    
+
     Component {
         id: trackDelegate
 
         ListItem {
             divider.visible: false
+            highlightColor: hlColor
 
             ListItemLayout {
                 id: layout
@@ -51,9 +52,22 @@ Page {
                     for (var i=0; i < events.length; i++) {
                         scheduleModel.append(events[i]);
                     }
+
                     pageStack.push(Qt.resolvedUrl("Schedule.qml"), {"model": scheduleModel})
                 })
             }
+        }
+    }
+
+    Loader {
+        id: emptyStateLoader
+        width: parent.width
+        anchors.centerIn: parent
+        active: track.model.count === 0
+        sourceComponent: Label {
+            text: i18n.tr('No track info')
+            horizontalAlignment: Text.AlignHCenter
+            textSize: Label.Medium
         }
     }
 }

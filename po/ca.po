@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-06 01:34+0100\n"
-"PO-Revision-Date: 2018-12-06 01:34+0100\n"
+"POT-Creation-Date: 2019-10-24 03:23+0200\n"
+"PO-Revision-Date: 2019-10-24 03:26+0200\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -18,101 +18,116 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../qml/Main.qml:96
+#: ../src/Main.qml:106
 msgid "Error"
 msgstr "Error"
 
-#: ../qml/Main.qml:100
+#: ../src/Main.qml:107
 msgid "An error has occured: %1"
 msgstr "Ha ocorregut un error: %1"
 
-#: ../qml/Main.qml:106
+#: ../src/Main.qml:114
 msgid "Close"
 msgstr "Tanca"
 
-#: ../qml/ui/Map.qml:9 ../qml/ui/BasePage.qml:46 ../qml/ui/CommonHeader.qml:28
+#: ../src/ui/Map.qml:11 ../src/ui/CommonHeader.qml:21
 msgid "Map"
 msgstr "Mapa"
 
-#: ../qml/ui/BasePage.qml:24 ../qml/ui/CommonHeader.qml:20
-msgid "Import"
-msgstr "Importa"
-
-#: ../qml/ui/BasePage.qml:32 ../qml/ui/CommonHeader.qml:35
-#: ../qml/ui/Checked.qml:9
-msgid "Checked"
-msgstr "Marcades"
-
-#: ../qml/ui/BasePage.qml:53 ../qml/ui/CommonHeader.qml:13
-#: ../qml/ui/About.qml:10
-msgid "About"
-msgstr "Quant a"
-
-#: ../qml/ui/MapHeader.qml:10
+#: ../src/ui/MapHeader.qml:10
 msgid "Coordenates"
 msgstr "Coordenades"
 
-#: ../qml/ui/DownloadDialog.qml:9 ../qml/ui/DownloadDialog.qml:34
+#: ../src/ui/DownloadDialog.qml:8 ../src/ui/DownloadDialog.qml:35
 msgid "Download"
 msgstr "Descarrega"
 
-#: ../qml/ui/DownloadDialog.qml:10
+#: ../src/ui/DownloadDialog.qml:9
 msgid "Url of Fosdem Pentabarf XML:"
 msgstr "URL al XML Pentabarf  del FOSDEM:"
 
-#: ../qml/ui/DownloadDialog.qml:17
+#: ../src/ui/DownloadDialog.qml:15
 msgid "All 'Checked' entries will be deleted!"
-msgstr "S'eliminaran totes les entrades que hagin estat «marcades»."
+msgstr "S'eliminaran totes les entrades que s'hagin «marcat»."
 
-#: ../qml/ui/DownloadDialog.qml:48
+#: ../src/ui/DownloadDialog.qml:51
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: ../qml/ui/Track.qml:10
+#: ../src/ui/CommonHeader.qml:13 ../src/ui/About.qml:11
+msgid "About"
+msgstr "Quant a"
+
+#: ../src/ui/CommonHeader.qml:29 ../src/ui/Checked.qml:9
+msgid "Checked"
+msgstr "Marcades"
+
+#: ../src/ui/CommonHeader.qml:37
+msgid "Import"
+msgstr "Importa"
+
+#: ../src/ui/Track.qml:8
 msgid "Track"
 msgstr "Vies"
 
-#: ../qml/ui/Schedule.qml:9
+#: ../src/ui/Track.qml:67
+msgid "No track info"
+msgstr "Sense informació"
+
+#: ../src/ui/Schedule.qml:9
 msgid "Schedule"
 msgstr "Horari"
 
-#: ../qml/ui/Schedule.qml:31 ../qml/ui/Checked.qml:43
+#: ../src/ui/Schedule.qml:31 ../src/ui/Checked.qml:42
 msgid "in"
 msgstr "a"
 
-#: ../qml/ui/Lecture.qml:9
+#: ../src/ui/Schedule.qml:56
+msgid "No schedule info"
+msgstr "Sense horaris"
+
+#: ../src/ui/Lecture.qml:9
 msgid "Lecture"
 msgstr "Xerrada"
 
-#: ../qml/ui/Lecture.qml:86
+#: ../src/ui/Lecture.qml:90
 msgid "Time"
 msgstr "Hora"
 
-#: ../qml/ui/Lecture.qml:107
+#: ../src/ui/Lecture.qml:111
 msgid "Room"
 msgstr "Sala"
 
-#: ../qml/ui/Lecture.qml:123
+#: ../src/ui/Lecture.qml:127
 msgid "Speaker"
 msgstr "Ponent"
 
-#: ../qml/ui/About.qml:36
+#: ../src/ui/Lecture.qml:158
+msgid "No lecture info"
+msgstr "Cap xerrada"
+
+#: ../src/ui/About.qml:41
 msgid "Fosdem QML"
 msgstr "Fosdem QML"
 
-#: ../qml/ui/About.qml:55
+#: ../src/ui/About.qml:64
 msgid "Version %1"
 msgstr "Versió %1"
 
-#: ../qml/ui/About.qml:67
+#: ../src/ui/About.qml:76
 msgid "Author: Josip Delic"
 msgstr "Autor: Josip Delic"
 
-#: ../qml/ui/About.qml:73
+#: ../src/ui/About.qml:82
 msgid "Redesign: Joan CiberSheep"
 msgstr "Rediseny: Joan CiberSheep"
 
-#: ../qml/ui/About.qml:79
+#. TRANSLATORS: Here %1 is FOSDEM name (Should read as 'Official FOSDEM website')
+#: ../src/ui/About.qml:89
+msgid "Official %1 website"
+msgstr "Web oficial del %1"
+
+#: ../src/ui/About.qml:96
 msgid ""
 "Source code available on <a href='https://github.com/delijati/fosdem-"
 "qml'>GitHub</a>"
@@ -120,13 +135,21 @@ msgstr ""
 "Codi font disponible a <a href='https://github.com/delijati/fosdem-"
 "qml'>GitHub</a>"
 
-#: ../qml/ui/About.qml:86
+#: ../src/ui/About.qml:103
 msgid "Powered by <b>PyOtherSide</b>"
 msgstr "Amb el suport de <b>PyOtherSide</b>"
 
-#: ../qml/ui/Days.qml:10
+#: ../src/ui/Days.qml:12
 msgid "Days"
 msgstr "Dies"
+
+#: ../src/ui/Days.qml:103
+msgid "Empty database"
+msgstr "Base de dades buida"
+
+#: ../src/ui/Checked.qml:67
+msgid "No favorites yet"
+msgstr "Cap preferit encara"
 
 #: fosdem-qml.desktop.in.h:1
 msgid "fosdem-qml"

@@ -35,7 +35,7 @@ Page {
     Flickable {
         id: lectureFlickable
         contentHeight: contentItem.childrenRect.height
-        
+
         anchors {
             fill: parent
             leftMargin: gnalMargins
@@ -63,7 +63,7 @@ Page {
                     width: parent.width - lecture_checked.width - gnalSpacing
                     verticalAlignment: Text.AlignVCenter
                 }
-                
+
                 Favorite {
                     id: lecture_checked
                     width: units.gu(3)
@@ -118,7 +118,7 @@ Page {
                     width: itemName * 2
                 }
             }
-            
+
             Row {
                 width: parent.width
                 spacing: gnalSpacing
@@ -146,6 +146,18 @@ Page {
             LabelBase {
                 id: lecture_description
             }
+        }
+    }
+
+    Loader {
+        id: emptyStateLoader
+        width: parent.width
+        anchors.centerIn: parent
+        active: lecture.model.count === 0
+        sourceComponent: Label {
+            text: i18n.tr('No lecture info')
+            horizontalAlignment: Text.AlignHCenter
+            textSize: Label.Medium
         }
     }
 }

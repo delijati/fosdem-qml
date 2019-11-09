@@ -15,12 +15,12 @@ Page {
     anchors.fill: parent
 
     Component.onCompleted: {
-        checked.model.clear()
-            py.call("backend.select_all", [], function (events) {
-                for (var i=0; i < events.length; i++) {
-                    checked.model.append(events[i]);
-                }
-            });
+        checked.model.clear();
+        py.call("backend.select_all", [], function (events) {
+            for (var i=0; i < events.length; i++) {
+                checked.model.append(events[i]);
+            }
+        });
     }
 
     ListView {
@@ -29,13 +29,13 @@ Page {
         model: checked.model
         delegate: checkedDelegate
     }
-    
+
     Component {
         id: checkedDelegate
 
         ListItem {
-
             divider.visible: false
+            highlightColor: hlColor
 
             ListItemLayout {
                 id: layout
@@ -56,6 +56,18 @@ Page {
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("Lecture.qml"), {"model": checked.model.get(index)})
             }
+        }
+    }
+
+    Loader {
+        id: emptyStateLoader
+        width: parent.width
+        anchors.centerIn: parent
+        active: checked.model.count === 0
+        sourceComponent: Label {
+            text: i18n.tr('No favorites yet')
+            horizontalAlignment: Text.AlignHCenter
+            textSize: Label.Medium
         }
     }
 }
