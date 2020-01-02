@@ -47,6 +47,8 @@ Publish app
 Set new version::
 
     $ bump2version --verbose [patch|minor|major]
+    $ git push
+    $ git push origin --tags
 
 We use ``clickable``::
 
