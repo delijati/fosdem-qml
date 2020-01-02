@@ -11,7 +11,7 @@ from backend.utils import create_path
 from backend.db import toggle, select_ids, select_all, delete_all # NOQA
 
 
-__version__ = "0.6.4"
+__version__ = "0.6.5"
 
 
 def download_file(url):
