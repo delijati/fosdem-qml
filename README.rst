@@ -44,11 +44,13 @@ Show avaidable QML widgets::
 Publish app
 ~~~~~~~~~~~
 
+Set new version::
+
+    $ bump2version --verbose [patch|minor|major]
+
 We use ``clickable``::
 
     $ clickable 
-
-
 
 TODO
 ----
