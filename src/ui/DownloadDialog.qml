@@ -17,9 +17,11 @@ Component {
 
         TextField {
             id: url
-            text: "https://fosdem.org/2020/schedule/xml"
+            text: {
+                var year = new Date().getFullYear();
+                return "https://fosdem.org/" + year + "/schedule/xml"
+            }
             width: parent.width
-
             onAccepted: downloadButton.clicked();
         }
 

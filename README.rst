@@ -34,6 +34,11 @@ Run with ``nvidia-docker2``::
     $ docker build -t nv-docker2 Dockerfile.nvidia
     $ nvidia-docker run -ti --rm -v /tmp/.docker.xauth:/tmp/.docker.xauth -e XAUTHORITY=/tmp/.docker.xauth -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -u 1000 -v `pwd`:/app/dev foo bash -c "cd /app/dev && qmlscene src/Main.qml"
 
+Run with ``docker``::
+
+    $ docker build . -t ubports:xenial
+    $ docker run -ti --rm -v /tmp/.docker.xauth:/tmp/.docker.xauth -e XAUTHORITY=/tmp/.docker.xauth -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -u 1000 -v `pwd`:/app/dev ubports:xenial bash -c "cd /app/dev && qmlscene src/Main.qml"
+
 QML Widgets
 ~~~~~~~~~~~
 
