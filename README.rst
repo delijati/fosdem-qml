@@ -31,13 +31,15 @@ Test the click app directly with the device::
 
 Run with ``nvidia-docker2``::
 
-    $ docker build -t nv-docker2 Dockerfile.nvidia
-    $ nvidia-docker run -ti --rm -v /tmp/.docker.xauth:/tmp/.docker.xauth -e XAUTHORITY=/tmp/.docker.xauth -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -u 1000 -v `pwd`:/app/dev foo bash -c "cd /app/dev && qmlscene src/Main.qml"
+    $ docker build -f Dockerfile.nvidia . -t nv-docker2
+    $ xhost +local:docker
+    $ nvidia-docker run -ti --rm -v /tmp/.docker.xauth:/tmp/.docker.xauth -e XAUTHORITY=/tmp/.docker.xauth -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/app/dev nv-docker2 bash -c "cd /app/dev && qmlscene src/Main.qml"
 
 Run with ``docker``::
 
     $ docker build . -t ubports:xenial
-    $ docker run -ti --rm -v /tmp/.docker.xauth:/tmp/.docker.xauth -e XAUTHORITY=/tmp/.docker.xauth -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -u 1000 -v `pwd`:/app/dev ubports:xenial bash -c "cd /app/dev && qmlscene src/Main.qml"
+    $ xhost +local:docker
+    $ docker run -ti --rm -v /tmp/.docker.xauth:/tmp/.docker.xauth -e XAUTHORITY=/tmp/.docker.xauth -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/app/dev ubports:xenial bash -c "cd /app/dev && qmlscene src/Main.qml"
 
 QML Widgets
 ~~~~~~~~~~~
