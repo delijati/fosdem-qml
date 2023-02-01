@@ -1,5 +1,5 @@
 import QtQuick 2.9
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 import QtQuick.XmlListModel 2.0
 
 Page {
@@ -80,9 +80,9 @@ Page {
     Component {
         id: fosdemIcon
 
-        UbuntuShape {
+        LomiriShape {
             anchors.horizontalCenter: parent.horizontalCenter
-            aspect: UbuntuShape.Flat
+            aspect: LomiriShape.Flat
             width: units.gu(17)
             height: width
 
