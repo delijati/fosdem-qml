@@ -12,15 +12,15 @@ Run
 
 Install deps::
 
-    $ sudo apt-get install pyotherside
+    $ pip install clickable-ut
 
 Start::
 
-    $ qmlscene Main.qml
+    $ clickable desktop
 
 Build::
 
-    $ click build fosdem-qml/
+    $ clickable build
 
 Test the click app directly with the device::
 
@@ -28,18 +28,6 @@ Test the click app directly with the device::
     Activate developer mode on device and authorize device 
 
     $ clickable
-
-Run with ``nvidia-docker2``::
-
-    $ docker build -f Dockerfile.nvidia . -t nv-docker2
-    $ xhost +local:docker
-    $ nvidia-docker run -ti --rm -v /tmp/.docker.xauth:/tmp/.docker.xauth -e XAUTHORITY=/tmp/.docker.xauth -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/app/dev nv-docker2 bash -c "cd /app/dev && qmlscene src/Main.qml"
-
-Run with ``docker``::
-
-    $ docker build . -t ubports:xenial
-    $ xhost +local:docker
-    $ docker run -ti --rm -v /tmp/.docker.xauth:/tmp/.docker.xauth -e XAUTHORITY=/tmp/.docker.xauth -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/app/dev ubports:xenial bash -c "cd /app/dev && qmlscene src/Main.qml"
 
 QML Widgets
 ~~~~~~~~~~~
@@ -56,6 +44,7 @@ Set new version::
     $ bump2version --verbose [patch|minor|major]
     $ git push
     $ git push origin --tags
+    $ clickable build # && copy *.click pakage to openstore
 
 We use ``clickable``::
 
