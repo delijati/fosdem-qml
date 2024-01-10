@@ -1,6 +1,6 @@
 import QtQuick 2.9
-import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 1.3
+import Lomiri.Components 1.3
+import Lomiri.Components.Popups 1.3
 
 Component {
     Dialog {
@@ -35,7 +35,7 @@ Component {
         Button {
             id: downloadButton
             text: i18n.tr("Download")
-            color: UbuntuColors.blue
+            color: LomiriColors.blue
             visible: !dialog.progress_visible
 
             onClicked: {
