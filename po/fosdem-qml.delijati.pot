@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fosdem-qml.delijati\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-24 01:22+0000\n"
+"POT-Creation-Date: 2023-02-01 08:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,82 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Main.qml:106
+#: ../src/Main.qml:107
 msgid "Error"
 msgstr ""
 
-#: ../src/Main.qml:107
+#: ../src/Main.qml:108
 msgid "An error has occured: %1"
 msgstr ""
 
-#: ../src/Main.qml:114
+#: ../src/Main.qml:115
 msgid "Close"
 msgstr ""
 
-#: ../src/ui/Map.qml:11 ../src/ui/CommonHeader.qml:21
+#: ../src/ui/About.qml:10 ../src/ui/CommonHeader.qml:13
+msgid "About"
+msgstr ""
+
+#: ../src/ui/About.qml:40
+msgid "Fosdem QML"
+msgstr ""
+
+#: ../src/ui/About.qml:63
+msgid "Version %1"
+msgstr ""
+
+#: ../src/ui/About.qml:75
+msgid "Author: Josip Delic"
+msgstr ""
+
+#: ../src/ui/About.qml:81
+msgid "Redesign: Joan CiberSheep"
+msgstr ""
+
+#. TRANSLATORS: Here %1 is FOSDEM name (Should read as 'Official FOSDEM website')
+#: ../src/ui/About.qml:88
+msgid "Official %1 website"
+msgstr ""
+
+#: ../src/ui/About.qml:95
+msgid ""
+"Source code available on <a href='https://github.com/delijati/fosdem-"
+"qml'>GitHub</a>"
+msgstr ""
+
+#: ../src/ui/About.qml:102
+msgid "Powered by <b>PyOtherSide</b>"
+msgstr ""
+
+#: ../src/ui/Checked.qml:9 ../src/ui/CommonHeader.qml:29
+msgid "Checked"
+msgstr ""
+
+#: ../src/ui/Checked.qml:43 ../src/ui/Schedule.qml:32
+msgid "in"
+msgstr ""
+
+#: ../src/ui/Checked.qml:68
+msgid "No favorites yet"
+msgstr ""
+
+#: ../src/ui/CommonHeader.qml:21 ../src/ui/Map.qml:10
 msgid "Map"
 msgstr ""
 
-#: ../src/ui/MapHeader.qml:10
-msgid "Coordenates"
+#: ../src/ui/CommonHeader.qml:37
+msgid "Import"
 msgstr ""
 
-#: ../src/ui/DownloadDialog.qml:8 ../src/ui/DownloadDialog.qml:35
+#: ../src/ui/Days.qml:12
+msgid "Days"
+msgstr ""
+
+#: ../src/ui/Days.qml:102
+msgid "Empty database"
+msgstr ""
+
+#: ../src/ui/DownloadDialog.qml:8 ../src/ui/DownloadDialog.qml:37
 msgid "Download"
 msgstr ""
 
@@ -49,40 +104,8 @@ msgstr ""
 msgid "All 'Checked' entries will be deleted!"
 msgstr ""
 
-#: ../src/ui/DownloadDialog.qml:51
+#: ../src/ui/DownloadDialog.qml:53
 msgid "Cancel"
-msgstr ""
-
-#: ../src/ui/CommonHeader.qml:13 ../src/ui/About.qml:11
-msgid "About"
-msgstr ""
-
-#: ../src/ui/CommonHeader.qml:29 ../src/ui/Checked.qml:9
-msgid "Checked"
-msgstr ""
-
-#: ../src/ui/CommonHeader.qml:37
-msgid "Import"
-msgstr ""
-
-#: ../src/ui/Track.qml:8
-msgid "Track"
-msgstr ""
-
-#: ../src/ui/Track.qml:67
-msgid "No track info"
-msgstr ""
-
-#: ../src/ui/Schedule.qml:9
-msgid "Schedule"
-msgstr ""
-
-#: ../src/ui/Schedule.qml:31 ../src/ui/Checked.qml:42
-msgid "in"
-msgstr ""
-
-#: ../src/ui/Schedule.qml:56
-msgid "No schedule info"
 msgstr ""
 
 #: ../src/ui/Lecture.qml:9
@@ -105,47 +128,24 @@ msgstr ""
 msgid "No lecture info"
 msgstr ""
 
-#: ../src/ui/About.qml:41
-msgid "Fosdem QML"
+#: ../src/ui/MapHeader.qml:10
+msgid "Coordenates"
 msgstr ""
 
-#: ../src/ui/About.qml:64
-msgid "Version %1"
+#: ../src/ui/Schedule.qml:9
+msgid "Schedule"
 msgstr ""
 
-#: ../src/ui/About.qml:76
-msgid "Author: Josip Delic"
+#: ../src/ui/Schedule.qml:57
+msgid "No schedule info"
 msgstr ""
 
-#: ../src/ui/About.qml:82
-msgid "Redesign: Joan CiberSheep"
+#: ../src/ui/Track.qml:8
+msgid "Track"
 msgstr ""
 
-#. TRANSLATORS: Here %1 is FOSDEM name (Should read as 'Official FOSDEM website')
-#: ../src/ui/About.qml:89
-msgid "Official %1 website"
-msgstr ""
-
-#: ../src/ui/About.qml:96
-msgid ""
-"Source code available on <a href='https://github.com/delijati/fosdem-"
-"qml'>GitHub</a>"
-msgstr ""
-
-#: ../src/ui/About.qml:103
-msgid "Powered by <b>PyOtherSide</b>"
-msgstr ""
-
-#: ../src/ui/Days.qml:12
-msgid "Days"
-msgstr ""
-
-#: ../src/ui/Days.qml:103
-msgid "Empty database"
-msgstr ""
-
-#: ../src/ui/Checked.qml:67
-msgid "No favorites yet"
+#: ../src/ui/Track.qml:68
+msgid "No track info"
 msgstr ""
 
 #: fosdem-qml.desktop.in.h:1

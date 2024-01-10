@@ -1,5 +1,5 @@
 import QtQuick 2.9
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 import QtQuick.Layouts 1.1
 
 Page {
@@ -44,8 +44,8 @@ Page {
             RowLayout {
                 width: parent.width
 
-                UbuntuShape {
-                    aspect: UbuntuShape.Flat
+                LomiriShape {
+                    aspect: LomiriShape.Flat
                     Layout.alignment: Qt.AlignHCenter
                     Layout.minimumHeight: units.gu(17)
                     Layout.minimumWidth: units.gu(17)
