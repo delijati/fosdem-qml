@@ -5,9 +5,10 @@ Page {
     id: map
     anchors.fill: parent
 
-    header: MapHeader {
+    header: CommonHeader {
         id: mapHeader
         title: i18n.tr('Map')
+        thisPage: "mapPage"
     }
 
     Image {
