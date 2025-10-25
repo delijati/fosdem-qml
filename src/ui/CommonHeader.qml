@@ -59,15 +59,6 @@ BaseHeader {
                 onTriggered: {
                     download_dialog.current = PopupUtils.open(download_dialog);
                 }
-            },
-            Action {
-                iconSource: "../images/unav-symbolic.svg"
-                text: i18n.tr("Coordenates")
-                visible: thisPage == "mapPage"
-
-                onTriggered: {
-                    Qt.openUrlExternally("https://www.openstreetmap.org/?mlat=50.813236&mlon=4.382333#map=18/50.813236/4.382333")
-                }
             }
         ]
     }
