@@ -10,7 +10,7 @@ from backend.utils import create_path, generate_fake_data
 from backend.db import toggle, select_ids, select_all, delete_all  # NOQA
 
 
-__version__ = "0.7.0"
+__version__ = "0.8.0"
 
 
 def parse_event(event, day, room, checked_ids):

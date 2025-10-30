@@ -40,7 +40,7 @@ msgstr "Import"
 #: ../qml/ui/BasePage.qml:32 ../qml/ui/CommonHeader.qml:35
 #: ../qml/ui/Checked.qml:9
 msgid "Checked"
-msgstr "AusgewÃ¤hlt"
+msgstr "Ausgewählt"
 
 #: ../qml/ui/BasePage.qml:53 ../qml/ui/CommonHeader.qml:13
 #: ../qml/ui/About.qml:10

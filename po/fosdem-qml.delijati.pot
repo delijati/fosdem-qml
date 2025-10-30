@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fosdem-qml.delijati\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-25 21:32+0000\n"
+"POT-Creation-Date: 2025-10-30 23:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,7 +76,7 @@ msgstr ""
 msgid "No favorites yet"
 msgstr ""
 
-#: ../src/ui/CommonHeader.qml:14 ../src/ui/MapHeader.qml:21
+#: ../src/ui/CommonHeader.qml:14
 msgid "Home"
 msgstr ""
 
@@ -138,10 +138,6 @@ msgstr ""
 
 #: ../src/ui/Map.qml:21
 msgid "Click map to open in browser"
-msgstr ""
-
-#: ../src/ui/MapHeader.qml:12
-msgid "Coordenates"
 msgstr ""
 
 #: ../src/ui/Now.qml:25
