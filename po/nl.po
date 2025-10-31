@@ -1,0 +1,156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the fosdem-qml.delijati package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: fosdem-qml.delijati\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-01 08:13+0000\n"
+"PO-Revision-Date: 2025-10-31 22:05+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+#: ../src/Main.qml:107
+msgid "Error"
+msgstr "Foutmelding"
+
+#: ../src/Main.qml:108
+msgid "An error has occured: %1"
+msgstr "Er is een fout opgetreden: %1"
+
+#: ../src/Main.qml:115
+msgid "Close"
+msgstr "Sluiten"
+
+#: ../src/ui/About.qml:10 ../src/ui/CommonHeader.qml:13
+msgid "About"
+msgstr "Over"
+
+#: ../src/ui/About.qml:40
+msgid "Fosdem QML"
+msgstr "Fosdem QML"
+
+#: ../src/ui/About.qml:63
+msgid "Version %1"
+msgstr "Versie %1"
+
+#: ../src/ui/About.qml:75
+msgid "Author: Josip Delic"
+msgstr "Maker: Josip Delic"
+
+#: ../src/ui/About.qml:81
+msgid "Redesign: Joan CiberSheep"
+msgstr "Herontwerp: Joan CiberSheep"
+
+#. TRANSLATORS: Here %1 is FOSDEM name (Should read as 'Official FOSDEM website')
+#: ../src/ui/About.qml:88
+msgid "Official %1 website"
+msgstr "Officiële %1-website"
+
+#: ../src/ui/About.qml:95
+msgid ""
+"Source code available on <a href='https://github.com/delijati/fosdem-"
+"qml'>GitHub</a>"
+msgstr ""
+"De broncode is beschikbaar op <a href='https://github.com/delijati/"
+"fosdem-qml'>GitHub</a>"
+
+#: ../src/ui/About.qml:102
+msgid "Powered by <b>PyOtherSide</b>"
+msgstr "Aangedreven door <b>PyOtherSide</b>"
+
+#: ../src/ui/Checked.qml:9 ../src/ui/CommonHeader.qml:29
+msgid "Checked"
+msgstr "Aangekruist"
+
+#: ../src/ui/Checked.qml:43 ../src/ui/Schedule.qml:32
+msgid "in"
+msgstr "over"
+
+#: ../src/ui/Checked.qml:68
+msgid "No favorites yet"
+msgstr "Je hebt nog geen favorieten"
+
+#: ../src/ui/CommonHeader.qml:21 ../src/ui/Map.qml:10
+msgid "Map"
+msgstr "Kaart"
+
+#: ../src/ui/CommonHeader.qml:37
+msgid "Import"
+msgstr "Importeren"
+
+#: ../src/ui/Days.qml:12
+msgid "Days"
+msgstr "Dagen"
+
+#: ../src/ui/Days.qml:102
+msgid "Empty database"
+msgstr "Databank wissen"
+
+#: ../src/ui/DownloadDialog.qml:8 ../src/ui/DownloadDialog.qml:37
+msgid "Download"
+msgstr "Downloaden"
+
+#: ../src/ui/DownloadDialog.qml:9
+msgid "Url of Fosdem Pentabarf XML:"
+msgstr "Url van Fosdem Pentabarf-xml:"
+
+#: ../src/ui/DownloadDialog.qml:15
+msgid "All 'Checked' entries will be deleted!"
+msgstr "Let op: alle aangekruiste items worden gewist!"
+
+#: ../src/ui/DownloadDialog.qml:53
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ../src/ui/Lecture.qml:9
+msgid "Lecture"
+msgstr "Lezing"
+
+#: ../src/ui/Lecture.qml:90
+msgid "Time"
+msgstr "Tijdstip"
+
+#: ../src/ui/Lecture.qml:111
+msgid "Room"
+msgstr "Kamer"
+
+#: ../src/ui/Lecture.qml:127
+msgid "Speaker"
+msgstr "Spreker"
+
+#: ../src/ui/Lecture.qml:158
+msgid "No lecture info"
+msgstr "Er is geen informatie beschikbaar"
+
+#: ../src/ui/MapHeader.qml:10
+msgid "Coordenates"
+msgstr "Coördinaties"
+
+#: ../src/ui/Schedule.qml:9
+msgid "Schedule"
+msgstr "Programma"
+
+#: ../src/ui/Schedule.qml:57
+msgid "No schedule info"
+msgstr "Er is geen informatie beschikbaar"
+
+#: ../src/ui/Track.qml:8
+msgid "Track"
+msgstr "Route"
+
+#: ../src/ui/Track.qml:68
+msgid "No track info"
+msgstr "Er is geen informatie beschikbaar"
+
+#: fosdem-qml.desktop.in.h:1
+msgid "fosdem-qml"
+msgstr "fosdem-qml"
