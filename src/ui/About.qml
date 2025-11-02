@@ -6,9 +6,10 @@ Page {
     id: about
     anchors.fill: parent
 
-    header: BaseHeader {
+    header: CommonHeader {
         title: i18n.tr('About')
         flickable: flickable
+        thisPage: "aboutPage"
     }
 
     Flickable {

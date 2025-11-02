@@ -3,11 +3,22 @@ import Lomiri.Components 1.3
 import Lomiri.Components.Popups 1.3
 
 BaseHeader {
+    property string thisPage: ""
 
     trailingActionBar {
-        numberOfSlots: 4
+        numberOfSlots: 6
 
         actions: [
+            Action {
+                iconName: "home"
+                text: i18n.tr("Home")
+                visible: thisPage != "daysPage"
+
+                onTriggered: {
+                    pageStack.clear();
+                    pageStack.push(Qt.resolvedUrl("Days.qml"));
+                }
+            },
             Action {
                 iconName: "info"
                 text: i18n.tr("About")
@@ -25,6 +36,14 @@ BaseHeader {
                 }
             },
             Action {
+                iconName: "clock"
+                text: i18n.tr("Now")
+
+                onTriggered: {
+                    pageStack.push(Qt.resolvedUrl("Now.qml"));
+                }
+            },
+            Action {
                 iconName: "favorite-selected"
                 text: i18n.tr("Checked")
 
@@ -38,7 +57,6 @@ BaseHeader {
                 visible: thisPage == "daysPage"
 
                 onTriggered: {
-                    // TODO refactor dialog; concentrate code somewhere
                     download_dialog.current = PopupUtils.open(download_dialog);
                 }
             }
