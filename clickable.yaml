@@ -2,3 +2,12 @@ clickable_minimum_required: 7
 builder: pure-qml-cmake
 framework: ubuntu-sdk-20.04
 kill: qmlscene
+
+# # set fake date
+# image_setup:
+#   env:
+#     FAKETIME: "2025-02-01 09:23:08.464291"
+#   run:
+#     - apt-get update && apt-get install -y libfaketime
+#     - echo "/usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1" > /etc/ld.so.preload
+#     - echo `date`
