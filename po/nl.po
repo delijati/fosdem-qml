@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fosdem-qml.delijati\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-01 08:13+0000\n"
-"PO-Revision-Date: 2025-10-31 22:05+0100\n"
+"POT-Creation-Date: 2025-10-30 23:06+0000\n"
+"PO-Revision-Date: 2025-11-03 10:32+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -30,48 +30,48 @@ msgstr "Er is een fout opgetreden: %1"
 msgid "Close"
 msgstr "Sluiten"
 
-#: ../src/ui/About.qml:10 ../src/ui/CommonHeader.qml:13
+#: ../src/ui/About.qml:10 ../src/ui/CommonHeader.qml:24
 msgid "About"
 msgstr "Over"
 
-#: ../src/ui/About.qml:40
+#: ../src/ui/About.qml:41
 msgid "Fosdem QML"
 msgstr "Fosdem QML"
 
-#: ../src/ui/About.qml:63
+#: ../src/ui/About.qml:64
 msgid "Version %1"
 msgstr "Versie %1"
 
-#: ../src/ui/About.qml:75
+#: ../src/ui/About.qml:76
 msgid "Author: Josip Delic"
 msgstr "Maker: Josip Delic"
 
-#: ../src/ui/About.qml:81
+#: ../src/ui/About.qml:82
 msgid "Redesign: Joan CiberSheep"
 msgstr "Herontwerp: Joan CiberSheep"
 
 #. TRANSLATORS: Here %1 is FOSDEM name (Should read as 'Official FOSDEM website')
-#: ../src/ui/About.qml:88
+#: ../src/ui/About.qml:89
 msgid "Official %1 website"
 msgstr "Officiële %1-website"
 
-#: ../src/ui/About.qml:95
+#: ../src/ui/About.qml:96
 msgid ""
 "Source code available on <a href='https://github.com/delijati/fosdem-"
 "qml'>GitHub</a>"
 msgstr ""
-"De broncode is beschikbaar op <a href='https://github.com/delijati/"
-"fosdem-qml'>GitHub</a>"
+"De broncode is beschikbaar op <a href='https://github.com/delijati/fosdem-"
+"qml'>GitHub</a>"
 
-#: ../src/ui/About.qml:102
+#: ../src/ui/About.qml:103
 msgid "Powered by <b>PyOtherSide</b>"
 msgstr "Aangedreven door <b>PyOtherSide</b>"
 
-#: ../src/ui/Checked.qml:9 ../src/ui/CommonHeader.qml:29
+#: ../src/ui/Checked.qml:9 ../src/ui/CommonHeader.qml:48
 msgid "Checked"
 msgstr "Aangekruist"
 
-#: ../src/ui/Checked.qml:43 ../src/ui/Schedule.qml:32
+#: ../src/ui/Checked.qml:43 ../src/ui/Now.qml:74 ../src/ui/Schedule.qml:32
 msgid "in"
 msgstr "over"
 
@@ -79,11 +79,19 @@ msgstr "over"
 msgid "No favorites yet"
 msgstr "Je hebt nog geen favorieten"
 
-#: ../src/ui/CommonHeader.qml:21 ../src/ui/Map.qml:10
+#: ../src/ui/CommonHeader.qml:14
+msgid "Home"
+msgstr "Overzicht"
+
+#: ../src/ui/CommonHeader.qml:32 ../src/ui/Map.qml:10
 msgid "Map"
 msgstr "Kaart"
 
-#: ../src/ui/CommonHeader.qml:37
+#: ../src/ui/CommonHeader.qml:40 ../src/ui/Now.qml:9
+msgid "Now"
+msgstr "Nu"
+
+#: ../src/ui/CommonHeader.qml:56
 msgid "Import"
 msgstr "Importeren"
 
@@ -131,9 +139,17 @@ msgstr "Spreker"
 msgid "No lecture info"
 msgstr "Er is geen informatie beschikbaar"
 
-#: ../src/ui/MapHeader.qml:10
-msgid "Coordenates"
-msgstr "Coördinaties"
+#: ../src/ui/Map.qml:21
+msgid "Click map to open in browser"
+msgstr "Druk om in de browser te bekijken"
+
+#: ../src/ui/Now.qml:25
+msgid "Show only marked:"
+msgstr "Alleen aangekruiste items tonen:"
+
+#: ../src/ui/Now.qml:99
+msgid "No lectures happening now"
+msgstr "Er zijn momenteel geen lezingen"
 
 #: ../src/ui/Schedule.qml:9
 msgid "Schedule"
@@ -154,3 +170,6 @@ msgstr "Er is geen informatie beschikbaar"
 #: fosdem-qml.desktop.in.h:1
 msgid "fosdem-qml"
 msgstr "fosdem-qml"
+
+#~ msgid "Coordenates"
+#~ msgstr "Coördinaties"
