@@ -10,6 +10,7 @@ Page {
         id: dayHeader
         title: i18n.tr('Days')
         flickable: daylist
+        thisPage: "daysPage"
     }
 
     property var trackModel: ListModel {}
