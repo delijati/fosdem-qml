@@ -3,7 +3,6 @@ import Lomiri.Components 1.3
 import QtQuick.XmlListModel 2.0
 
 Page {
-    objectName: "daysPage"
     id: days
     anchors.fill: parent
 
@@ -11,6 +10,7 @@ Page {
         id: dayHeader
         title: i18n.tr('Days')
         flickable: daylist
+        thisPage: "daysPage"
     }
 
     property var trackModel: ListModel {}
