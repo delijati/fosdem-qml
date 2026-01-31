@@ -6,7 +6,6 @@ import "ui"
 
 
 MainView {
-    objectName: "mainView"
     id: mainView
 
     // Note! applicationName needs to match the "name" field of the click manifest

@@ -3,7 +3,6 @@ import Lomiri.Components 1.3
 import QtQuick.XmlListModel 2.0
 
 Page {
-    objectName: "daysPage"
     id: days
     anchors.fill: parent
 
