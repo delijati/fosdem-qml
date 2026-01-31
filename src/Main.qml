@@ -19,7 +19,6 @@ MainView {
     property real gnalMargins: units.gu(2)
     property real buttonWidth: units.gu(9)
     property var path: []
-    property string thisPage
 
     property string lightColor: "#ffffff"
     property string accentColor: "#a91991"
@@ -66,8 +65,6 @@ MainView {
             py.call("backend.file_exists", [], load_schedule)
             pageStack.push(Qt.resolvedUrl("ui/Days.qml"))
         }
-
-        onCurrentPageChanged: thisPage = currentPage.objectName || ""
     }
 
     Python {
