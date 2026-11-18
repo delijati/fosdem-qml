@@ -1,6 +1,9 @@
 Fosdem Schedule
 ===============
 
+.. image:: https://github.com/delijati/fosdem-qml/actions/workflows/ci.yml/badge.svg
+   :target: https://github.com/delijati/fosdem-qml/actions/workflows/ci.yml
+
 Fosdem schedule app for ubuntu touch written in python and qml. This should
 also work with other conferences as we use ``Pentabarf`` XML format.
 
@@ -61,6 +64,14 @@ errors. Screenshots of each page land in the given directory::
 
     $ make smoke
     $ tools/qml-smoke.sh /tmp/smoke
+
+CI
+~~
+
+GitHub Actions (``.github/workflows/ci.yml``) runs on every push and pull
+request: ``make test``, the QML smoke check (screenshots are uploaded as the
+``smoke-screenshots`` artifact) and ``clickable build`` in the 24.04 image (the
+click package is uploaded as the ``click`` artifact).
 
 QML Widgets
 ~~~~~~~~~~~

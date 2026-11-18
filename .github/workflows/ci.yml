@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: Python tests
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: make test
+
+  smoke:
+    name: QML smoke check (Ubuntu Touch 24.04 image)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: tools/qml-smoke.sh "$RUNNER_TEMP/smoke"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: smoke-screenshots
+          path: ${{ runner.temp }}/smoke
+
+  build:
+    name: Build click package
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # clickable runs inside its own CI image, so no container setup is needed
+      - run: >
+          docker run --rm -v "$PWD:/src" -w /src
+          docker.io/clickable/ci-ut24.04-1.x-amd64:8
+          sh -c 'git config --global --add safe.directory /src && clickable build'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: click
+          path: build/all/app/*.click

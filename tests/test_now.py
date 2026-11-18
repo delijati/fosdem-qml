@@ -64,3 +64,10 @@ def test_show_only_marked(schedule):
     event = backend.find_events_by_day_track("2025-02-01", "Python")[0]
     backend.db.insert(types.SimpleNamespace(**event))
     assert running_ids(now, show_only_marked=True) == [200]
+
+
+def test_fake_schedule_running_talks(data_dir):
+    for hour, minute in ((12, 0), (0, 5)):
+        now = datetime.datetime(2025, 2, 2, hour, minute).astimezone()
+        backend.utils.generate_fake_data(now=now)
+        assert running_ids(now) == [1002, 1003], now

@@ -12,9 +12,15 @@ def create_path(filename):
         os.makedirs(dirname)
 
 
-def generate_fake_data():
-    now = datetime.datetime.now()
+def generate_fake_data(now=None):
+    if now is None:
+        now = datetime.datetime.now().astimezone()
     today = now.strftime("%Y-%m-%d")
+
+    def start(t):
+        # <date> carries day and offset, so talks before midnight stay on
+        # the previous day
+        return f"<date>{t.isoformat(timespec='seconds')}</date>\n        <start>{t:%H:%M}</start>"
 
     fake_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <schedule>
@@ -26,7 +32,7 @@ def generate_fake_data():
   <day date="{today}" index="1">
     <room name="Main Track">
       <event id="1001">
-        <start>{(now - datetime.timedelta(hours=1)).strftime("%H:%M")}</start>
+        {start(now - datetime.timedelta(hours=1))}
         <duration>00:30</duration>
         <title>Opening Keynote - The Future of Open Source</title>
         <subtitle>A comprehensive overview of where we're headed</subtitle>
@@ -39,7 +45,7 @@ def generate_fake_data():
         </persons>
       </event>
       <event id="1002">
-        <start>{(now - datetime.timedelta(minutes=15)).strftime("%H:%M")}</start>
+        {start(now - datetime.timedelta(minutes=15))}
         <duration>00:45</duration>
         <title>Building Better Applications with QML</title>
         <subtitle>Modern UI development patterns</subtitle>
@@ -51,7 +57,7 @@ def generate_fake_data():
         </persons>
       </event>
       <event id="1003">
-        <start>{now.strftime("%H:%M")}</start>
+        {start(now)}
         <duration>01:00</duration>
         <title>Python Performance Optimization</title>
         <subtitle>Making your Python code fly</subtitle>
@@ -64,7 +70,7 @@ def generate_fake_data():
         </persons>
       </event>
       <event id="1004">
-        <start>{(now + datetime.timedelta(minutes=30)).strftime("%H:%M")}</start>
+        {start(now + datetime.timedelta(minutes=30))}
         <duration>00:50</duration>
         <title>Container Orchestration Best Practices</title>
         <subtitle>Beyond the basics</subtitle>
@@ -78,7 +84,7 @@ def generate_fake_data():
     </room>
     <room name="Developer Room A">
       <event id="2001">
-        <start>{(now - datetime.timedelta(minutes=45)).strftime("%H:%M")}</start>
+        {start(now - datetime.timedelta(minutes=45))}
         <duration>00:30</duration>
         <title>Git Workflows for Teams</title>
         <subtitle>Collaboration made easy</subtitle>
@@ -90,7 +96,7 @@ def generate_fake_data():
         </persons>
       </event>
       <event id="2002">
-        <start>{(now + datetime.timedelta(minutes=15)).strftime("%H:%M")}</start>
+        {start(now + datetime.timedelta(minutes=15))}
         <duration>00:45</duration>
         <title>Database Design Patterns</title>
         <subtitle>Schema design for scalability</subtitle>
@@ -103,7 +109,7 @@ def generate_fake_data():
         </persons>
       </event>
       <event id="2003">
-        <start>{(now + datetime.timedelta(hours=1, minutes=30)).strftime("%H:%M")}</start>
+        {start(now + datetime.timedelta(hours=1, minutes=30))}
         <duration>01:00</duration>
         <title>Testing Strategies for Reliable Software</title>
         <subtitle>From unit to integration</subtitle>
@@ -117,7 +123,7 @@ def generate_fake_data():
     </room>
     <room name="Developer Room B">
       <event id="3001">
-        <start>{(now - datetime.timedelta(hours=2)).strftime("%H:%M")}</start>
+        {start(now - datetime.timedelta(hours=2))}
         <duration>00:25</duration>
         <title>Lightning Talk: WebAssembly Everywhere</title>
         <subtitle></subtitle>
@@ -129,7 +135,7 @@ def generate_fake_data():
         </persons>
       </event>
       <event id="3002">
-        <start>{(now + datetime.timedelta(minutes=45)).strftime("%H:%M")}</start>
+        {start(now + datetime.timedelta(minutes=45))}
         <duration>00:50</duration>
         <title>Secure Coding Practices</title>
         <subtitle>Defense in depth</subtitle>
