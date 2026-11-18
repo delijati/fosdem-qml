@@ -24,6 +24,7 @@ Page {
                 Label {
                     text: i18n.tr("Show only marked:")
                     fontSize: "small"
+                    color: lightColor
                 }
                 
                 Switch {
@@ -64,25 +65,8 @@ Page {
     Component {
         id: nowDelegate
 
-        ListItem {
-            divider.visible: false
-            highlightColor: hlColor
-
-            ListItemLayout {
-                id: layout
-                title.text: model.title
-                subtitle.text: "[" + day +"] " + start + " - " + end + " " + i18n.tr('in') + " " + room
-
-                Favorite {
-                    id: saved_lecture
-                    width: units.gu(2)
-                    height: width
-                    SlotsLayout.position: SlotsLayout.Leading
-                    checked: lecture_checked
-                }
-
-                ProgressionSlot {}
-            }
+        LectureListItem {
+            lecture: model
 
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("Lecture.qml"), {"model": nowPage.model.get(index)})

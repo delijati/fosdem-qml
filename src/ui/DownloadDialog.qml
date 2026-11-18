@@ -10,10 +10,7 @@ Component {
 
         property real value: 0.0
         property bool progress_visible: false
-
-        LabelBase {
-            text: i18n.tr("All 'Checked' entries will be deleted!")
-        }
+        property string error: ""
 
         TextField {
             id: url
@@ -23,6 +20,12 @@ Component {
             }
             width: parent.width
             onAccepted: downloadButton.clicked();
+        }
+
+        LabelBase {
+            visible: dialog.error !== ""
+            text: i18n.tr("Download failed: %1").arg(dialog.error)
+            color: theme.palette.normal.negative
         }
 
         ProgressBar {
@@ -39,9 +42,10 @@ Component {
             visible: !dialog.progress_visible
 
             onClicked: {
-                //console.log(url.text);
                 url.focus = false;
                 Qt.inputMethod.hide();
+                dialog.error = "";
+                dialog.value = 0;
                 py.call("backend.download_file", [url.text], download_end);
             }
         }
@@ -53,7 +57,6 @@ Component {
             text: i18n.tr("Cancel")
             onClicked: {
                 PopupUtils.close(download_dialog.current);
-                //console.log("Cancel");
             }
         }
     }

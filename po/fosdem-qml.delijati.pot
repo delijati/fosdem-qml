@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fosdem-qml.delijati\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-30 23:06+0000\n"
+"POT-Creation-Date: 2026-11-17 23:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Main.qml:107
+#: ../src/Main.qml:111
 msgid "Error"
 msgstr ""
 
-#: ../src/Main.qml:108
-msgid "An error has occured: %1"
+#: ../src/Main.qml:112
+msgid "Something went wrong: %1"
 msgstr ""
 
-#: ../src/Main.qml:115
+#: ../src/Main.qml:132
+msgid "Hide details"
+msgstr ""
+
+#: ../src/Main.qml:132
+msgid "Details"
+msgstr ""
+
+#: ../src/Main.qml:138
 msgid "Close"
 msgstr ""
 
-#: ../src/ui/About.qml:10 ../src/ui/CommonHeader.qml:24
+#: ../src/ui/About.qml:10 ../src/ui/CommonHeader.qml:28
 msgid "About"
 msgstr ""
 
@@ -64,43 +72,39 @@ msgstr ""
 msgid "Powered by <b>PyOtherSide</b>"
 msgstr ""
 
-#: ../src/ui/Checked.qml:9 ../src/ui/CommonHeader.qml:48
+#: ../src/ui/Checked.qml:9 ../src/ui/CommonHeader.qml:52
 msgid "Checked"
 msgstr ""
 
-#: ../src/ui/Checked.qml:43 ../src/ui/Now.qml:74 ../src/ui/Schedule.qml:32
-msgid "in"
-msgstr ""
-
-#: ../src/ui/Checked.qml:68
+#: ../src/ui/Checked.qml:60
 msgid "No favorites yet"
 msgstr ""
 
-#: ../src/ui/CommonHeader.qml:14
+#: ../src/ui/CommonHeader.qml:18
 msgid "Home"
 msgstr ""
 
-#: ../src/ui/CommonHeader.qml:32 ../src/ui/Map.qml:10
+#: ../src/ui/CommonHeader.qml:36 ../src/ui/Map.qml:10
 msgid "Map"
 msgstr ""
 
-#: ../src/ui/CommonHeader.qml:40 ../src/ui/Now.qml:9
+#: ../src/ui/CommonHeader.qml:44 ../src/ui/Now.qml:9
 msgid "Now"
 msgstr ""
 
-#: ../src/ui/CommonHeader.qml:56
+#: ../src/ui/CommonHeader.qml:60
 msgid "Import"
 msgstr ""
 
-#: ../src/ui/Days.qml:12
+#: ../src/ui/Days.qml:11
 msgid "Days"
 msgstr ""
 
-#: ../src/ui/Days.qml:102
+#: ../src/ui/Days.qml:121
 msgid "Empty database"
 msgstr ""
 
-#: ../src/ui/DownloadDialog.qml:8 ../src/ui/DownloadDialog.qml:37
+#: ../src/ui/DownloadDialog.qml:8 ../src/ui/DownloadDialog.qml:40
 msgid "Download"
 msgstr ""
 
@@ -108,11 +112,11 @@ msgstr ""
 msgid "Url of Fosdem Pentabarf XML:"
 msgstr ""
 
-#: ../src/ui/DownloadDialog.qml:15
-msgid "All 'Checked' entries will be deleted!"
+#: ../src/ui/DownloadDialog.qml:27
+msgid "Download failed: %1"
 msgstr ""
 
-#: ../src/ui/DownloadDialog.qml:53
+#: ../src/ui/DownloadDialog.qml:57
 msgid "Cancel"
 msgstr ""
 
@@ -128,12 +132,16 @@ msgstr ""
 msgid "Room"
 msgstr ""
 
-#: ../src/ui/Lecture.qml:127
+#: ../src/ui/Lecture.qml:128
 msgid "Speaker"
 msgstr ""
 
-#: ../src/ui/Lecture.qml:158
-msgid "No lecture info"
+#: ../src/ui/LectureListItem.qml:13
+msgid "Removed from schedule"
+msgstr ""
+
+#: ../src/ui/LectureListItem.qml:15
+msgid "in"
 msgstr ""
 
 #: ../src/ui/Map.qml:21
@@ -144,7 +152,7 @@ msgstr ""
 msgid "Show only marked:"
 msgstr ""
 
-#: ../src/ui/Now.qml:99
+#: ../src/ui/Now.qml:83
 msgid "No lectures happening now"
 msgstr ""
 
@@ -152,7 +160,7 @@ msgstr ""
 msgid "Schedule"
 msgstr ""
 
-#: ../src/ui/Schedule.qml:57
+#: ../src/ui/Schedule.qml:62
 msgid "No schedule info"
 msgstr ""
 
@@ -160,7 +168,11 @@ msgstr ""
 msgid "Track"
 msgstr ""
 
-#: ../src/ui/Track.qml:68
+#: ../src/ui/Track.qml:33
+msgid "Other"
+msgstr ""
+
+#: ../src/ui/Track.qml:58
 msgid "No track info"
 msgstr ""
 

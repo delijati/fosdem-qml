@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schedule>
+  <version>latest</version>
+  <conference>
+    <acronym>fosdem-2025</acronym>
+    <title>FOSDEM 2025</title>
+    <subtitle></subtitle>
+    <venue>ULB (Universite Libre de Bruxelles)</venue>
+    <city>Brussels</city>
+    <start>2025-02-01</start>
+    <end>2025-02-02</end>
+    <days>2</days>
+    <day_change>09:00:00</day_change>
+    <timeslot_duration>00:05:00</timeslot_duration>
+    <base_url>https://fosdem.org/2025/schedule/</base_url>
+    <time_zone_name>Europe/Brussels</time_zone_name>
+  </conference>
+  <day index="1" date="2025-02-01" start="2025-02-01T09:00:00+01:00" end="2025-02-02T03:00:00+01:00">
+    <room name="Janson" slug="janson">
+      <event guid="g-100" id="100">
+        <date>2025-02-01T09:30:00+01:00</date>
+        <start>09:30</start>
+        <duration>00:20</duration>
+        <room>Janson</room>
+        <slug>fosdem-2025-100-welcome</slug>
+        <url>https://fosdem.org/2025/schedule/event/fosdem-2025-100-welcome/</url>
+        <title>Welcome to FOSDEM 2025</title>
+        <subtitle></subtitle>
+        <track slug="keynote">Keynotes</track>
+        <type>keynote</type>
+        <language>en</language>
+        <abstract>&lt;p&gt;FOSDEM welcome and opening talk.&lt;/p&gt;</abstract>
+        <description></description>
+        <feedback_url>https://pretalx.fosdem.org/fosdem-2025/talk/AAA/feedback/</feedback_url>
+        <persons>
+          <person id="2">FOSDEM Staff</person>
+          <person id="3">Jane Speaker</person>
+        </persons>
+        <attachments>
+          <attachment type="slides" href="https://fosdem.org/2025/events/attachments/100/slides.pdf">Talk slides</attachment>
+        </attachments>
+        <links>
+          <link href="https://video.fosdem.org/2025/janson/fosdem-2025-100-welcome.mp4">Video recording (MP4)</link>
+          <link href="https://chat.fosdem.org/#/room/#2025-keynote:fosdem.org">Chat room(web)</link>
+          <link href="https://pretalx.fosdem.org/fosdem-2025/talk/AAA/feedback/">Submit Feedback</link>
+        </links>
+      </event>
+      <event guid="g-101" id="101">
+        <date>2025-02-01T10:00:00+01:00</date>
+        <start>10:00</start>
+        <duration>00:50</duration>
+        <room>Janson</room>
+        <slug>fosdem-2025-101-creative-coding</slug>
+        <url>https://fosdem.org/2025/schedule/event/fosdem-2025-101-creative-coding/</url>
+        <title>Program to Learn: The Power of Creative Coding</title>
+        <subtitle>Sub 101</subtitle>
+        <track slug="keynote">Keynotes</track>
+        <type>keynote</type>
+        <language>en</language>
+        <abstract>&lt;p&gt;Creative coding abstract.&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;Longer description.&lt;/p&gt;</description>
+        <persons>
+          <person id="4">Bob Coder</person>
+        </persons>
+        <attachments></attachments>
+        <links></links>
+      </event>
+    </room>
+    <room name="UB2.252A (Lameere)" slug="ub2252a">
+      <event guid="g-200" id="200">
+        <date>2025-02-01T10:00:00+01:00</date>
+        <start>10:00</start>
+        <duration>00:30</duration>
+        <room>UB2.252A (Lameere)</room>
+        <slug>fosdem-2025-200-python-typing</slug>
+        <url>https://fosdem.org/2025/schedule/event/fosdem-2025-200-python-typing/</url>
+        <title>Python typing in practice</title>
+        <subtitle></subtitle>
+        <track slug="python">Python</track>
+        <type>devroom</type>
+        <language>en</language>
+        <abstract>&lt;p&gt;Types for everyone.&lt;/p&gt;</abstract>
+        <description></description>
+        <persons>
+          <person id="5">Alice Pythonista</person>
+        </persons>
+        <attachments></attachments>
+        <links></links>
+      </event>
+      <event guid="g-201" id="201">
+        <date>2025-02-01T10:30:00+01:00</date>
+        <start>10:30</start>
+        <duration>00:30</duration>
+        <room>UB2.252A (Lameere)</room>
+        <slug>fosdem-2025-201-asyncio</slug>
+        <url>https://fosdem.org/2025/schedule/event/fosdem-2025-201-asyncio/</url>
+        <title>asyncio deep dive</title>
+        <subtitle></subtitle>
+        <track slug="python">Python</track>
+        <type>devroom</type>
+        <language>en</language>
+        <abstract>&lt;p&gt;Event loops.&lt;/p&gt;</abstract>
+        <description></description>
+        <persons>
+          <person id="5">Alice Pythonista</person>
+          <person id="6">Carl Async</person>
+        </persons>
+        <attachments></attachments>
+        <links></links>
+      </event>
+    </room>
+  </day>
+  <day index="2" date="2025-02-02" start="2025-02-02T09:00:00+01:00" end="2025-02-03T03:00:00+01:00">
+    <room name="Janson" slug="janson">
+      <event guid="g-400" id="400">
+        <date>2025-02-02T17:00:00+01:00</date>
+        <start>17:00</start>
+        <duration>00:30</duration>
+        <room>Janson</room>
+        <slug>fosdem-2025-400-closing</slug>
+        <url>https://fosdem.org/2025/schedule/event/fosdem-2025-400-closing/</url>
+        <title>Closing FOSDEM 2025</title>
+        <subtitle></subtitle>
+        <track slug="keynote">Keynotes</track>
+        <type>keynote</type>
+        <language>en</language>
+        <abstract>&lt;p&gt;Goodbye.&lt;/p&gt;</abstract>
+        <description></description>
+        <persons>
+          <person id="2">FOSDEM Staff</person>
+        </persons>
+        <attachments></attachments>
+        <links></links>
+      </event>
+    </room>
+  </day>
+</schedule>

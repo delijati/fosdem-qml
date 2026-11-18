@@ -30,25 +30,15 @@ Page {
 
             ListItemLayout {
                 id: layout
-                title.text: model.title
+                title.text: model.title || i18n.tr("Other")
 
                 ProgressionSlot {}
             }
 
             onClicked: {
-                // XXX reset path and model
-                //console.log("Path: " + path)
                 path = [path[0], track.model.get(index).title]
                 scheduleModel.clear()
                 py.call("backend.find_events_by_day_track", path, function(events) {
-                    //console.log("Title: " + events[0].title)
-                    //console.log("Start: " + events[0].start)
-                    //console.log("End: " + events[0].end)
-                    //console.log("Duration: " + events[0].duration)
-                    //console.log("Room: " + events[0].room)
-                    //console.log("Persons: " + events[0].persons)
-                    //console.log("Checked: " + events[0].lecture_checked)
-
                     for (var i=0; i < events.length; i++) {
                         scheduleModel.append(events[i]);
                     }

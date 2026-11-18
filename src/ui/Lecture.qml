@@ -115,7 +115,8 @@ Page {
 
                 LabelBase {
                     id: lecture_room
-                    width: itemName * 2
+                    width: parent.width - itemName - gnalSpacing
+                    horizontalAlignment: Text.AlignLeft
                 }
             }
 
@@ -131,7 +132,8 @@ Page {
 
                 LabelBase {
                     id: lecture_persons
-                    width: itemName * 2
+                    width: parent.width - itemName - gnalSpacing
+                    horizontalAlignment: Text.AlignLeft
                 }
             }
 
@@ -148,18 +150,4 @@ Page {
             }
         }
     }
-
-    Loader {
-        id: emptyStateLoader
-        width: parent.width
-        anchors.centerIn: parent
-        active: lecture.model.count === 0
-        sourceComponent: Label {
-            text: i18n.tr('No lecture info')
-            horizontalAlignment: Text.AlignHCenter
-            textSize: Label.Medium
-        }
-    }
 }
-
-

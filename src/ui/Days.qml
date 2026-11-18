@@ -1,6 +1,5 @@
 import QtQuick 2.9
 import Lomiri.Components 1.3
-import QtQuick.XmlListModel 2.0
 
 Page {
     objectName: "daysPage"
@@ -10,41 +9,63 @@ Page {
     header: CommonHeader {
         id: dayHeader
         title: i18n.tr('Days')
-        flickable: daylist
+        flickable: viewLoader.item
     }
 
     property var trackModel: ListModel {}
 
-    ListView {
-        id: daylist
-        clip: true
+    // Conditional layout: use GridView for landscape/tablet, ListView for portrait
+    Loader {
+        id: viewLoader
         anchors.fill: parent
-
-        model: daymodel
-        delegate: daysDelegate
-        header: fosdemIcon
+        sourceComponent: mainView.isLandscape || mainView.columns > 1 ? gridViewComponent : listViewComponent
     }
 
-    XmlListModel {
-        id: daymodel
-        source: xmlsource
+    Component {
+        id: listViewComponent
+        
+        ListView {
+            id: daylist
+            clip: true
 
-        query: "/schedule/day"
-
-        XmlRole {
-            name: "date"
-            query: "@date/string()"
-            //query: '*[name()="pentabarf:title"]/string()'
+            model: dayModel
+            delegate: daysDelegate
+            header: fosdemIcon
         }
     }
+
+    Component {
+        id: gridViewComponent
+        
+        GridView {
+            id: daygrid
+            clip: true
+            cellWidth: width / mainView.columns
+            cellHeight: units.gu(15)
+
+            model: dayModel
+            delegate: daysDelegate
+            header: fosdemIcon
+        }
+    }
+
+    property var dayModel: ListModel {}
+
+    function loadDays() {
+        py.call("backend.get_days", [], function(dayList) {
+            dayModel.clear();
+            for (var i = 0; i < dayList.length; i++) {
+                dayModel.append(dayList[i]);
+            }
+        });
+    }
+
+    Component.onCompleted: loadDays()
 
     Connections {
         target: mainView
 
-        onXmlChanged: {
-            console.log("Source changed")
-            daymodel.reload()
-        }
+        function onScheduleChanged() { loadDays(); }
     }
 
     Component {
@@ -62,10 +83,8 @@ Page {
             }
 
             onClicked: {
-                // XXX reset path and model
-                //console.log("Path: " + path)
                 trackModel.clear();
-                path = [daymodel.get(index).date]
+                path = [dayModel.get(index).date]
                 py.call("backend.find_tracks_by_day", path, function(tracks) {
                     for (var i=0; i < tracks.length; i++) {
                         trackModel.append(tracks[i]);
@@ -97,7 +116,7 @@ Page {
         id: emptyStateLoader
         width: parent.width
         anchors.centerIn: parent
-        active: daymodel.count === 0
+        active: dayModel.count === 0
         sourceComponent: Label {
             text: i18n.tr('Empty database')
             horizontalAlignment: Text.AlignHCenter

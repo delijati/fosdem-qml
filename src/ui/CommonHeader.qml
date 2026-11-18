@@ -5,8 +5,12 @@ import Lomiri.Components.Popups 1.3
 BaseHeader {
     property string thisPage: ""
 
+    // Adjust header height for landscape mode
+    height: (mainView.isLandscape && !mainView.isTablet ? units.gu(5) : units.gu(7))
+            + (extension ? extension.height : 0)
+
     trailingActionBar {
-        numberOfSlots: 6
+        numberOfSlots: mainView.isLandscape || mainView.isTablet ? 6 : 4
 
         actions: [
             Action {

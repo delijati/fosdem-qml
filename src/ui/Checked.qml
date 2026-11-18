@@ -14,13 +14,22 @@ Page {
 
     anchors.fill: parent
 
-    Component.onCompleted: {
-        checked.model.clear();
+    function load() {
         py.call("backend.select_all", [], function (events) {
+            checked.model.clear();
             for (var i=0; i < events.length; i++) {
                 checked.model.append(events[i]);
             }
         });
+    }
+
+    Component.onCompleted: load()
+
+    // Reload when coming back, e.g. after unmarking a talk on its page.
+    onVisibleChanged: {
+        if (visible) {
+            load();
+        }
     }
 
     ListView {
@@ -33,25 +42,8 @@ Page {
     Component {
         id: checkedDelegate
 
-        ListItem {
-            divider.visible: false
-            highlightColor: hlColor
-
-            ListItemLayout {
-                id: layout
-                title.text: model.title
-                subtitle.text: "[" + day +"] " + start + " - " + end + " " + i18n.tr('in') + " " + room
-
-                Favorite {
-                    id: saved_lecture
-                    width: units.gu(2)
-                    height: width
-                    SlotsLayout.position: SlotsLayout.Leading
-                    checked: lecture_checked
-                }
-
-                ProgressionSlot {}
-            }
+        LectureListItem {
+            lecture: model
 
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("Lecture.qml"), {"model": checked.model.get(index)})

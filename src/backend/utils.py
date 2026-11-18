@@ -148,7 +148,7 @@ def generate_fake_data():
     with open(FILENAME, "w") as f:
         f.write(fake_xml)
 
-    for i in range(10):
-        pyotherside.send("on-progress", i * 5)
+    for i in range(11):
+        pyotherside.send("on-progress", i * 10)
 
     return FILENAME

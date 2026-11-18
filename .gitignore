@@ -43,3 +43,4 @@ saved.db
 material
 .
 *.qmlc
+.pytest_cache

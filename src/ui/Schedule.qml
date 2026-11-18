@@ -7,40 +7,45 @@ Page {
 
     header: CommonHeader {
         title: i18n.tr('Schedule')
-        flickable: scheduleListView
+        flickable: viewLoader.item
     }
 
     property var model: ListModel {}
 
-    ListView {
-        id: scheduleListView
+    // Conditional layout: use GridView for landscape/multi-column, ListView for portrait
+    Loader {
+        id: viewLoader
         anchors.fill: parent
-        model: schedule.model
-        delegate: scheduleDelegate
+        sourceComponent: mainView.isLandscape || mainView.columns > 1 ? gridViewComponent : listViewComponent
+    }
+
+    Component {
+        id: listViewComponent
+        
+        ListView {
+            id: scheduleListView
+            model: schedule.model
+            delegate: scheduleDelegate
+        }
+    }
+
+    Component {
+        id: gridViewComponent
+        
+        GridView {
+            id: scheduleGridView
+            cellWidth: width / mainView.columns
+            cellHeight: units.gu(12)
+            model: schedule.model
+            delegate: scheduleDelegate
+        }
     }
 
     Component {
         id: scheduleDelegate
 
-        ListItem {
-            divider.visible: false
-            highlightColor: hlColor
-
-            ListItemLayout {
-                id: layout
-                title.text: model.title
-                subtitle.text: "[" + day +"] " + start + " - " + end + " " + i18n.tr('in') + " " + room
-
-                Favorite {
-                    id: saved_lecture
-                    width: units.gu(2)
-                    height: width
-                    SlotsLayout.position: SlotsLayout.Leading
-                    checked: lecture_checked
-                }
-
-                ProgressionSlot {}
-            }
+        LectureListItem {
+            lecture: model
 
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("Lecture.qml"), {"model": schedule.model.get(index)})
