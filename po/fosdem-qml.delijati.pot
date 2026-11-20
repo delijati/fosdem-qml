@@ -8,7 +8,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fosdem-qml.delijati\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-17 23:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +16,27 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Main.qml:111
+#: ../src/Main.qml:130
 msgid "Error"
 msgstr ""
 
-#: ../src/Main.qml:112
+#: ../src/Main.qml:131
 msgid "Something went wrong: %1"
 msgstr ""
 
-#: ../src/Main.qml:132
+#: ../src/Main.qml:151
 msgid "Hide details"
 msgstr ""
 
-#: ../src/Main.qml:132
+#: ../src/Main.qml:151
 msgid "Details"
 msgstr ""
 
-#: ../src/Main.qml:138
+#: ../src/Main.qml:157
 msgid "Close"
 msgstr ""
 
-#: ../src/ui/About.qml:10 ../src/ui/CommonHeader.qml:28
+#: ../src/ui/About.qml:10 ../src/ui/CommonHeader.qml:46
 msgid "About"
 msgstr ""
 
@@ -72,11 +71,11 @@ msgstr ""
 msgid "Powered by <b>PyOtherSide</b>"
 msgstr ""
 
-#: ../src/ui/Checked.qml:9 ../src/ui/CommonHeader.qml:52
+#: ../src/ui/Checked.qml:9 ../src/ui/CommonHeader.qml:70
 msgid "Checked"
 msgstr ""
 
-#: ../src/ui/Checked.qml:60
+#: ../src/ui/Checked.qml:65
 msgid "No favorites yet"
 msgstr ""
 
@@ -84,15 +83,24 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: ../src/ui/CommonHeader.qml:36 ../src/ui/Map.qml:10
+#: ../src/ui/CommonHeader.qml:28 ../src/ui/Search.qml:10
+msgid "Search"
+msgstr ""
+
+#: ../src/ui/CommonHeader.qml:37 ../src/ui/Lecture.qml:217
+#: ../src/ui/Notes.qml:11
+msgid "Notes"
+msgstr ""
+
+#: ../src/ui/CommonHeader.qml:54 ../src/ui/Map.qml:10
 msgid "Map"
 msgstr ""
 
-#: ../src/ui/CommonHeader.qml:44 ../src/ui/Now.qml:9
+#: ../src/ui/CommonHeader.qml:62 ../src/ui/Now.qml:9 ../src/ui/Now.qml:102
 msgid "Now"
 msgstr ""
 
-#: ../src/ui/CommonHeader.qml:60
+#: ../src/ui/CommonHeader.qml:78
 msgid "Import"
 msgstr ""
 
@@ -104,7 +112,7 @@ msgstr ""
 msgid "Empty database"
 msgstr ""
 
-#: ../src/ui/DownloadDialog.qml:8 ../src/ui/DownloadDialog.qml:40
+#: ../src/ui/DownloadDialog.qml:8 ../src/ui/DownloadDialog.qml:49
 msgid "Download"
 msgstr ""
 
@@ -112,11 +120,11 @@ msgstr ""
 msgid "Url of Fosdem Pentabarf XML:"
 msgstr ""
 
-#: ../src/ui/DownloadDialog.qml:27
+#: ../src/ui/DownloadDialog.qml:35
 msgid "Download failed: %1"
 msgstr ""
 
-#: ../src/ui/DownloadDialog.qml:57
+#: ../src/ui/DownloadDialog.qml:75
 msgid "Cancel"
 msgstr ""
 
@@ -124,36 +132,96 @@ msgstr ""
 msgid "Lecture"
 msgstr ""
 
-#: ../src/ui/Lecture.qml:90
+#: ../src/ui/Lecture.qml:59
+msgid "Event page"
+msgstr ""
+
+#: ../src/ui/Lecture.qml:61
+msgid "Feedback"
+msgstr ""
+
+#: ../src/ui/Lecture.qml:147
 msgid "Time"
 msgstr ""
 
-#: ../src/ui/Lecture.qml:111
+#: ../src/ui/Lecture.qml:168
 msgid "Room"
 msgstr ""
 
-#: ../src/ui/Lecture.qml:128
+#: ../src/ui/Lecture.qml:185
 msgid "Speaker"
 msgstr ""
 
-#: ../src/ui/LectureListItem.qml:13
+#: ../src/ui/Lecture.qml:236
+msgid "Edit note"
+msgstr ""
+
+#: ../src/ui/Lecture.qml:236
+msgid "Add note"
+msgstr ""
+
+#: ../src/ui/Lecture.qml:242
+msgid "Links"
+msgstr ""
+
+#: ../src/ui/LectureListItem.qml:18
 msgid "Removed from schedule"
 msgstr ""
 
-#: ../src/ui/LectureListItem.qml:15
+#: ../src/ui/LectureListItem.qml:20
 msgid "in"
+msgstr ""
+
+#: ../src/ui/LectureListItem.qml:24
+msgid "Overlaps with: %1"
 msgstr ""
 
 #: ../src/ui/Map.qml:21
 msgid "Click map to open in browser"
 msgstr ""
 
+#: ../src/ui/NoteEdit.qml:24
+msgid "Note"
+msgstr ""
+
+#: ../src/ui/NoteEdit.qml:29
+msgid "Delete"
+msgstr ""
+
+#: ../src/ui/NoteEdit.qml:80
+msgid "Write your note"
+msgstr ""
+
+#: ../src/ui/Notes.qml:60
+msgid "New note"
+msgstr ""
+
+#: ../src/ui/Notes.qml:97
+msgid "No notes yet"
+msgstr ""
+
 #: ../src/ui/Now.qml:25
 msgid "Show only marked:"
 msgstr ""
 
-#: ../src/ui/Now.qml:83
-msgid "No lectures happening now"
+#: ../src/ui/Now.qml:65
+msgid "ends now"
+msgstr ""
+
+#: ../src/ui/Now.qml:66
+msgid "ends in %1 min"
+msgstr ""
+
+#: ../src/ui/Now.qml:68
+msgid "starts in %1 min"
+msgstr ""
+
+#: ../src/ui/Now.qml:102
+msgid "Next up"
+msgstr ""
+
+#: ../src/ui/Now.qml:125
+msgid "No talks now or in the next hour"
 msgstr ""
 
 #: ../src/ui/Schedule.qml:9
@@ -162,6 +230,14 @@ msgstr ""
 
 #: ../src/ui/Schedule.qml:62
 msgid "No schedule info"
+msgstr ""
+
+#: ../src/ui/Search.qml:27
+msgid "Title, speaker or topic"
+msgstr ""
+
+#: ../src/ui/Search.qml:83
+msgid "No talks found"
 msgstr ""
 
 #: ../src/ui/Track.qml:8

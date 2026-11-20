@@ -35,7 +35,7 @@ help:
 	@echo "make test       python backend tests (pytest, Python 3.12)"
 	@echo "make smoke      QML smoke check in the 24.04 SDK image"
 	@echo "make screenshots  README screenshots into docs/screenshots (demo schedule)"
-	@echo "make bump PART=patch|minor|major  new version: commit + tag (clean tree needed)"
+	@echo "make bump [major|minor|patch]  new version: commit + tag (clean tree needed)"
 	@echo "make clean      remove build/"
 
 install:
@@ -72,9 +72,18 @@ screenshots:
 
 # bump2version (.bumpversion.cfg) changes the version in the backend and the
 # manifest, commits and tags; "git push --follow-tags" publishes it.
-PART ?= patch
+# "make bump major" works as well as "make bump PART=major".
+BUMP_PARTS = major minor patch
+PART ?= $(or $(filter $(BUMP_PARTS),$(MAKECMDGOALS)),patch)
 bump:
+	@case "$(PART)" in major|minor|patch) ;; \
+	  *) echo "PART must be major, minor or patch, not '$(PART)'" >&2; exit 1 ;; esac
 	uvx bump2version --verbose $(PART)
+
+ifneq ($(filter bump,$(MAKECMDGOALS)),)
+$(BUMP_PARTS):
+	@:
+endif
 
 clean:
 	rm -rf build

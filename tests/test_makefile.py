@@ -105,3 +105,24 @@ def test_no_pull_with_docker(tmp_path, podman, env):
     assert code == 0
     assert calls == []
     assert out == ["clickable desktop --no-nvidia"]
+
+
+@pytest.mark.parametrize("args, part", [
+    (["bump"], "patch"),
+    (["bump", "major"], "major"),
+    (["bump", "minor"], "minor"),
+    (["bump", "PART=major"], "major"),
+])
+def test_bump_part(args, part):
+    result = subprocess.run([MAKE, "-n", "--no-print-directory", "-C", str(ROOT), *args], capture_output=True, text=True)
+
+    assert result.returncode == 0, result.stderr
+    bumps = [line for line in result.stdout.splitlines() if "bump2version" in line]
+    assert bumps == ["uvx bump2version --verbose " + part]
+
+
+def test_bump_rejects_unknown_part():
+    result = subprocess.run([MAKE, "-C", str(ROOT), "bump", "PART=huge"], capture_output=True, text=True)
+
+    assert result.returncode != 0
+    assert "major, minor or patch" in result.stderr
