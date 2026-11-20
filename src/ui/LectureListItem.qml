@@ -22,7 +22,7 @@ ListItem {
                                         : theme.palette.normal.backgroundSecondaryText
         // only favorites (agenda) carry clash_titles
         summary.text: lecture.clash_titles ? i18n.tr("Overlaps with: %1").arg(lecture.clash_titles) : hint
-        summary.color: lecture.clash_titles ? theme.palette.normal.negative : accentColor
+        summary.color: lecture.clash_titles ? theme.palette.normal.negative : accentTextColor
         summary.visible: summary.text !== ""
 
         Favorite {

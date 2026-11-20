@@ -34,6 +34,10 @@ MainView {
     property string lightColor: "#ffffff"
     property string accentColor: "#a91991"
     property string hlColor: "#66a91991"
+    // accentColor is too dark for text on a dark theme's background
+    readonly property bool darkTheme: (theme.palette.normal.background.r
+        + theme.palette.normal.background.g + theme.palette.normal.background.b) / 3 < 0.5
+    readonly property color accentTextColor: darkTheme ? "#f0a6e6" : accentColor
 
     signal scheduleChanged
     signal notesChanged

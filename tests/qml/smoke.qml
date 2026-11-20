@@ -15,6 +15,13 @@ Item {
     property var steps: []
     property int stepIndex: 0
 
+    // Lomiri paints the background as the window color, which grabToImage
+    // does not capture: draw it, or the screenshots are transparent
+    Rectangle {
+        anchors.fill: parent
+        color: app ? app.backgroundColor : "white"
+    }
+
     Loader {
         id: loader
         anchors.fill: parent
@@ -78,6 +85,16 @@ Item {
     function download(url) {
         find(downloadDialog(), function(o) { return o.objectName === "downloadUrl"; }, 0).text = url;
         dialogButton("downloadButton").clicked();
+    }
+
+    // WCAG contrast ratio of two colors
+    function contrast(a, b) {
+        function lum(c) {
+            function ch(v) { return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+            return 0.2126 * ch(c.r) + 0.7152 * ch(c.g) + 0.0722 * ch(c.b);
+        }
+        var l1 = lum(a), l2 = lum(b);
+        return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
     }
 
     function next() {
@@ -334,6 +351,14 @@ Item {
                 stack.push(Qt.resolvedUrl("../../src/ui/Days.qml"));
             }),
             after(function() { expect("home", stack.depth, 1); }),
+            after(function() {
+                expect("accent readable (light)", contrast(app.accentTextColor, app.backgroundColor) >= 4.5, true);
+                app.theme.name = "Lomiri.Components.Themes.SuruDark";
+            }),
+            after(function() {
+                expect("accent readable (dark)", contrast(app.accentTextColor, app.backgroundColor) >= 4.5, true);
+                app.theme.name = "Lomiri.Components.Themes.Ambiance";
+            }),
             // the fake schedule marks favorites itself
             after(function() { stack.push(Qt.resolvedUrl("../../src/ui/Checked.qml")); }),
             after(function() {

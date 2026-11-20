@@ -14,6 +14,6 @@ Item {
         }       
 
         name: checked ? "favorite-selected" :"favorite-unselected"
-        color: accentColor
+        color: accentTextColor
     }
 }

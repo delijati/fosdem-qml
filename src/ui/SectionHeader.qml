@@ -17,6 +17,6 @@ Item {
             bottomMargin: units.gu(1)
         }
         font.bold: true
-        color: accentColor
+        color: accentTextColor
     }
 }

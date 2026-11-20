@@ -201,14 +201,14 @@ Page {
 
             LabelBase {
                 id: lecture_abstract
-                linkColor: accentColor
+                linkColor: accentTextColor
                 visible: text !== ""
                 onLinkActivated: lecture.openLink(link)
             }
 
             LabelBase {
                 id: lecture_description
-                linkColor: accentColor
+                linkColor: accentTextColor
                 visible: text !== ""
                 onLinkActivated: lecture.openLink(link)
             }
@@ -250,7 +250,7 @@ Page {
                 LabelBase {
                     text: "<a href='" + model.href + "'>" + lecture.linkTitle(model) + "</a>"
                     textFormat: Text.StyledText
-                    linkColor: accentColor
+                    linkColor: accentTextColor
                     horizontalAlignment: Text.AlignLeft
                     onLinkActivated: lecture.openLink(link)
                 }

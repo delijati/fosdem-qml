@@ -14,6 +14,13 @@ Item {
     property int stepIndex: 0
     property var talk: null
 
+    // Lomiri paints the background as the window color, which grabToImage
+    // does not capture: draw it, or the screenshots are transparent
+    Rectangle {
+        anchors.fill: parent
+        color: app ? app.backgroundColor : "white"
+    }
+
     Loader {
         id: loader
         anchors.fill: parent
