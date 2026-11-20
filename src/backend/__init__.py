@@ -12,7 +12,7 @@ from backend.utils import create_path, generate_fake_data
 from backend.db import toggle, select_ids  # NOQA
 
 
-__version__ = "0.8.0"
+__version__ = "1.0.0"
 
 DOWNLOAD_TIMEOUT = 30
 
