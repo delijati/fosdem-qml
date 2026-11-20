@@ -24,6 +24,15 @@ BaseHeader {
                 }
             },
             Action {
+                iconName: "find"
+                text: i18n.tr("Search")
+                visible: thisPage != "searchPage"
+
+                onTriggered: {
+                    pageStack.push(Qt.resolvedUrl("Search.qml"));
+                }
+            },
+            Action {
                 iconName: "info"
                 text: i18n.tr("About")
 

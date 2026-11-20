@@ -99,6 +99,8 @@ def connect():
     """Connection with the current schema; commits on success, always closes."""
     create_path(DB_FILE)
     con = sqlite3.connect(DB_FILE)
+    # SQLite's lower() and LIKE only fold ASCII; search needs "Über" == "über"
+    con.create_function("fold", 1, lambda s: s.casefold() if s else "", deterministic=True)
     try:
         with con:
             migrate(con)

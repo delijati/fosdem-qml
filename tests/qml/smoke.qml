@@ -95,6 +95,7 @@ Item {
             after(function() {
                 root.daysPage = stack.currentPage;
                 expect("days at start", root.daysPage.dayModel.count, 2);
+                expect("weekday label", root.daysPage.dayLabel("2025-02-01").indexOf("Saturday") === 0, true);
                 shot("01-days");
             }),
             function() {
@@ -146,6 +147,14 @@ Item {
                     tick.start();
                 });
             },
+            after(function() { stack.push(Qt.resolvedUrl("../../src/ui/Search.qml")); }),
+            after(function() {
+                find(stack.currentPage, function(o) { return o.objectName === "searchField"; }, 0).text = "pythonista";
+            }),
+            after(function() {
+                expect("search results", stack.currentPage.model.count, 2);
+                shot("06b-search");
+            }),
             after(function() { stack.push(Qt.resolvedUrl("../../src/ui/About.qml")); }),
             after(function() { shot("07-about"); }),
             after(function() { stack.push(Qt.resolvedUrl("../../src/ui/Map.qml")); }),

@@ -51,6 +51,13 @@ Page {
 
     property var dayModel: ListModel {}
 
+    // "2025-02-01" -> "Saturday, 1 February 2025" in the phone's language
+    function dayLabel(isoDate) {
+        var parts = isoDate.split("-");
+        var date = new Date(parts[0], parts[1] - 1, parts[2]);
+        return date.toLocaleDateString(Qt.locale(), Locale.LongFormat);
+    }
+
     function loadDays() {
         py.call("backend.get_days", [], function(dayList) {
             dayModel.clear();
@@ -77,7 +84,7 @@ Page {
 
             ListItemLayout {
                 id: layout
-                title.text: model.date
+                title.text: dayLabel(model.date)
 
                 ProgressionSlot {}
             }

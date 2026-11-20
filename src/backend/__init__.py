@@ -156,6 +156,19 @@ def find_events_by_day_track(day, track):
     return select_events("e.day = ? AND e.track = ?", (day, track))
 
 
+SEARCH_TEXT = "fold(e.title || ' ' || e.subtitle || ' ' || e.persons || ' ' || e.abstract)"
+
+
+def search(query):
+    """Talks of all days whose title, subtitle, speakers or abstract contain
+    every word of query (case-insensitive)."""
+    words = query.casefold().split()
+    if not words:
+        return []
+    where = " AND ".join(["instr(%s, ?) > 0" % SEARCH_TEXT] * len(words))
+    return select_events(where, words)
+
+
 def get_current_lectures(show_only_marked=False, now=None):
     if now is None:
         now = datetime.datetime.now(datetime.timezone.utc)
