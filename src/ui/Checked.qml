@@ -39,21 +39,8 @@ Page {
         delegate: checkedDelegate
 
         section.property: "day"
-        section.delegate: Item {
-            width: parent.width
-            height: units.gu(5)
-
-            Label {
-                anchors {
-                    left: parent.left
-                    leftMargin: units.gu(2)
-                    bottom: parent.bottom
-                    bottomMargin: units.gu(1)
-                }
-                text: mainView.dayLabel(section)
-                font.bold: true
-                color: accentColor
-            }
+        section.delegate: SectionHeader {
+            text: mainView.dayLabel(section)
         }
     }
 

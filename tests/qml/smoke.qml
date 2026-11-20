@@ -42,7 +42,18 @@ Item {
         return model;
     }
 
+    // grabToImage waits for the next frame; an unchanged scene renders none
+    // until the next step changes the page, so force one.
+    Rectangle {
+        id: frameKick
+        width: 1
+        height: 1
+        z: 1000
+        color: "transparent"
+    }
+
     function shot(name) {
+        frameKick.color = frameKick.color == "#00000000" ? "#01000000" : "#00000000";
         (root.parent || root).grabToImage(function(result) {
             result.saveToFile(outDir + "/" + name + ".png");
         });
@@ -218,8 +229,34 @@ Item {
                 stack.push(Qt.resolvedUrl("../../src/ui/Now.qml"));
             }),
             after(function() {
-                expect("now count (fake schedule)", stack.currentPage.model.count, 2);
+                var page = stack.currentPage;
+                root.nowPage = page;
+                expect("now + next count (fake schedule)", page.model.count, 5);
+                var list = find(page, function(o) { return o.section !== undefined && o.model === page.model; }, 0);
+                expect("now page grouped", list.section.property, "group");
+                expect("first talk hint", page.timeHint(page.model.get(0)), "ends in 30 min");
+                expect("next talk hint", page.timeHint(page.model.get(2)), "starts in 15 min");
+                expect("refresh timer runs while visible", page.refreshRunning, true);
                 shot("12-now-fake");
+            }),
+            after(function() {
+                var page = root.nowPage;
+                // 1002 is a fake favorite: unmark it on its page
+                var item = page.model.get(0);
+                stack.push(Qt.resolvedUrl("../../src/ui/Lecture.qml"), {"model": item});
+                py.call("backend.toggle", [item], function(marked) {
+                    expect("unmark running talk", marked, false);
+                });
+            }),
+            after(function() {
+                expect("refresh timer stops when hidden", root.nowPage.refreshRunning, false);
+                stack.pop();
+            }),
+            after(function() {
+                expect("now star refreshed on return", root.nowPage.model.get(0).lecture_checked, false);
+                py.call("backend.toggle", [root.nowPage.model.get(0)], function(marked) {
+                    expect("mark running talk again", marked, true);
+                });
             }),
             after(function() {
                 // what the header's Home action does
@@ -251,4 +288,5 @@ Item {
     property var events: null
     property var errorDialog: null
     property var daysPage: null
+    property var nowPage: null
 }

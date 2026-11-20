@@ -71,3 +71,45 @@ def test_fake_schedule_running_talks(data_dir):
         now = datetime.datetime(2025, 2, 2, hour, minute).astimezone()
         backend.utils.generate_fake_data(now=now)
         assert running_ids(now) == [1002, 1003], now
+
+
+def now_next(now, **kwargs):
+    return [(e["id"], e["group"], e["minutes"])
+            for e in backend.get_now_and_next(now=now, **kwargs)]
+
+
+def test_now_and_next(schedule):
+    # 09:15 UTC = 10:15 Brussels: 101 and 200 running, 201 starts 10:30
+    assert now_next(utc(2025, 2, 1, 9, 15)) == [
+        (200, "now", 15),
+        (101, "now", 35),
+        (201, "next", 15),
+    ]
+
+
+def test_next_window(schedule):
+    # 08:00 Brussels: welcome at 09:30 is 90 min away
+    assert now_next(utc(2025, 2, 1, 7, 0)) == []
+    assert now_next(utc(2025, 2, 1, 7, 0), window_min=100) == [(100, "next", 90)]
+
+
+def test_minutes_round_up(schedule):
+    # 10:14:30 Brussels: 200 ends 10:30 -> 15.5 min -> "15" would be too early
+    assert now_next(utc(2025, 2, 1, 9, 14, 30))[0] == (200, "now", 16)
+
+
+def test_now_and_next_only_marked(schedule):
+    event = backend.find_events_by_day_track("2025-02-01", "Python")[1]
+    backend.toggle(types.SimpleNamespace(**event))
+
+    assert now_next(utc(2025, 2, 1, 9, 15), show_only_marked=True) == [(201, "next", 15)]
+
+
+def test_fake_schedule_now_and_next(data_dir):
+    now = datetime.datetime(2025, 2, 1, 12, 0).astimezone()
+    backend.utils.generate_fake_data(now=now)
+
+    assert now_next(now) == [
+        (1002, "now", 30), (1003, "now", 60),
+        (2002, "next", 15), (1004, "next", 30), (3002, "next", 45),
+    ]

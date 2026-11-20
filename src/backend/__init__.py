@@ -1,4 +1,5 @@
 import datetime
+import math
 import os
 import types
 import pyotherside
@@ -175,6 +176,36 @@ def get_current_lectures(show_only_marked=False, now=None):
         now = datetime.datetime.now(datetime.timezone.utc)
     events = select_events(favorites_only=show_only_marked)
     return [e for e in events if is_running(e, now)]
+
+
+def minutes_until(when, now):
+    """Whole minutes from now until when, rounded up (naive = device time)."""
+    if when.tzinfo is None:
+        now = now.astimezone().replace(tzinfo=None)
+    return math.ceil((when - now).total_seconds() / 60)
+
+
+def get_now_and_next(show_only_marked=False, now=None, window_min=60):
+    """Running talks ("group": "now", "minutes" until the end) and talks
+    starting within window_min ("group": "next", "minutes" until the start),
+    each group sorted by "minutes"."""
+    if now is None:
+        now = datetime.datetime.now(datetime.timezone.utc)
+    running = []
+    upcoming = []
+    for event in select_events(favorites_only=show_only_marked):
+        if is_running(event, now):
+            event["group"] = "now"
+            event["minutes"] = minutes_until(event["datetime_end"], now)
+            running.append(event)
+        else:
+            starts_in = minutes_until(event["datetime_start"], now)
+            if 0 < starts_in <= window_min:
+                event["group"] = "next"
+                event["minutes"] = starts_in
+                upcoming.append(event)
+    key = lambda e: (e["minutes"], e["id"])  # noqa: E731
+    return sorted(running, key=key) + sorted(upcoming, key=key)
 
 
 def select_all():
