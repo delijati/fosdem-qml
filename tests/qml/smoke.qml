@@ -56,6 +56,19 @@ Item {
             console.error("SMOKE MISMATCH " + label + ": got " + actual + ", want " + expected);
     }
 
+    function downloadDialog() {
+        return find(root, function(o) { return o.progress_visible !== undefined; }, 0);
+    }
+
+    function dialogButton(name) {
+        return find(downloadDialog(), function(o) { return o.objectName === name; }, 0);
+    }
+
+    function download(url) {
+        find(downloadDialog(), function(o) { return o.objectName === "downloadUrl"; }, 0).text = url;
+        dialogButton("downloadButton").clicked();
+    }
+
     function next() {
         if (stepIndex >= steps.length) {
             console.log("SMOKE DONE");
@@ -152,41 +165,59 @@ Item {
                 shot("08c-error-details");
                 PopupUtils.close(root.errorDialog);
             }),
-            function() {
+            after(function() {
                 app.load_schedule(false);
-                py.call("backend.download_file", ["file:///repo/tests/data/missing.xml"], function(error) {
-                    expect("download failure message", error !== "", true);
-                    app.download_end(error);
-                    tick.start();
-                });
-            },
-            after(function() { shot("09-download-error"); }),
-            function() {
-                py.call("backend.download_file", ["file:///tmp/small-update.xml"], function(error) {
-                    expect("download result", error, "");
-                    app.download_end(error);
-                    tick.start();
-                });
-            },
-            after(function() { shot("10-after-download"); }),
+                download("file:///repo/tests/data/missing.xml");
+            }),
+            after(function() {
+                expect("download failure message", downloadDialog() !== null && downloadDialog().error !== "", true);
+                shot("09-download-error");
+            }),
+            after(function() {
+                // double tap: the second press must not start a second download
+                download("http://127.0.0.1:18765/small-update.xml");
+                dialogButton("downloadButton").clicked();
+            }),
+            after(function() {}),
+            after(function() {}),
+            after(function() {}),
+            after(function() {
+                expect("dialog closed after download", downloadDialog(), null);
+                shot("10-after-download");
+            }),
             after(function() { stack.push(Qt.resolvedUrl("../../src/ui/Checked.qml")); }),
             after(function() {
                 expect("checked count after download", stack.currentPage.model.count, 1);
                 shot("11-checked-after-download");
             }),
-            function() {
+            after(function() {
+                // cancel while the download runs
                 app.load_schedule(false);
-                py.call("backend.download_file", ["fake"], function(error) {
-                    app.download_end(error);
-                    stack.push(Qt.resolvedUrl("../../src/ui/Now.qml"));
-                    tick.start();
-                });
-            },
+                download("http://127.0.0.1:18765/one-day.xml");
+                dialogButton("cancelButton").clicked();
+            }),
+            after(function() {}),
+            after(function() {}),
+            after(function() {
+                expect("dialog closed after cancel", downloadDialog(), null);
+                expect("days reloaded after cancelled dialog", root.daysPage.dayModel.count, 1);
+                app.load_schedule(false);
+                download("fake");
+            }),
+            after(function() {
+                expect("days reloaded after download", root.daysPage.dayModel.count, 1);
+                stack.push(Qt.resolvedUrl("../../src/ui/Now.qml"));
+            }),
             after(function() {
                 expect("now count (fake schedule)", stack.currentPage.model.count, 2);
-                expect("days reloaded after download", root.daysPage.dayModel.count, 1);
                 shot("12-now-fake");
             }),
+            after(function() {
+                // what the header's Home action does
+                stack.clear();
+                stack.push(Qt.resolvedUrl("../../src/ui/Days.qml"));
+            }),
+            after(function() { expect("home", stack.depth, 1); }),
         ];
         tick.interval = 2500;
         tick.start();

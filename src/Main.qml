@@ -43,14 +43,22 @@ MainView {
         property var current: null
     }
 
-    function download_end(error) {
-        if (error) {
-            download_dialog.current.progress_visible = false;
-            download_dialog.current.error = error;
+    // The dialog may have been closed (Cancel) while the download ran; it is
+    // then no longer download_dialog.current and must not be touched.
+    function download_end(dialog, error) {
+        if (!error) {
+            scheduleChanged();
+        }
+        if (dialog !== download_dialog.current) {
             return;
         }
-        PopupUtils.close(download_dialog.current);
-        scheduleChanged();
+        dialog.busy = false;
+        if (error) {
+            dialog.progress_visible = false;
+            dialog.error = error;
+        } else {
+            PopupUtils.close(dialog);
+        }
     }
 
     function load_schedule(exists) {
@@ -69,7 +77,7 @@ MainView {
             pageStack.push(Qt.resolvedUrl("ui/Days.qml"))
         }
 
-        onCurrentPageChanged: thisPage = currentPage.objectName || ""
+        onCurrentPageChanged: thisPage = currentPage ? currentPage.objectName : ""
     }
 
     Python {
@@ -82,7 +90,7 @@ MainView {
             });
 
             setHandler('on-progress', function(value) {
-                if (download_dialog.current !== null) {
+                if (download_dialog.current) {
                     if (!download_dialog.current.progress_visible) {
                         download_dialog.current.progress_visible = true;
                     }

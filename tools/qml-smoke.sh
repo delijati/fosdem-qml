@@ -19,8 +19,12 @@ docker run --rm --network host \
         # update for the re-download step: talk 100 (starred by the smoke run) removed
         python3 -c "import re,sys; s=open(sys.argv[1]).read(); open(sys.argv[2],\"w\").write(re.sub(r\"<event guid=.g-100.*?</event>\", \"\", s, flags=re.S))" \
             /repo/tests/data/small.xml /tmp/small-update.xml
+        # one-day schedule for the cancel step
+        python3 -c "import re,sys; s=open(sys.argv[1]).read(); open(sys.argv[2],\"w\").write(re.sub(r\"<day index=.2.*?</day>\", \"\", s, flags=re.S))" \
+            /repo/tests/data/small.xml /tmp/one-day.xml
+        python3 /repo/tests/qml/slow_server.py /tmp 18765 &
         cd /repo
-        timeout 60 xvfb-run -a -s "-screen 0 1024x768x24" \
+        timeout 90 xvfb-run -a -s "-screen 0 1024x768x24" \
             qmlscene tests/qml/smoke.qml
     ' > "$LOG" 2>&1 || true
 
