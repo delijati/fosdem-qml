@@ -70,11 +70,20 @@ def generate_fake_data(now=None):
         <subtitle>Making your Python code fly</subtitle>
         <track>Python</track>
         <abstract>Discover techniques to dramatically improve Python application performance.</abstract>
-        <description>Deep dive into Python performance optimization including profiling, caching strategies, and async programming. Real-world examples and benchmarks included.</description>
+        <description>Deep dive into Python performance optimization including profiling, caching strategies, and async programming. Real-world examples and benchmarks included. Code: &lt;a href="https://github.com/python/pyperformance"&gt;pyperformance&lt;/a&gt;.</description>
+        <url>https://fosdem.org/schedule/event/python-performance/</url>
+        <feedback_url>https://pretalx.fosdem.org/talk/PYPERF/feedback/</feedback_url>
         <persons>
           <person>Mike Pythonista</person>
           <person>Lisa CodeSpeed</person>
         </persons>
+        <attachments>
+          <attachment type="slides" href="https://fosdem.org/events/attachments/python-performance/slides.pdf">Talk slides</attachment>
+        </attachments>
+        <links>
+          <link href="https://video.fosdem.org/python-performance.mp4">Video recording (MP4)</link>
+          <link href="https://chat.fosdem.org/#/room/#python:fosdem.org">Chat room(web)</link>
+        </links>
       </event>
       <event id="1004">
         {start(now + datetime.timedelta(minutes=30))}
@@ -191,9 +200,13 @@ def generate_fake_data(now=None):
         <track>Mobile</track>
         <abstract>What changed for app developers.</abstract>
         <description>Framework, AppArmor policy and Python 3.12: what you need to change in your click package.</description>
+        <url>https://fosdem.org/schedule/event/ubuntu-touch-2404/</url>
         <persons>
           <person>Peat Psuwit</person>
         </persons>
+        <links>
+          <link href="https://forums.ubports.com/topic/11333">Porting guide (forum)</link>
+        </links>
       </event>
       <event id="4004">
         {start(at(11, 30))}

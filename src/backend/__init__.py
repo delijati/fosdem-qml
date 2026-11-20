@@ -178,6 +178,28 @@ def get_current_lectures(show_only_marked=False, now=None):
     return [e for e in events if is_running(e, now)]
 
 
+def get_links(event_id):
+    """Links of a talk for its page: event page, attachments (slides), other
+    links (video, chat, ...), feedback if not listed yet.
+
+    Each is {"kind", "title", "href"}; kind "event" and "feedback" get their
+    title in the UI.
+    """
+    ensure_imported()
+    found = db.select_links(int(event_id))
+    if found is None:
+        return []
+    url, feedback_url, links = found
+    result = []
+    if url:
+        result.append({"kind": "event", "title": "Event page", "href": url})
+    for kind, title, href in links:
+        result.append({"kind": kind, "title": title or href, "href": href})
+    if feedback_url and feedback_url not in {link["href"] for link in result}:
+        result.append({"kind": "feedback", "title": "Feedback", "href": feedback_url})
+    return result
+
+
 def minutes_until(when, now):
     """Whole minutes from now until when, rounded up (naive = device time)."""
     if when.tzinfo is None:

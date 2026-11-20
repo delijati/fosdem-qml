@@ -128,7 +128,16 @@ Item {
             after(function() {
                 stack.push(Qt.resolvedUrl("../../src/ui/Lecture.qml"), {"model": root.events.get(0)});
             }),
-            after(function() { shot("04-lecture"); }),
+            after(function() {
+                var page = stack.currentPage;
+                expect("lecture links", page.links.count, 5);
+                expect("first link", page.links.get(0).kind, "event");
+                var opened = "";
+                app.openUrl = function(link) { opened = link; };
+                page.abstractLabel.linkActivated("https://example.org/from-abstract");
+                expect("link in abstract opened", opened, "https://example.org/from-abstract");
+                shot("04-lecture");
+            }),
             after(function() { stack.push(Qt.resolvedUrl("../../src/ui/Now.qml")); }),
             after(function() { shot("05-now"); }),
             function() {

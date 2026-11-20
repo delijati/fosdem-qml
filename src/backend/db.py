@@ -203,3 +203,16 @@ def select_removed_favorites():
             FROM favorites f LEFT JOIN schedule_events e ON e.id = f.event_id
             WHERE e.id IS NULL""")
         return [dict(r) for r in rows]
+
+
+def select_links(event_id):
+    """(url, feedback_url, [(kind, title, href)]) of an event; None if unknown."""
+    with connect() as con:
+        row = con.execute(
+            "SELECT url, feedback_url FROM schedule_events WHERE id=?", (event_id,)).fetchone()
+        if row is None:
+            return None
+        links = con.execute(
+            "SELECT kind, title, href FROM schedule_links WHERE event_id=? ORDER BY position",
+            (event_id,)).fetchall()
+        return row[0], row[1], links

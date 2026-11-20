@@ -37,6 +37,9 @@ MainView {
 
     signal scheduleChanged
 
+    // a property, so tests can replace it instead of starting a browser
+    property var openUrl: function(link) { Qt.openUrlExternally(link); }
+
     // "2025-02-01" -> "Saturday, 1 February 2025" in the phone's language
     function dayLabel(isoDate) {
         var parts = isoDate.split("-");
