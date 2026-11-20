@@ -24,6 +24,10 @@ Start on this computer::
 
     $ make desktop
 
+Demo data: in the app, open the download dialog (Import) and enter ``fake``
+as URL. This loads a generated schedule for today and tomorrow, with talks
+running right now, and marks some overlapping favorites (see Checked).
+
 Build the click package::
 
     $ make build

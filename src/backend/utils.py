@@ -16,6 +16,13 @@ def generate_fake_data(now=None):
     if now is None:
         now = datetime.datetime.now().astimezone()
     today = now.strftime("%Y-%m-%d")
+    tomorrow_date = (now + datetime.timedelta(days=1)).date()
+    tomorrow = tomorrow_date.isoformat()
+
+    def at(hour, minute):
+        """Fixed clock time tomorrow, so the second day never crosses midnight."""
+        return datetime.datetime.combine(
+            tomorrow_date, datetime.time(hour, minute), tzinfo=now.tzinfo)
 
     def start(t):
         # <date> carries day and offset, so talks before midnight stay on
@@ -27,7 +34,7 @@ def generate_fake_data(now=None):
   <conference>
     <title>FOSDEM {now.year}</title>
     <start>{today}</start>
-    <end>{today}</end>
+    <end>{tomorrow}</end>
   </conference>
   <day date="{today}" index="1">
     <room name="Main Track">
@@ -144,6 +151,60 @@ def generate_fake_data(now=None):
         <description>Learn essential security practices including input validation, authentication, authorization, and common vulnerability prevention (OWASP Top 10).</description>
         <persons>
           <person>Diana SecDev</person>
+        </persons>
+      </event>
+    </room>
+  </day>
+  <day date="{tomorrow}" index="2">
+    <room name="Main Track">
+      <event id="4001">
+        {start(at(10, 0))}
+        <duration>00:50</duration>
+        <title>Rust in the Linux Kernel</title>
+        <subtitle>Two years later</subtitle>
+        <track>Kernel</track>
+        <abstract>Where Rust drivers stand today.</abstract>
+        <description>An update on the Rust for Linux effort: merged drivers, tooling and what is still missing.</description>
+        <persons>
+          <person>Miguel Ferris</person>
+        </persons>
+      </event>
+      <event id="4003">
+        {start(at(14, 0))}
+        <duration>00:45</duration>
+        <title>Closing Keynote</title>
+        <subtitle>See you next year</subtitle>
+        <track>Keynotes</track>
+        <abstract>Thanks to all volunteers.</abstract>
+        <description>The closing session with numbers, thanks and an outlook.</description>
+        <persons>
+          <person>Jane Developer</person>
+        </persons>
+      </event>
+    </room>
+    <room name="Developer Room A">
+      <event id="4002">
+        {start(at(10, 30))}
+        <duration>00:30</duration>
+        <title>Ubuntu Touch on 24.04</title>
+        <subtitle>Porting apps to Qt 5.15</subtitle>
+        <track>Mobile</track>
+        <abstract>What changed for app developers.</abstract>
+        <description>Framework, AppArmor policy and Python 3.12: what you need to change in your click package.</description>
+        <persons>
+          <person>Peat Psuwit</person>
+        </persons>
+      </event>
+      <event id="4004">
+        {start(at(11, 30))}
+        <duration>00:25</duration>
+        <title>Lightning Talk: Offline-first Schedules</title>
+        <subtitle></subtitle>
+        <track>Mobile</track>
+        <abstract>Conference apps without network.</abstract>
+        <description>Why a conference app should work in a basement full of people.</description>
+        <persons>
+          <person>Josip Delic</person>
         </persons>
       </event>
     </room>

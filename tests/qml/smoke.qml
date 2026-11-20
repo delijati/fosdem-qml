@@ -95,7 +95,7 @@ Item {
             after(function() {
                 root.daysPage = stack.currentPage;
                 expect("days at start", root.daysPage.dayModel.count, 2);
-                expect("weekday label", root.daysPage.dayLabel("2025-02-01").indexOf("Saturday") === 0, true);
+                expect("weekday label", app.dayLabel("2025-02-01").indexOf("Saturday") === 0, true);
                 shot("01-days");
             }),
             function() {
@@ -214,7 +214,7 @@ Item {
                 download("fake");
             }),
             after(function() {
-                expect("days reloaded after download", root.daysPage.dayModel.count, 1);
+                expect("days reloaded after download", root.daysPage.dayModel.count, 2);
                 stack.push(Qt.resolvedUrl("../../src/ui/Now.qml"));
             }),
             after(function() {
@@ -227,6 +227,21 @@ Item {
                 stack.push(Qt.resolvedUrl("../../src/ui/Days.qml"));
             }),
             after(function() { expect("home", stack.depth, 1); }),
+            // the fake schedule marks favorites itself
+            after(function() { stack.push(Qt.resolvedUrl("../../src/ui/Checked.qml")); }),
+            after(function() {
+                var page = stack.currentPage;
+                var clash = "";
+                for (var i = 0; i < page.model.count; i++) {
+                    if (page.model.get(i).id === 1002)
+                        clash = page.model.get(i).clash_titles;
+                }
+                expect("agenda clash", clash, "Python Performance Optimization");
+                expect("agenda favorites", page.model.count, 7);
+                var list = find(page, function(o) { return o.section !== undefined && o.model === page.model; }, 0);
+                expect("agenda grouped by day", list.section.property, "day");
+                shot("13-agenda");
+            }),
         ];
         tick.interval = 2500;
         tick.start();

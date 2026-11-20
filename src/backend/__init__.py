@@ -1,5 +1,6 @@
 import datetime
 import os
+import types
 import pyotherside
 import xml.etree.ElementTree as ET
 
@@ -181,10 +182,34 @@ def select_all():
 
     Favorites whose talk was removed from the schedule are kept with
     "removed": True and the data from when they were marked.
+    "clash_titles" lists the other favorites running at the same time
+    (", " separated, "" if none; removed talks never clash).
     """
     events = select_events(favorites_only=True)
-    events += [removed_event(f) for f in db.select_removed_favorites()]
-    return sorted(events, key=lambda e: (e["datetime_start"].replace(tzinfo=None), e["id"]))
+    for event in events:
+        event["clash_titles"] = ", ".join(
+            other["title"] for other in events
+            if other is not event
+            and other["datetime_start"] < event["datetime_end"]
+            and event["datetime_start"] < other["datetime_end"]
+        )
+    removed = [removed_event(f) for f in db.select_removed_favorites()]
+    for event in removed:
+        event["clash_titles"] = ""
+    return sorted(events + removed, key=lambda e: (e["datetime_start"].replace(tzinfo=None), e["id"]))
+
+
+# Favorites set by the "fake" schedule so the agenda shows days and overlaps:
+# 1002/1003 and 4001/4002 overlap, 1001 and 4004 do not.
+FAKE_FAVORITES = [1001, 1002, 1003, 4001, 4002, 4004]
+
+
+def mark_fake_favorites():
+    ensure_imported()
+    marked = set(db.select_ids())
+    for event in select_events():
+        if event["id"] in FAKE_FAVORITES and event["id"] not in marked:
+            db.insert(types.SimpleNamespace(**event))
 
 
 def check_schedule(path):
@@ -221,7 +246,7 @@ def download_file(url):
 
     if url.lower() == "fake" or url.lower() == "test":
         generate_fake_data()
-        ensure_imported()
+        mark_fake_favorites()
         return ""
 
     part = FILENAME + ".part"

@@ -37,6 +37,13 @@ MainView {
 
     signal scheduleChanged
 
+    // "2025-02-01" -> "Saturday, 1 February 2025" in the phone's language
+    function dayLabel(isoDate) {
+        var parts = isoDate.split("-");
+        var date = new Date(parts[0], parts[1] - 1, parts[2]);
+        return date.toLocaleDateString(Qt.locale(), Locale.LongFormat);
+    }
+
     DownloadDialog {
         id: download_dialog
 
