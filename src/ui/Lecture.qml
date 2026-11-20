@@ -15,11 +15,44 @@ Page {
     property real itemName: units.gu(7)
     property real itemTime: units.gu(8)
     property var links: ListModel {}
+    property var notes: ListModel {}
     property alias abstractLabel: lecture_abstract
 
     function openLink(link) {
         mainView.openUrl(link);
     }
+
+    function loadNotes() {
+        py.call("backend.notes_for_event", [lecture.event_id], function(found) {
+            notes.clear();
+            for (var i = 0; i < found.length; i++) {
+                notes.append(found[i]);
+            }
+        });
+    }
+
+    // a talk has one note: open it if there is one
+    function addNote() {
+        if (notes.count > 0) {
+            openNote(0);
+            return;
+        }
+        pageStack.push(Qt.resolvedUrl("NoteEdit.qml"), {
+            "eventId": lecture.event_id,
+            "talkTitle": lecture_title.text
+        });
+    }
+
+    function openNote(index) {
+        var note = notes.get(index);
+        pageStack.push(Qt.resolvedUrl("NoteEdit.qml"), {
+            "noteId": note.id,
+            "text": note.text,
+            "talkTitle": note.talk_title
+        });
+    }
+
+    Component.onDestruction: mainView.notesChanged.disconnect(loadNotes)
 
     function linkTitle(link) {
         if (link.kind === "event")
@@ -42,6 +75,9 @@ Page {
         lecture_description.text = item.description
         lecture_persons.text = item.persons
         lecture_checked.checked = item.lecture_checked
+
+        loadNotes();
+        mainView.notesChanged.connect(loadNotes);
 
         py.call("backend.get_links", [item.id], function(found) {
             links.clear();
@@ -173,6 +209,31 @@ Page {
                 id: lecture_description
                 visible: text !== ""
                 onLinkActivated: lecture.openLink(link)
+            }
+
+            LabelBase {
+                text: i18n.tr("Notes")
+                font.bold: true
+            }
+
+            Repeater {
+                model: lecture.notes
+
+                LabelBase {
+                    text: model.text
+                    horizontalAlignment: Text.AlignLeft
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: lecture.openNote(index)
+                    }
+                }
+            }
+
+            Button {
+                text: lecture.notes.count > 0 ? i18n.tr("Edit note") : i18n.tr("Add note")
+                color: LomiriColors.green
+                onClicked: lecture.addNote()
             }
 
             LabelBase {

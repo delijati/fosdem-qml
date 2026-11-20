@@ -6,7 +6,7 @@ from backend.config import DB_FILE
 from backend.utils import create_path
 
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 CREATE_FAVORITES = """
 CREATE TABLE IF NOT EXISTS favorites (
@@ -59,6 +59,23 @@ EVENT_COLUMNS = [
 
 EVENT_ORDER = "ORDER BY e.datetime_start, e.room, e.id"
 
+# A note may link to a talk; the talk's data is copied so the note still
+# shows it after the talk left the schedule (or next year's schedule reuses
+# the id).
+CREATE_NOTES = """
+CREATE TABLE notes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    text TEXT NOT NULL,
+    event_id INTEGER,
+    talk_title TEXT NOT NULL DEFAULT '',
+    talk_day TEXT NOT NULL DEFAULT '',
+    talk_start TEXT NOT NULL DEFAULT '',
+    talk_end TEXT NOT NULL DEFAULT '',
+    talk_room TEXT NOT NULL DEFAULT ''
+)"""
+
 # Up to 0.8.0 favorites were full copies of the event in a table "events".
 MIGRATE_LEGACY_EVENTS = """
 INSERT OR IGNORE INTO favorites (event_id, added_at, day, start, end, room, title)
@@ -91,6 +108,8 @@ def migrate(con):
     if version < 2:
         for sql in CREATE_SCHEDULE:
             con.execute(sql)
+    if version < 3:
+        con.execute(CREATE_NOTES)
     con.execute("PRAGMA user_version = %d" % SCHEMA_VERSION)
 
 
@@ -216,3 +235,36 @@ def select_links(event_id):
             "SELECT kind, title, href FROM schedule_links WHERE event_id=? ORDER BY position",
             (event_id,)).fetchall()
         return row[0], row[1], links
+
+
+def insert_note(text, now, talk=None):
+    """New note; talk is an event dict or None. Returns the note id."""
+    talk = talk or {}
+    with connect() as con:
+        cur = con.execute(
+            """INSERT INTO notes (created_at, updated_at, text, event_id, talk_title,
+                                  talk_day, talk_start, talk_end, talk_room)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (now, now, text, talk.get("id"), talk.get("title", ""), talk.get("day", ""),
+             talk.get("start", ""), talk.get("end", ""), talk.get("room", "")))
+        return cur.lastrowid
+
+
+def update_note(note_id, text, now):
+    with connect() as con:
+        con.execute("UPDATE notes SET text=?, updated_at=? WHERE id=?", (text, now, note_id))
+
+
+def delete_note(note_id):
+    with connect() as con:
+        con.execute("DELETE FROM notes WHERE id=?", (note_id,))
+
+
+def select_notes(event_id=None):
+    """Notes, newest first; only those of one talk if event_id is given."""
+    where, params = ("WHERE event_id=?", (event_id,)) if event_id is not None else ("", ())
+    with connect() as con:
+        con.row_factory = sqlite3.Row
+        rows = con.execute(
+            "SELECT * FROM notes %s ORDER BY created_at DESC, id DESC" % where, params)
+        return [dict(r) for r in rows]

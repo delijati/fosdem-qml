@@ -200,6 +200,59 @@ def get_links(event_id):
     return result
 
 
+def to_note(row):
+    """Database row -> dict for QML; "day"/"time" of creation in device time."""
+    created = datetime.datetime.fromisoformat(row["created_at"]).astimezone()
+    row["day"] = created.strftime("%Y-%m-%d")
+    row["time"] = created.strftime("%H:%M")
+    row["event_id"] = row["event_id"] or 0
+    return row
+
+
+def save_note(note_id, text, event_id=0, now=None):
+    """Create (note_id 0) or update a note; a blank text deletes it.
+
+    event_id links a new note to a talk (0: no talk); the link of an existing
+    note is kept. A talk has one note: new text for a talk that already has
+    one is appended to it. Returns the note id, 0 if there is no note
+    (anymore).
+    """
+    if now is None:
+        now = datetime.datetime.now(datetime.timezone.utc)
+    stamp = now.isoformat()
+    if not text.strip():
+        if note_id:
+            db.delete_note(note_id)
+        return 0
+    if note_id:
+        db.update_note(note_id, text, stamp)
+        return note_id
+    talk = None
+    if event_id:
+        found = select_events("e.id = ?", (int(event_id),))
+        talk = found[0] if found else None
+    if talk:
+        existing = db.select_notes(talk["id"])
+        if existing:
+            note = existing[0]
+            db.update_note(note["id"], note["text"].rstrip() + "\n" + text, stamp)
+            return note["id"]
+    return db.insert_note(text, stamp, talk)
+
+
+def delete_note(note_id):
+    db.delete_note(note_id)
+
+
+def list_notes():
+    """All notes, newest first."""
+    return [to_note(r) for r in db.select_notes()]
+
+
+def notes_for_event(event_id):
+    return [to_note(r) for r in db.select_notes(int(event_id))]
+
+
 def minutes_until(when, now):
     """Whole minutes from now until when, rounded up (naive = device time)."""
     if when.tzinfo is None:

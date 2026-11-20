@@ -138,6 +138,67 @@ Item {
                 expect("link in abstract opened", opened, "https://example.org/from-abstract");
                 shot("04-lecture");
             }),
+            after(function() {
+                root.lecturePage = stack.currentPage;
+                expect("talk has no notes", root.lecturePage.notes.count, 0);
+                root.lecturePage.addNote();
+            }),
+            after(function() {
+                stack.currentPage.text = "Slide 12: the welcome numbers";
+                shot("04b-note-edit");
+            }),
+            after(function() { stack.pop(); }),
+            after(function() {
+                expect("note on talk page", root.lecturePage.notes.count, 1);
+                shot("04c-lecture-with-note");
+            }),
+            after(function() { root.lecturePage.addNote(); }),
+            after(function() {
+                expect("add note opens the talk's note", stack.currentPage.text, "Slide 12: the welcome numbers");
+                stack.currentPage.text += "\nSlide 14: volunteers";
+            }),
+            after(function() { stack.pop(); }),
+            after(function() {
+                expect("still one note for the talk", root.lecturePage.notes.count, 1);
+                expect("text appended", root.lecturePage.notes.get(0).text, "Slide 12: the welcome numbers\nSlide 14: volunteers");
+            }),
+            after(function() {
+                stack.push(Qt.resolvedUrl("../../src/ui/Notes.qml"));
+            }),
+            after(function() {
+                root.notesPage = stack.currentPage;
+                expect("notes page count", root.notesPage.model.count, 1);
+                expect("note linked to talk", root.notesPage.model.get(0).talk_title, "Welcome to FOSDEM 2025");
+                var list = find(root.notesPage, function(o) { return o.section !== undefined && o.model === root.notesPage.model; }, 0);
+                expect("notes grouped by day", list.section.property, "day");
+                root.notesPage.newNote();
+            }),
+            after(function() {
+                stack.currentPage.text = "Hallway: ask about the Lomiri port";
+                stack.pop();
+            }),
+            after(function() {
+                expect("free note added", root.notesPage.model.count, 2);
+                expect("newest first", root.notesPage.model.get(0).text, "Hallway: ask about the Lomiri port");
+                expect("free note has no talk", root.notesPage.model.get(0).talk_title, "");
+                shot("06c-notes");
+            }),
+            after(function() { root.notesPage.openNote(1); }),
+            after(function() {
+                expect("editor shows note", stack.currentPage.text, "Slide 12: the welcome numbers\nSlide 14: volunteers");
+                stack.currentPage.text = "Slide 12 and 13";
+            }),
+            after(function() { stack.pop(); }),
+            after(function() {
+                expect("note edited", root.notesPage.model.get(1).text, "Slide 12 and 13");
+                root.notesPage.openNote(0);
+            }),
+            after(function() { stack.currentPage.deleteNote(); }),
+            after(function() {
+                expect("note deleted", root.notesPage.model.count, 1);
+                expect("editor closed after delete", stack.currentPage, root.notesPage);
+                stack.pop();
+            }),
             after(function() { stack.push(Qt.resolvedUrl("../../src/ui/Now.qml")); }),
             after(function() { shot("05-now"); }),
             function() {
@@ -298,4 +359,6 @@ Item {
     property var errorDialog: null
     property var daysPage: null
     property var nowPage: null
+    property var lecturePage: null
+    property var notesPage: null
 }

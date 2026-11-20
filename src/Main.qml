@@ -36,6 +36,7 @@ MainView {
     property string hlColor: "#66a91991"
 
     signal scheduleChanged
+    signal notesChanged
 
     // a property, so tests can replace it instead of starting a browser
     property var openUrl: function(link) { Qt.openUrlExternally(link); }

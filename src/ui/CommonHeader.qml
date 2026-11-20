@@ -33,6 +33,15 @@ BaseHeader {
                 }
             },
             Action {
+                iconName: "note"
+                text: i18n.tr("Notes")
+                visible: thisPage != "notesPage"
+
+                onTriggered: {
+                    pageStack.push(Qt.resolvedUrl("Notes.qml"));
+                }
+            },
+            Action {
                 iconName: "info"
                 text: i18n.tr("About")
 
