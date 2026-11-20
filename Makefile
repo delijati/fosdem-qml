@@ -23,7 +23,7 @@ DESKTOP_FLAGS = $(if $(NVIDIA),--nvidia,--no-nvidia)
 pull = if [ "$(CONTAINER_CMD)" = podman ] && ! podman image exists $(1); then \
 	echo "podman pull $(1) (before clickable, see Makefile)"; podman pull $(1); fi
 
-.PHONY: help install build desktop device logs review test smoke clean
+.PHONY: help install build desktop device logs review test smoke screenshots bump clean
 
 help:
 	@echo "make install    install clickable-ut with uv (also done by the first clickable target)"
@@ -34,6 +34,8 @@ help:
 	@echo "make review     run the OpenStore review on the built click"
 	@echo "make test       python backend tests (pytest, Python 3.12)"
 	@echo "make smoke      QML smoke check in the 24.04 SDK image"
+	@echo "make screenshots  README screenshots into docs/screenshots (demo schedule)"
+	@echo "make bump PART=patch|minor|major  new version: commit + tag (clean tree needed)"
 	@echo "make clean      remove build/"
 
 install:
@@ -64,6 +66,15 @@ test:
 
 smoke:
 	tools/qml-smoke.sh
+
+screenshots:
+	tools/screenshots.sh
+
+# bump2version (.bumpversion.cfg) changes the version in the backend and the
+# manifest, commits and tags; "git push --follow-tags" publishes it.
+PART ?= patch
+bump:
+	uvx bump2version --verbose $(PART)
 
 clean:
 	rm -rf build

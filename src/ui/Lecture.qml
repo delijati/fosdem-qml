@@ -201,12 +201,14 @@ Page {
 
             LabelBase {
                 id: lecture_abstract
+                linkColor: accentColor
                 visible: text !== ""
                 onLinkActivated: lecture.openLink(link)
             }
 
             LabelBase {
                 id: lecture_description
+                linkColor: accentColor
                 visible: text !== ""
                 onLinkActivated: lecture.openLink(link)
             }
